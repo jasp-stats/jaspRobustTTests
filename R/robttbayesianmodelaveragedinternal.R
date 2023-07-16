@@ -201,7 +201,6 @@ robttBayesianModelAveragedInternal <- function(jaspResults, dataset, options) {
     }
   }
 
-  saveRDS(object, file = "C:/JASP/priors.RDS")
   priors[["object"]] <- object
 
   return()
