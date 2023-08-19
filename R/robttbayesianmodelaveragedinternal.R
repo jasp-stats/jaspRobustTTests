@@ -572,7 +572,7 @@ robttBayesianModelAveragedInternal <- function(jaspResults, dataset, options) {
       min_ESS             = 500
     ),
     save     = "all",
-    seed     = options[["seed"]], # TODO: .getSeedJASP(options)
+    seed     = .getSeedJASP(options),
     silent   = TRUE,
     is_JASP  = TRUE
   ))
