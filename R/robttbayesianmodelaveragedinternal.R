@@ -89,7 +89,7 @@ robttBayesianModelAveragedInternal <- function(jaspResults, dataset, options) {
 .robttExtractPriorsFromOptions <- function(optionsPrior) {
 
   if (optionsPrior[["type"]] == "None")
-    return(NULL)
+    return(RoBTT::prior_none())
 
   optionsPrior <- .robttEvalOptionsToPriors(optionsPrior)
   optionsPrior <- .robttMapOptionsToPriors(optionsPrior)
@@ -391,7 +391,7 @@ robttBayesianModelAveragedInternal <- function(jaspResults, dataset, options) {
         "outliers-null"             = priors[["modelsOutliersNull"]]
       )
 
-      if (length(tempPriors) == 0)
+      if (length(tempPriors) == 0 || BayesTools::is.prior.none(tempPriors))
         next
 
       typePrior <- createJaspPlot(width = 400,  height = 300, title = switch(
@@ -412,7 +412,7 @@ robttBayesianModelAveragedInternal <- function(jaspResults, dataset, options) {
       ))
       parameterContainer[[type]] <- typePrior
 
-      p <- plot(
+      p <- try(plot(
         tempPriors,
         plot_type = "ggplot",
         par_name  = switch(
@@ -429,9 +429,14 @@ robttBayesianModelAveragedInternal <- function(jaspResults, dataset, options) {
         ,
         transformation_arguments = if(parameter == "outliers") list(a = 2, b = 1),
         transformation_settings  = parameter == "heterogeneity"
-      )
+      ))
 
-      if(parameter == "heterogeneity" && options[["inferenceHeterogeneityAsStandardDeviationRatio"]]){
+      if (jaspBase::isTryError(p)) {
+        typePrior$setError(p)
+        next
+      }
+
+      if (parameter == "heterogeneity" && options[["inferenceHeterogeneityAsStandardDeviationRatio"]]) {
         p <- p + ggplot2::scale_x_continuous("Standard deviation ratio", limits = log(2^c(-4,4)), breaks = log(2^seq(-4,4,1)), labels = round(2^seq(-4,4,1), 3))
       }
 
