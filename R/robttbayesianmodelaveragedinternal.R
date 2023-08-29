@@ -53,7 +53,7 @@ robttBayesianModelAveragedInternal <- function(jaspResults, dataset, options) {
   # pooled estimates plots
   if (options[["plotsPooledEstimatesEffect"]])
     .robttEstimatesPlot(jaspResults, options, "delta")
-  if (options[["plotsPooledEstimatesHeterogeneity"]])
+  if (options[["plotsPooledEstimatesUnequalVariances"]])
     .robttEstimatesPlot(jaspResults, options, "rho")
   if (options[["plotsPooledEstimatesOutliers"]])
     .robttEstimatesPlot(jaspResults, options, "nu")
@@ -65,7 +65,7 @@ robttBayesianModelAveragedInternal <- function(jaspResults, dataset, options) {
   # plots
   if ((
     options[["mcmcDiagnosticsPlotEffect"]]    ||
-    options[["mcmcDiagnosticsPlotHeterogeneity"]]   ||
+    options[["mcmcDiagnosticsPlotUnequalVariances"]]   ||
     options[["mcmcDiagnosticsPlotOutliers"]]
   ) ||
   (
@@ -81,7 +81,7 @@ robttBayesianModelAveragedInternal <- function(jaspResults, dataset, options) {
 
 .robttDependencies <- c(
   "dependent", "group",
-  "modelsEffect", "modelsEffectNull", "modelsHeterogeneity", "modelsHeterogeneityNull", "modelsOutliers", "modelsOutliersNull",
+  "modelsEffect", "modelsEffectNull", "modelsUnequalVariances", "modelsUnequalVariancesNull", "modelsOutliers", "modelsOutliersNull",
   "advancedMcmcAdaptation", "advancedMcmcSamples", "advancedMcmcChains",
   "seed", "setSeed"
 )
@@ -181,7 +181,7 @@ robttBayesianModelAveragedInternal <- function(jaspResults, dataset, options) {
   object <- list()
   for(type in c("", "Null")) {
 
-    priorElements <- paste0(c("modelsEffect", "modelsHeterogeneity", "modelsOutliers"), type)
+    priorElements <- paste0(c("modelsEffect", "modelsUnequalVariances", "modelsOutliers"), type)
 
     for (i in seq_along(priorElements)) {
 
@@ -290,7 +290,7 @@ robttBayesianModelAveragedInternal <- function(jaspResults, dataset, options) {
   # fill rows
   for (i in c(1:nrow(resultsTable))[rownames(resultsTable) %in% c("delta", "rho", "nu")]) {
 
-    if (rownames(resultsTable)[i] == "rho" && options[["inferenceHeterogeneityAsStandardDeviationRatio"]]) {
+    if (rownames(resultsTable)[i] == "rho" && options[["inferencePrecisionAllocationAsStandardDeviationRatio"]]) {
       tempRow <- list(
         terms    = "Standard deviation ratio",
         mean     = if(individual) NA else attr(resultsTable, "mean_sdr"),
@@ -346,7 +346,7 @@ robttBayesianModelAveragedInternal <- function(jaspResults, dataset, options) {
     priorPlots <- jaspResults[["priorPlots"]]
   else {
     priorPlots <- createJaspContainer(title = gettext("Prior Plots"))
-    priorPlots$dependOn(c("priorDistributionPlot", "inferenceHeterogeneityAsStandardDeviationRatio"))
+    priorPlots$dependOn(c("priorDistributionPlot", "inferencePrecisionAllocationAsStandardDeviationRatio"))
     priorPlots$position <- 2
     jaspResults[["priorPlots"]] <- priorPlots
   }
@@ -363,7 +363,7 @@ robttBayesianModelAveragedInternal <- function(jaspResults, dataset, options) {
       parameterContainer <- createJaspContainer(title = switch(
         parameter,
         "effect"          = gettext("Effect"),
-        "heterogeneity"   = gettext("Heterogeneity"),
+        "heterogeneity"   = gettext("Unequal variances"),
         "outliers"        = gettext("Outliers")
       ))
       parameterContainer$position <- switch(
@@ -385,8 +385,8 @@ robttBayesianModelAveragedInternal <- function(jaspResults, dataset, options) {
         paste0(parameter, "-", type),
         "effect-alternative"        = priors[["modelsEffect"]],
         "effect-null"               = priors[["modelsEffectNull"]],
-        "heterogeneity-alternative" = priors[["modelsHeterogeneity"]],
-        "heterogeneity-null"        = priors[["modelsHeterogeneityNull"]],
+        "heterogeneity-alternative" = priors[["modelsUnequalVariances"]],
+        "heterogeneity-null"        = priors[["modelsUnequalVariancesNull"]],
         "outliers-alternative"      = priors[["modelsOutliers"]],
         "outliers-null"             = priors[["modelsOutliersNull"]]
       )
@@ -407,7 +407,7 @@ robttBayesianModelAveragedInternal <- function(jaspResults, dataset, options) {
       typePrior$dependOn(switch(
         parameter,
         "effect"        = c("modelsEffect", "modelsEffectNull"),
-        "heterogeneity" = c("modelsHeterogeneity", "modelsHeterogeneityNull"),
+        "heterogeneity" = c("modelsUnequalVariances", "modelsUnequalVariancesNull"),
         "outliers"      = c("modelsOutliers", "modelsOutliersNull")
       ))
       parameterContainer[[type]] <- typePrior
@@ -420,11 +420,11 @@ robttBayesianModelAveragedInternal <- function(jaspResults, dataset, options) {
           "effect"        = bquote(delta),
           "heterogeneity" = bquote(rho),
           "outliers"      = bquote(nu)),
-        xlim                     = if(parameter == "heterogeneity" && options[["inferenceHeterogeneityAsStandardDeviationRatio"]]) log(2^c(-4,4)),
+        xlim                     = if(parameter == "heterogeneity" && options[["inferencePrecisionAllocationAsStandardDeviationRatio"]]) log(2^c(-4,4)),
         transformation           = switch(
           parameter,
           "effect"        = NULL,
-          "heterogeneity" = if(options[["inferenceHeterogeneityAsStandardDeviationRatio"]]) RoBTT::rho2logsdr else NULL,
+          "heterogeneity" = if(options[["inferencePrecisionAllocationAsStandardDeviationRatio"]]) RoBTT::rho2logsdr else NULL,
           "outliers"      = "lin")
         ,
         transformation_arguments = if(parameter == "outliers") list(a = 2, b = 1),
@@ -436,7 +436,7 @@ robttBayesianModelAveragedInternal <- function(jaspResults, dataset, options) {
         next
       }
 
-      if (parameter == "heterogeneity" && options[["inferenceHeterogeneityAsStandardDeviationRatio"]]) {
+      if (parameter == "heterogeneity" && options[["inferencePrecisionAllocationAsStandardDeviationRatio"]]) {
         p <- p + ggplot2::scale_x_continuous("Standard deviation ratio", limits = log(2^c(-4,4)), breaks = log(2^seq(-4,4,1)), labels = round(2^seq(-4,4,1), 3))
       }
 
@@ -468,7 +468,7 @@ robttBayesianModelAveragedInternal <- function(jaspResults, dataset, options) {
   # set error if no priors are specified
   if (
     (length(priors[["modelsEffect"]])        == 0 && length(priors[["modelsEffectNull"]])        == 0) ||
-    (length(priors[["modelsHeterogeneity"]]) == 0 && length(priors[["modelsHeterogeneityNull"]]) == 0) ||
+    (length(priors[["modelsUnequalVariances"]]) == 0 && length(priors[["modelsUnequalVariancesNull"]]) == 0) ||
     (length(priors[["modelsOutliers"]])      == 0 && length(priors[["modelsOutliersNull"]])      == 0)
   ) {
     priorsError <- createJaspTable()
@@ -480,10 +480,10 @@ robttBayesianModelAveragedInternal <- function(jaspResults, dataset, options) {
   # create the setup table
   fitSummary   <- RoBTT::check_setup(
     prior_delta      = priors[["modelsEffect"]],
-    prior_rho        = priors[["modelsHeterogeneity"]],
+    prior_rho        = priors[["modelsUnequalVariances"]],
     prior_nu         = priors[["modelsOutliers"]],
     prior_delta_null = priors[["modelsEffectNull"]],
-    prior_rho_null   = priors[["modelsHeterogeneityNull"]],
+    prior_rho_null   = priors[["modelsUnequalVariancesNull"]],
     prior_nu_null    = priors[["modelsOutliersNull"]],
     models           = TRUE,
     silent           = TRUE
@@ -500,7 +500,7 @@ robttBayesianModelAveragedInternal <- function(jaspResults, dataset, options) {
 
   for (i in 1:nrow(fitSummary[["components"]])) {
     tempRow <- list(
-      terms     = if (i == 1) gettext("Effect") else if (i == 2) gettext("Heterogeneity") else if (i == 3) gettext("Outliers"),
+      terms     = if (i == 1) gettext("Effect") else if (i == 2) gettext("Unequal variances") else if (i == 3) gettext("Outliers"),
       models    = paste0(fitSummary[["components"]][[i, "models"]], "/", attr(fitSummary[["components"]], "n_models")),
       priorProb = fitSummary[["components"]][[i, "prior_prob"]]
     )
@@ -517,12 +517,12 @@ robttBayesianModelAveragedInternal <- function(jaspResults, dataset, options) {
 
   overtitlePrior <- gettext("Prior Distribution")
 
-  modelsSummary$addColumnInfo(name = "number",              title = "#",                         type = "integer")
-  modelsSummary$addColumnInfo(name = "distribution",        title = gettext("Distribution"),     type = "string")
-  modelsSummary$addColumnInfo(name = "priorEffect",         title = gettext("Effect"),           type = "string", overtitle = overtitlePrior)
-  modelsSummary$addColumnInfo(name = "priorHeterogeneity",  title = gettext("Heterogeneity"),    type = "string", overtitle = overtitlePrior)
-  modelsSummary$addColumnInfo(name = "priorOutliers",       title = gettext("Outliers"),         type = "string", overtitle = overtitlePrior)
-  modelsSummary$addColumnInfo(name = "priorProb",           title = gettext("P(M)"),             type = "number")
+  modelsSummary$addColumnInfo(name = "number",              title = "#",                          type = "integer")
+  modelsSummary$addColumnInfo(name = "distribution",        title = gettext("Distribution"),      type = "string")
+  modelsSummary$addColumnInfo(name = "priorEffect",         title = gettext("Effect"),            type = "string", overtitle = overtitlePrior)
+  modelsSummary$addColumnInfo(name = "priorHeterogeneity",  title = gettext("Unequal variances"), type = "string", overtitle = overtitlePrior)
+  modelsSummary$addColumnInfo(name = "priorOutliers",       title = gettext("Outliers"),          type = "string", overtitle = overtitlePrior)
+  modelsSummary$addColumnInfo(name = "priorProb",           title = gettext("P(M)"),              type = "number")
 
   for (i in 1:nrow(fitSummary[["summary"]])) {
     tempRow <- list(
@@ -561,10 +561,10 @@ robttBayesianModelAveragedInternal <- function(jaspResults, dataset, options) {
 
     # priors
     prior_delta      = priors[["modelsEffect"]],
-    prior_rho        = priors[["modelsHeterogeneity"]],
+    prior_rho        = priors[["modelsUnequalVariances"]],
     prior_nu         = priors[["modelsOutliers"]],
     prior_delta_null = priors[["modelsEffectNull"]],
-    prior_rho_null   = priors[["modelsHeterogeneityNull"]],
+    prior_rho_null   = priors[["modelsUnequalVariancesNull"]],
     prior_nu_null    = priors[["modelsOutliersNull"]],
     # sampling settings
     chains  = options[["advancedMcmcChains"]],
@@ -601,7 +601,7 @@ robttBayesianModelAveragedInternal <- function(jaspResults, dataset, options) {
     # create container
     mainSummary <- createJaspContainer(title = gettext("Summary"))
     mainSummary$position <- 3
-    mainSummary$dependOn( c(.robttDependencies, "bayesFactorType", "inferenceCiWidth", "inferenceConditionalParameterEstimates", "inferenceHeterogeneityAsStandardDeviationRatio"))
+    mainSummary$dependOn( c(.robttDependencies, "bayesFactorType", "inferenceCiWidth", "inferenceConditionalParameterEstimates", "inferencePrecisionAllocationAsStandardDeviationRatio"))
     jaspResults[["mainSummary"]] <- mainSummary
   }
 
@@ -710,15 +710,15 @@ robttBayesianModelAveragedInternal <- function(jaspResults, dataset, options) {
 
   overtitlePrior <- gettext("Prior Distribution")
 
-  modelsSummary$addColumnInfo(name = "number",             title = "#",                         type = "integer")
-  modelsSummary$addColumnInfo(name = "distribution",       title = gettext("Distribution"),     type = "string")
-  modelsSummary$addColumnInfo(name = "priorEffect",        title = gettext("Effect"),           type = "string",  overtitle = overtitlePrior)
-  modelsSummary$addColumnInfo(name = "priorHeterogeneity", title = gettext("Heterogeneity"),    type = "string",  overtitle = overtitlePrior)
-  modelsSummary$addColumnInfo(name = "priorOutliers",      title = gettext("Outliers"),         type = "string",  overtitle = overtitlePrior)
-  modelsSummary$addColumnInfo(name = "priorProb",          title = gettext("P(M)"),             type = "number")
-  modelsSummary$addColumnInfo(name = "postProb",           title = gettext("P(M|data)"),        type = "number")
-  modelsSummary$addColumnInfo(name = "marglik",            title = gettext("log(MargLik)"),     type = "number")
-  modelsSummary$addColumnInfo(name = "BF",                 title = titleBF,                     type = "number")
+  modelsSummary$addColumnInfo(name = "number",             title = "#",                          type = "integer")
+  modelsSummary$addColumnInfo(name = "distribution",       title = gettext("Distribution"),      type = "string")
+  modelsSummary$addColumnInfo(name = "priorEffect",        title = gettext("Effect"),            type = "string",  overtitle = overtitlePrior)
+  modelsSummary$addColumnInfo(name = "priorHeterogeneity", title = gettext("Unequal variances"), type = "string",  overtitle = overtitlePrior)
+  modelsSummary$addColumnInfo(name = "priorOutliers",      title = gettext("Outliers"),          type = "string",  overtitle = overtitlePrior)
+  modelsSummary$addColumnInfo(name = "priorProb",          title = gettext("P(M)"),              type = "number")
+  modelsSummary$addColumnInfo(name = "postProb",           title = gettext("P(M|data)"),         type = "number")
+  modelsSummary$addColumnInfo(name = "marglik",            title = gettext("log(MargLik)"),      type = "number")
+  modelsSummary$addColumnInfo(name = "BF",                 title = titleBF,                      type = "number")
 
   if (is.null(jaspResults[["model"]]))
     return()
@@ -791,9 +791,9 @@ robttBayesianModelAveragedInternal <- function(jaspResults, dataset, options) {
     individualModels[["modelI"]] <- tempModel
 
     tempPriors <- createJaspTable(title = gettext("Priors"))
-    tempPriors$addColumnInfo(name = "priorDelta",   title = gettext("Effect"),        type = "string")
-    tempPriors$addColumnInfo(name = "priorRho",     title = gettext("Heterogeneity"), type = "string")
-    tempPriors$addColumnInfo(name = "priorNu",      title = gettext("Outliers"),      type = "string")
+    tempPriors$addColumnInfo(name = "priorDelta",   title = gettext("Effect"),            type = "string")
+    tempPriors$addColumnInfo(name = "priorRho",     title = gettext("Unequal variances"), type = "string")
+    tempPriors$addColumnInfo(name = "priorNu",      title = gettext("Outliers"),          type = "string")
     tempModel[["tempPriors"]] <- tempPriors
 
     tempInfo <- createJaspTable(title = gettext("Information"))
@@ -847,9 +847,9 @@ robttBayesianModelAveragedInternal <- function(jaspResults, dataset, options) {
 
     ### model priors
     tempPriors <- createJaspTable(title = gettext("Priors"))
-    tempPriors$addColumnInfo(name = "priorDelta",  title = gettext("Effect"),         type = "string")
-    tempPriors$addColumnInfo(name = "priorRho",    title = gettext("Heterogeneity"),  type = "string")
-    tempPriors$addColumnInfo(name = "priorNu",     title = gettext("Outliers"),       type = "string")
+    tempPriors$addColumnInfo(name = "priorDelta",  title = gettext("Effect"),            type = "string")
+    tempPriors$addColumnInfo(name = "priorRho",    title = gettext("Unequal variances"), type = "string")
+    tempPriors$addColumnInfo(name = "priorNu",     title = gettext("Outliers"),          type = "string")
 
     tempPriors$addRows(list(
       priorDelta  = print(fit[["models"]][[i]][["priors"]][["delta"]], silent = TRUE, short_name = options[["inferenceShortenPriorName"]]),
@@ -936,8 +936,8 @@ robttBayesianModelAveragedInternal <- function(jaspResults, dataset, options) {
   tempPlot$dependOn(switch(
     parameter,
     "delta" = "plotsPooledEstimatesEffect",
-    "rho"   = "plotsPooledEstimatesHeterogeneity",
-    "nu"    = c("plotsPooledEstimatesOutliers", "inferenceHeterogeneityAsStandardDeviationRatio")
+    "rho"   = c("plotsPooledEstimatesUnequalVariances", "inferencePrecisionAllocationAsStandardDeviationRatio"),
+    "nu"    = "plotsPooledEstimatesOutliers"
   ))
   estimatesPlots[[parameter]] <- tempPlot
 
@@ -953,7 +953,7 @@ robttBayesianModelAveragedInternal <- function(jaspResults, dataset, options) {
     parameter     = parameter,
     prior         = options[["plotsPooledEstimatesPriorDistribution"]],
     conditional   = options[["plotsPooledEstimatesType"]] == "conditional",
-    transform_rho = options[["inferenceHeterogeneityAsStandardDeviationRatio"]],
+    transform_rho = options[["inferencePrecisionAllocationAsStandardDeviationRatio"]],
     plot_type     = "ggplot"
   ))
 
@@ -998,13 +998,13 @@ robttBayesianModelAveragedInternal <- function(jaspResults, dataset, options) {
 
   overtitlePrior <- gettext("Prior Distribution")
 
-  diagosticsTable$addColumnInfo(name = "number",             title = "#",                         type = "integer")
-  diagosticsTable$addColumnInfo(name = "distribution",       title = gettext("Distribution"),     type = "string")
-  diagosticsTable$addColumnInfo(name = "priorEffect",        title = gettext("Effect"),           type = "string",  overtitle = overtitlePrior)
-  diagosticsTable$addColumnInfo(name = "priorHeterogeneity", title = gettext("Heterogeneity"),    type = "string",  overtitle = overtitlePrior)
-  diagosticsTable$addColumnInfo(name = "priorOutliers",      title = gettext("Outliers"),         type = "string",  overtitle = overtitlePrior)
-  diagosticsTable$addColumnInfo(name = "ess",                title = gettext("min(ESS)"),         type = "integer")
-  diagosticsTable$addColumnInfo(name = "rHat",               title = gettext("max(R-hat)"),       type = "number")
+  diagosticsTable$addColumnInfo(name = "number",             title = "#",                          type = "integer")
+  diagosticsTable$addColumnInfo(name = "distribution",       title = gettext("Distribution"),      type = "string")
+  diagosticsTable$addColumnInfo(name = "priorEffect",        title = gettext("Effect"),            type = "string",  overtitle = overtitlePrior)
+  diagosticsTable$addColumnInfo(name = "priorHeterogeneity", title = gettext("Unequal variances"), type = "string",  overtitle = overtitlePrior)
+  diagosticsTable$addColumnInfo(name = "priorOutliers",      title = gettext("Outliers"),          type = "string",  overtitle = overtitlePrior)
+  diagosticsTable$addColumnInfo(name = "ess",                title = gettext("min(ESS)"),          type = "integer")
+  diagosticsTable$addColumnInfo(name = "rHat",               title = gettext("max(R-hat)"),        type = "number")
 
 
   if (is.null(jaspResults[["model"]]))
@@ -1048,11 +1048,11 @@ robttBayesianModelAveragedInternal <- function(jaspResults, dataset, options) {
 
 
   # create waiting plot
-  if (!(options[["mcmcDiagnosticsPlotEffect"]] || options[["mcmcDiagnosticsPlotHeterogeneity"]] || options[["mcmcDiagnosticsPlotOutliers"]]) &&
+  if (!(options[["mcmcDiagnosticsPlotEffect"]] || options[["mcmcDiagnosticsPlotUnequalVariances"]] || options[["mcmcDiagnosticsPlotOutliers"]]) &&
       (options[["mcmcDiagnosticsPlotTypeTrace"]] || options[["mcmcDiagnosticsPlotTypeAutocorrelation"]] || options[["mcmcDiagnosticsPlotTypePosteriorSamplesDensity"]]) ||
       is.null(jaspResults[["model"]])) {
     tempWait  <- createJaspPlot(title = "")
-    tempWait$dependOn(c("mcmcDiagnosticsPlotEffect", "mcmcDiagnosticsPlotHeterogeneity", "mcmcDiagnosticsPlotOutliers", "mcmcDiagnosticsPlotTypeTrace", "mcmcDiagnosticsPlotTypeAutocorrelation", "mcmcDiagnosticsPlotTypePosteriorSamplesDensity"))
+    tempWait$dependOn(c("mcmcDiagnosticsPlotEffect", "mcmcDiagnosticsPlotUnequalVariances", "mcmcDiagnosticsPlotOutliers", "mcmcDiagnosticsPlotTypeTrace", "mcmcDiagnosticsPlotTypeAutocorrelation", "mcmcDiagnosticsPlotTypePosteriorSamplesDensity"))
     diagnostics[["tempWait"]] <- tempWait
     return()
   }
@@ -1081,7 +1081,7 @@ robttBayesianModelAveragedInternal <- function(jaspResults, dataset, options) {
   parameters <- NULL
   if (options[["mcmcDiagnosticsPlotEffect"]])
     parameters <- c(parameters, "delta")
-  if (options[["mcmcDiagnosticsPlotHeterogeneity"]])
+  if (options[["mcmcDiagnosticsPlotUnequalVariances"]])
     parameters <- c(parameters, "rho")
   if (options[["mcmcDiagnosticsPlotOutliers"]])
     parameters <- c(parameters, "nu")
@@ -1119,7 +1119,7 @@ robttBayesianModelAveragedInternal <- function(jaspResults, dataset, options) {
         tempPar$dependOn(switch(
           par,
           "delta" = "mcmcDiagnosticsPlotEffect",
-          "rho"   = "mcmcDiagnosticsPlotHeterogeneity",
+          "rho"   = "mcmcDiagnosticsPlotUnequalVariances",
           "nu"    = "mcmcDiagnosticsPlotOutliers"
         ))
         tempModel[[par]] <- tempPar
@@ -1228,7 +1228,7 @@ robttBayesianModelAveragedInternal <- function(jaspResults, dataset, options) {
     # show error if only one model is selected but doesn't contain any of the diagnostics
     if (noPars && options[["mcmcDiagnosticsPlotSingleModelNumber"]]) {
       tempError  <- createJaspPlot(title = "")
-      tempError$dependOn(c("mcmcDiagnosticsPlotEffect", "mcmcDiagnosticsPlotHeterogeneity", "mcmcDiagnosticsPlotOutliers", "mcmcDiagnosticsPlotTypeTrace", "mcmcDiagnosticsPlotTypeAutocorrelation", "mcmcDiagnosticsPlotTypePosteriorSamplesDensity"))
+      tempError$dependOn(c("mcmcDiagnosticsPlotEffect", "mcmcDiagnosticsPlotUnequalVariances", "mcmcDiagnosticsPlotOutliers", "mcmcDiagnosticsPlotTypeTrace", "mcmcDiagnosticsPlotTypeAutocorrelation", "mcmcDiagnosticsPlotTypePosteriorSamplesDensity"))
       tempError$setError(gettextf("Model %i does not contain any of the selected parameters.", i))
       tempModel[["tempError"]] <- tempError
     }

@@ -28,12 +28,12 @@ ColumnLayout
 
 	Label
 	{
-		text:	switch (componentType) 
+		text:	switch (componentType)
 		{
 			case "modelsEffect":				qsTr("Effect"); break;
 			case "modelsEffectNull":			qsTr("Effect (null)"); break;
-			case "modelsHeterogeneity":			qsTr("Heterogeneity (precision allocation)"); break;
-			case "modelsHeterogeneityNull":		qsTr("Heterogeneity (null)"); break;
+			case "modelsUnequalVariances":			qsTr("Unequal variances (precision allocation)"); break;
+			case "modelsUnequalVariancesNull":		qsTr("Unequal variances (null)"); break;
 			case "modelsOutliers":				qsTr("Outliers (degrees of freedom + 2)"); break;
 			case "modelsOutliersNull":			qsTr("Outliers (null)"); break;
 		}
@@ -55,14 +55,14 @@ ColumnLayout
 		minimumItems:			0
 		maximumItems:			1
 		//showAddIcon:			false
-		defaultValues:			switch (componentType) 		
+		defaultValues:			switch (componentType)
 		{
 			case "modelsEffect":				[{"type": "normal"}]; break;
 			case "modelsEffectNull":			[{"type": "spike"}]; break;
-			case "modelsHeterogeneity":			[{"type": "beta", "alpha": "1", "beta": "1"}]; break;
-			case "modelsHeterogeneityNull":		[{"type": "spike", "x0": "0.5"}]; break;
+			case "modelsUnequalVariances":			[{"type": "beta", "alpha": "1", "beta": "1"}]; break;
+			case "modelsUnequalVariancesNull":		[{"type": "spike", "x0": "0.5"}]; break;
 			case "modelsOutliers":				[{"type": "exponential", "lambda": "1"}]; break;
-			case "modelsOutliersNull":			[{"type": "None"}]; break;				
+			case "modelsOutliersNull":			[{"type": "None"}]; break;
 		}
 		rowComponent: 			RowLayout
 		{
@@ -118,7 +118,7 @@ ColumnLayout
 					name:				"x0"
 					visible:			typeItem.currentValue === "cauchy"	||
 										typeItem.currentValue === "spike"
-					value:				if((componentType == "modelsHeterogeneity" || componentType == "modelsHeterogeneityNull") && typeItem.currentValue === "spike")
+					value:				if((componentType == "modelsUnequalVariances" || componentType == "modelsUnequalVariancesNull") && typeItem.currentValue === "spike")
 											"0.5"
 										else if((componentType == "modelsOutliers" || componentType == "modelsOutliersNull") && typeItem.currentValue === "spike")
 											"Inf"
@@ -128,7 +128,7 @@ ColumnLayout
 											JASP.MinMax
 										else
 											JASP.None
-					min:				if((componentType == "modelsHeterogeneity" || componentType == "modelsHeterogeneityNull" || componentType == "modelsOutliers" || componentType == "modelsOutliersNull") && typeItem.currentValue === "spike")
+					min:				if((componentType == "modelsUnequalVariances" || componentType == "modelsUnequalVariancesNull" || componentType == "modelsOutliers" || componentType == "modelsOutliersNull") && typeItem.currentValue === "spike")
 											0
 										else
 											"-Inf"
@@ -266,18 +266,18 @@ ColumnLayout
 					label: 				qsTr("lower")
 					name: 				"truncationLower"
 					visible:			typeItem.currentValue !== "spike" && typeItem.currentValue !== "uniform" && typeItem.currentValue !== "none"
-					value:				
+					value:
 					{
-						if(componentType == "modelsHeterogeneity" || componentType == "modelsHeterogeneityNull" || componentType == "modelsOutliers" || componentType == "modelsOutliersNull")
+						if(componentType == "modelsUnequalVariances" || componentType == "modelsUnequalVariancesNull" || componentType == "modelsOutliers" || componentType == "modelsOutliersNull")
 							0
 						else if (typeItem.currentValue === "gammaK0" || typeItem.currentValue === "gammaAB" || typeItem.currentValue === "invgamma" || typeItem.currentValue === "lognormal" || typeItem.currentValue === "beta" || typeItem.currentValue === "exponential")
 							0
 						else
 							"-Inf"
-					}	
-					min:				
+					}
+					min:
 					{
-						if(componentType == "modelsHeterogeneity" || componentType == "modelsHeterogeneityNull" || componentType == "modelsOutliers" || componentType == "modelsOutliersNull")
+						if(componentType == "modelsUnequalVariances" || componentType == "modelsUnequalVariancesNull" || componentType == "modelsOutliers" || componentType == "modelsOutliersNull")
 							0
 						else if (typeItem.currentValue === "gammaK0" || typeItem.currentValue === "gammaAB" || typeItem.currentValue === "invgamma" || typeItem.currentValue === "lognormal" || typeItem.currentValue === "beta" || typeItem.currentValue === "exponential")
 							0
@@ -303,7 +303,7 @@ ColumnLayout
 						else
 							"Inf"
 					}
-					max:				
+					max:
 					{
 						if (typeItem.currentValue === "beta")
 							1
