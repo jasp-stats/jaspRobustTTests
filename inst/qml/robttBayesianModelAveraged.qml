@@ -22,7 +22,7 @@ import JASP
 import JASP.Controls
 import "./common" as Common
 
-Form { 
+Form {
 	id: form
 	property int framework:	Common.Type.Framework.Bayesian
 
@@ -37,7 +37,7 @@ Form {
 		{
 			name:				"allVariablesList"
 		}
-		
+
 		AssignedVariablesList
 		{
 			name:				"dependent"
@@ -45,7 +45,7 @@ Form {
 			suggestedColumns:	["scale"]
 			singleVariable:		true
 		}
-		
+
 		AssignedVariablesList
 		{
 			name:				"group"
@@ -175,8 +175,8 @@ Form {
 
 			CheckBox
 			{
-				label:		qsTr("Heterogeneity as standard deviation ratio")
-				name:		"inferenceHeterogeneityAsStandardDeviationRatio"
+				label:		qsTr("Precision allocation as standard deviation ratio")
+				name:		"inferencePrecisionAllocationAsStandardDeviationRatio"
 				checked:	true
 			}
 
@@ -202,8 +202,8 @@ Form {
 
 			CheckBox
 			{
-				label:	qsTr("Heterogeneity (precision allocation)")
-				name:	"plotsPooledEstimatesHeterogeneity"
+				label:	qsTr("Unequal variances (precision allocation)")
+				name:	"plotsPooledEstimatesUnequalVariances"
 			}
 
 			CheckBox
@@ -273,8 +273,8 @@ Form {
 
 			CheckBox
 			{
-				label:		qsTr("Heterogeneity")
-				name:		"mcmcDiagnosticsPlotHeterogeneity"
+				label:		qsTr("Unequal variances")
+				name:		"mcmcDiagnosticsPlotUnequalVariances"
 			}
 
 			CheckBox
@@ -342,7 +342,7 @@ Form {
 		Common.ModelAveragedTTestPriors
 		{
 			Layout.preferredWidth:	parent.width
-			componentType:			"modelsHeterogeneity"
+			componentType:			"modelsUnequalVariances"
 		}
 
 		// df priors
@@ -373,7 +373,7 @@ Form {
 		Common.ModelAveragedTTestPriors
 		{
 			Layout.preferredWidth:	parent.width
-			componentType:			"modelsHeterogeneityNull"
+			componentType:			"modelsUnequalVariancesNull"
 			visible:				priorsNull.checked
 		}
 
@@ -392,7 +392,7 @@ Form {
 	{
 		title: 				qsTr("Advanced")
 		columns: 			2
-		
+
 		Group
 		{
 			rowSpacing: 10 * preferencesModel.uiScale
