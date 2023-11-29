@@ -264,7 +264,7 @@ robttBayesianModelAveragedInternal <- function(jaspResults, dataset, options) {
 
 
 # table filling functions
-.robttTableFillCoef           <- function(jaspTable, resultsTable, options, individual = FALSE) {
+.robttTableFillCoef           <- function(jaspTable, resultsTable, options, individual = FALSE, groupLabels = NULL) {
 
   overtitleCi <- gettextf("%s%% CI", 100 * options[["inferenceCiWidth"]])
   # add columns
@@ -293,10 +293,10 @@ robttBayesianModelAveragedInternal <- function(jaspResults, dataset, options) {
     if (rownames(resultsTable)[i] == "rho" && options[["inferencePrecisionAllocationAsStandardDeviationRatio"]]) {
       tempRow <- list(
         terms    = "Standard deviation ratio",
-        mean     = if(individual) NA else attr(resultsTable, "mean_sdr"),
-        median   = RoBTT::rho2logsdr$fun(resultsTable[i, "Median"]),
-        lowerCI  = RoBTT::rho2logsdr$fun(resultsTable[i, if (individual) "lCI" else as.character(.5 - options[["inferenceCiWidth"]] / 2)]),
-        upperCI  = RoBTT::rho2logsdr$fun(resultsTable[i, if (individual) "uCI" else as.character(.5 + options[["inferenceCiWidth"]] / 2)])
+        mean     = if (!individual) attr(resultsTable, "mean_sdr"),
+        median   = exp(RoBTT::rho2logsdr$fun(resultsTable[i, "Median"])),
+        lowerCI  = exp(RoBTT::rho2logsdr$fun(resultsTable[i, if (individual) "lCI" else as.character(.5 - options[["inferenceCiWidth"]] / 2)])),
+        upperCI  = exp(RoBTT::rho2logsdr$fun(resultsTable[i, if (individual) "uCI" else as.character(.5 + options[["inferenceCiWidth"]] / 2)]))
       )
     } else {
       tempRow <- list(
@@ -316,8 +316,21 @@ robttBayesianModelAveragedInternal <- function(jaspResults, dataset, options) {
     jaspTable$addRows(tempRow)
   }
 
-  # add footnote
-  footnotes       <- attr(resultsTable, "footnotes")
+  # add footnotes
+  footnotes <- attr(resultsTable, "footnotes")
+  for (i in seq_along(footnotes))
+    jaspTable$addFootnote(footnotes[i])
+
+  # add information about estimate direction
+  if (!is.null(groupLabels) && "delta" %in% rownames(resultsTable))
+    jaspTable$addFootnote(gettextf("The effect size corresponds to the standardized mean difference of group '%1$s' - '%2$s'.", groupLabels[1], groupLabels[2]))
+  if (!is.null(groupLabels) && "rho" %in% rownames(resultsTable)) {
+    if (options[["inferencePrecisionAllocationAsStandardDeviationRatio"]])
+      jaspTable$addFootnote(gettextf("The standard deviation ratio corresponds to the ratio of standard deviations of group '%1$s' / '%2$s'.", groupLabels[1], groupLabels[2]))
+    else
+      jaspTable$addFootnote(gettextf("The precision allocation corresponds to the proportion of total precision allocated to group '%1$s'.", groupLabels[1]))
+  }
+
 
   return(jaspTable)
 }
@@ -555,9 +568,9 @@ robttBayesianModelAveragedInternal <- function(jaspResults, dataset, options) {
 
   priors <- jaspResults[["priors"]]$object
   fit    <- try(RoBTT::RoBTT(
-    # data
-    x1 = dataset[[options[["dependent"]]]][dataset[[options[["group"]]]] == levels(dataset[[options[["group"]]]])[1]],
-    x2 = dataset[[options[["dependent"]]]][dataset[[options[["group"]]]] == levels(dataset[[options[["group"]]]])[2]],
+    # data (JASP uses oposite ordering that the package)
+    x1 = dataset[[options[["dependent"]]]][dataset[[options[["group"]]]] == levels(dataset[[options[["group"]]]])[2]],
+    x2 = dataset[[options[["dependent"]]]][dataset[[options[["group"]]]] == levels(dataset[[options[["group"]]]])[1]],
 
     # priors
     prior_delta      = priors[["modelsEffect"]],
@@ -582,6 +595,8 @@ robttBayesianModelAveragedInternal <- function(jaspResults, dataset, options) {
     is_JASP  = TRUE
   ))
 
+  # forward group labels for later usage
+  attr(fit, "groupLabels") <- levels(dataset[[options[["group"]]]])
 
   # error handling
   if (jaspBase::isTryError(fit))
@@ -668,8 +683,8 @@ robttBayesianModelAveragedInternal <- function(jaspResults, dataset, options) {
   # estimate table
   averagedSummary <- createJaspTable(title = gettext("Model Averaged Estimates"))
   averagedSummary$position <- 2
-  attr(fitSummary[["estimates"]], "mean_sdr") <- mean(RoBTT::rho2logsdr$fun(fit[["RoBTT"]][["posteriors"]][["rho"]]))
-  averagedSummary <- .robttTableFillCoef(averagedSummary, fitSummary[["estimates"]], options)
+  attr(fitSummary[["estimates"]], "mean_sdr") <- mean(exp(RoBTT::rho2logsdr$fun(fit[["RoBTT"]][["posteriors"]][["rho"]])))
+  averagedSummary <- .robttTableFillCoef(averagedSummary, fitSummary[["estimates"]], options, groupLabels = attr(fit, "groupLabels"))
   mainSummary[["averagedSummary"]] <- averagedSummary
 
 
@@ -678,8 +693,8 @@ robttBayesianModelAveragedInternal <- function(jaspResults, dataset, options) {
     # estimate table
     conditionalSummary <- createJaspTable(title = gettext("Conditional Estimates"))
     conditionalSummary$position <- 5
-    attr(fitSummary[["estimates_conditional"]], "mean_sdr") <- mean(RoBTT::rho2logsdr$fun(fit[["RoBTT"]][["posteriors_conditional"]][["rho"]]))
-    conditionalSummary <- .robttTableFillCoef(conditionalSummary, fitSummary[["estimates_conditional"]], options)
+    attr(fitSummary[["estimates_conditional"]], "mean_sdr") <- mean(exp(RoBTT::rho2logsdr$fun(fit[["RoBTT"]][["posteriors_conditional"]][["rho"]])))
+    conditionalSummary <- .robttTableFillCoef(conditionalSummary, fitSummary[["estimates_conditional"]], options, groupLabels = attr(fit, "groupLabels"))
     mainSummary[["conditionalSummary"]] <- conditionalSummary
   }
 
@@ -1048,11 +1063,12 @@ robttBayesianModelAveragedInternal <- function(jaspResults, dataset, options) {
 
 
   # create waiting plot
-  if (!(options[["mcmcDiagnosticsPlotEffect"]] || options[["mcmcDiagnosticsPlotUnequalVariances"]] || options[["mcmcDiagnosticsPlotOutliers"]]) &&
-      (options[["mcmcDiagnosticsPlotTypeTrace"]] || options[["mcmcDiagnosticsPlotTypeAutocorrelation"]] || options[["mcmcDiagnosticsPlotTypePosteriorSamplesDensity"]]) ||
+  if (all(!c(options[["mcmcDiagnosticsPlotEffect"]], options[["mcmcDiagnosticsPlotUnequalVariances"]], options[["mcmcDiagnosticsPlotOutliers"]])) ||
+      all(!c(options[["mcmcDiagnosticsPlotTypeTrace"]], options[["mcmcDiagnosticsPlotTypeAutocorrelation"]], options[["mcmcDiagnosticsPlotTypePosteriorSamplesDensity"]])) ||
       is.null(jaspResults[["model"]])) {
     tempWait  <- createJaspPlot(title = "")
-    tempWait$dependOn(c("mcmcDiagnosticsPlotEffect", "mcmcDiagnosticsPlotUnequalVariances", "mcmcDiagnosticsPlotOutliers", "mcmcDiagnosticsPlotTypeTrace", "mcmcDiagnosticsPlotTypeAutocorrelation", "mcmcDiagnosticsPlotTypePosteriorSamplesDensity"))
+    tempWait$dependOn(c("mcmcDiagnosticsPlotEffect", "mcmcDiagnosticsPlotUnequalVariances", "mcmcDiagnosticsPlotOutliers",
+                        "mcmcDiagnosticsPlotTypeTrace", "mcmcDiagnosticsPlotTypeAutocorrelation", "mcmcDiagnosticsPlotTypePosteriorSamplesDensity"))
     diagnostics[["tempWait"]] <- tempWait
     return()
   }
@@ -1092,7 +1108,7 @@ robttBayesianModelAveragedInternal <- function(jaspResults, dataset, options) {
     # create / access container for individual models
     if (is.null(diagnostics[[paste0("model_", i)]])) {
       tempModel <- createJaspContainer(title = gettextf("Model %i", i))
-      tempModel$position <- i
+      tempModel$position <- 1 + i
       tempModel$dependOn(c("mcmcDiagnosticsPlotSingleModelNumber", "mcmcDiagnosticsPlotSingleModel"))
       diagnostics[[paste0("model", i)]] <- tempModel
     } else {
@@ -1132,95 +1148,91 @@ robttBayesianModelAveragedInternal <- function(jaspResults, dataset, options) {
       if (options[["mcmcDiagnosticsPlotTypeTrace"]]) {
         # create / access container for trace plots
         if (is.null(tempPar[["trace"]])) {
-          tempPlots <- createJaspContainer(gettext("Trace plots"))
-          tempPlots$position <- 1
-          tempPlots$dependOn("mcmcDiagnosticsPlotTypeTrace")
-          tempPar[["trace"]] <- tempPlots
+
+          newPlot  <- RoBTT::diagnostics(
+            fit,
+            parameter     = par,
+            type          = "trace",
+            show_models   = i,
+            title         = FALSE
+          )
+
+          if (!is.null(newPlot)) {
+            tempPlot <- createJaspPlot(gettext("Trace plots"), width = 400, aspectRatio = .7)
+            tempPlot$position <- 1
+            tempPlot$dependOn("mcmcDiagnosticsPlotTypeTrace")
+
+            tempPlot$plotObject  <- newPlot + jaspGraphs::geom_rangeframe(sides = "bl") + jaspGraphs::themeJaspRaw()
+            tempPar[["trace"]]  <- tempPlot
+
+            noPars <- FALSE
+          }
+
         } else {
-          tempPlots <- tempPar[["trace"]]
+          noPars <- FALSE
         }
-
-        # create plots
-        newPlot  <- RoBTT::diagnostics(
-          fit,
-          parameter     = par,
-          type          = "trace",
-          show_models   = i,
-          title         = FALSE
-        )
-
-        if (is.null(newPlot))
-          next
-
-        tempPlot             <- createJaspPlot(width = 400, aspectRatio = .7)
-        tempPlot$plotObject  <- newPlot + jaspGraphs::geom_rangeframe(sides = "bl") + jaspGraphs::themeJaspRaw()
-        tempPar[["trace"]] <- tempPlot
-
-        noPars <- FALSE
       }
 
 
       # add autocorrelation plots
       if (options[["mcmcDiagnosticsPlotTypeAutocorrelation"]]) {
-        # create / access container for trace plots
-        if (is.null(tempPar[["autocor"]])) {
-          tempPlots <- createJaspContainer(gettext("Average autocorrelations"))
-          tempPlots$position <- 2
-          tempPlots$dependOn("mcmcDiagnosticsPlotTypeAutocorrelation")
-          tempPar[["autocor"]] <- tempPlots
+        # create / access container for autocorrelations plots
+        if (is.null(tempPar[["autocorrelations"]])) {
+
+          newPlot <- RoBTT::diagnostics(
+            fit,
+            parameter     = par,
+            type          = "autocorrelations",
+            show_models   = i,
+            title         = FALSE
+          )
+
+          if (!is.null(newPlot)) {
+
+            tempPlot <- createJaspPlot(gettext("Average autocorrelations"), width = 400, aspectRatio = .7)
+            tempPlot$position <- 2
+            tempPlot$dependOn("mcmcDiagnosticsPlotTypeAutocorrelation")
+            tempPlot$plotObject  <- newPlot + jaspGraphs::geom_rangeframe(sides = "bl") + jaspGraphs::themeJaspRaw()
+            tempPar[["autocorrelations"]] <- tempPlot
+
+            noPars <- FALSE
+          }
+
         } else {
-          tempPlots <- tempPar[["autocor"]]
+          noPars <- FALSE
         }
-
-        # create plots
-        newPlot <- RoBTT::diagnostics(
-          fit,
-          parameter     = par,
-          type          = "autocorrelations",
-          show_models   = i,
-          title         = FALSE
-        )
-
-        if (is.null(newPlot))
-          next
-
-        tempPlot             <- createJaspPlot(width = 400, aspectRatio = .7)
-        tempPlot$plotObject  <- newPlot + jaspGraphs::geom_rangeframe(sides = "bl") + jaspGraphs::themeJaspRaw()
-        tempPar[["autocorrelations"]] <- tempPlot
-
-        noPars <- FALSE
       }
 
 
       # add sample densities plots
       if (options[["mcmcDiagnosticsPlotTypePosteriorSamplesDensity"]]) {
-        # create / access container for trace plots
+        # create / access container for samples plots
         if (is.null(tempPar[["samples"]])) {
-          tempPlots <- createJaspContainer(gettext("Posterior samples densities"))
-          tempPlots$position <- 3
-          tempPlots$dependOn("mcmcDiagnosticsPlotTypePosteriorSamplesDensity")
-          tempPar[["samples"]] <- tempPlots
+
+          newPlot <- RoBTT::diagnostics(
+            fit,
+            parameter     = par,
+            type          = "densities",
+            show_models   = i,
+            title         = FALSE
+          )
+
+          if (!is.null(newPlot)) {
+
+            tempPlot <- createJaspPlot(gettext("Posterior samples densities"), width = 400, aspectRatio = .7)
+            tempPlot$position <- 3
+            tempPlot$dependOn("mcmcDiagnosticsPlotTypePosteriorSamplesDensity")
+            tempPlot$plotObject  <- newPlot + jaspGraphs::geom_rangeframe(sides = "b") + jaspGraphs::themeJaspRaw()
+            tempPar[["samples"]] <- tempPlot
+
+            noPars <- FALSE
+          }
+
         } else {
-          tempPlots <- tempPar[["samples"]]
+          noPars <- FALSE
         }
 
-        # create plots
-        newPlot <- RoBTT::diagnostics(
-          fit,
-          parameter     = par,
-          type          = "densities",
-          show_models   = i,
-          title         = FALSE
-        )
 
-        if (is.null(newPlot))
-          next
-
-        tempPlot             <- createJaspPlot(width = 400, aspectRatio = .7)
-        tempPlot$plotObject  <- newPlot + jaspGraphs::geom_rangeframe(sides = "b") + jaspGraphs::themeJaspRaw()
-        tempPar[["densities"]] <- tempPlot
-
-        noPars <- FALSE
       }
 
     }
@@ -1228,7 +1240,8 @@ robttBayesianModelAveragedInternal <- function(jaspResults, dataset, options) {
     # show error if only one model is selected but doesn't contain any of the diagnostics
     if (noPars && options[["mcmcDiagnosticsPlotSingleModelNumber"]]) {
       tempError  <- createJaspPlot(title = "")
-      tempError$dependOn(c("mcmcDiagnosticsPlotEffect", "mcmcDiagnosticsPlotUnequalVariances", "mcmcDiagnosticsPlotOutliers", "mcmcDiagnosticsPlotTypeTrace", "mcmcDiagnosticsPlotTypeAutocorrelation", "mcmcDiagnosticsPlotTypePosteriorSamplesDensity"))
+      tempError$dependOn(c("mcmcDiagnosticsPlotEffect", "mcmcDiagnosticsPlotUnequalVariances", "mcmcDiagnosticsPlotOutliers",
+                           "mcmcDiagnosticsPlotTypeTrace", "mcmcDiagnosticsPlotTypeAutocorrelation", "mcmcDiagnosticsPlotTypePosteriorSamplesDensity"))
       tempError$setError(gettextf("Model %i does not contain any of the selected parameters.", i))
       tempModel[["tempError"]] <- tempError
     }
