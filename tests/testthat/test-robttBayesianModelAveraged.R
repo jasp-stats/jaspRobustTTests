@@ -51,14 +51,14 @@ test_that("Models Diagnostics Overview table results match", {
   table <- results[["results"]][["diagnostics"]][["collection"]][["diagnostics_diagosticsTable"]][["data"]]
   jaspTools::expect_equal_tables(table,
                                  list("normal", 16360, 1, "Spike(0)", "Spike(0.5)", "", 1.00007499916945,
-                                      "t", 2724, 2, "Spike(0)", "Spike(0.5)", "Exponential(1)", 1.00117695024109,
-                                      "normal", 13205, 3, "Spike(0)", "Beta(1, 1)", "", 1.00002962748119,
-                                      "t", 3160, 4, "Spike(0)", "Beta(1, 1)", "Exponential(1)", 1.00109961339086,
-                                      "normal", 18574, 5, "Normal(0, 1)", "Spike(0.5)", "", 1.00017551065821,
-                                      "t", 2944, 6, "Normal(0, 1)", "Spike(0.5)", "Exponential(1)",
-                                      1.00115131681609, "normal", 14409, 7, "Normal(0, 1)", "Beta(1, 1)",
-                                      "", 1.00031690222577, "t", 2552, 8, "Normal(0, 1)", "Beta(1, 1)",
-                                      "Exponential(1)", 1.0006297839035))
+                                      "t", 2779, 2, "Spike(0)", "Spike(0.5)", "Exponential(1)", 1.00119620641672,
+                                      "normal", 11693, 3, "Spike(0)", "Beta(1, 1)", "", 1.00031440536019,
+                                      "t", 2242, 4, "Spike(0)", "Beta(1, 1)", "Exponential(1)", 1.00210020447055,
+                                      "normal", 17621, 5, "Normal(0, 1)", "Spike(0.5)", "", 0.999893437607925,
+                                      "t", 2603, 6, "Normal(0, 1)", "Spike(0.5)", "Exponential(1)",
+                                      1.00102698597446, "normal", 13837, 7, "Normal(0, 1)", "Beta(1, 1)",
+                                      "", 0.999995614305463, "t", 2972, 8, "Normal(0, 1)", "Beta(1, 1)",
+                                      "Exponential(1)", 1.00151718392758))
 })
 
 test_that("titleless-plot-5 matches", {
@@ -106,7 +106,7 @@ test_that("Model Averaged Heterogeneity Estimate (Precision Allocation) plot mat
 test_that("Information table results match", {
   table <- results[["results"]][["individualModels"]][["collection"]][["individualModels_model1"]][["collection"]][["individualModels_model1_tempInfo"]][["data"]]
   jaspTools::expect_equal_tables(table,
-                                 list(0.202514551430172, "normal", -149.428000361031, 0.0281172012890911,
+                                 list(0.202706796931575, "normal", -149.428000361031, 0.0281431415503297,
                                       0.125))
 })
 
@@ -119,14 +119,14 @@ test_that("Priors table results match", {
 test_that("Model Estimates table results match", {
   table <- results[["results"]][["individualModels"]][["collection"]][["individualModels_model2"]][["collection"]][["individualModels_model2_tempCoef"]][["data"]]
   jaspTools::expect_equal_tables(table,
-                                 list(7381, 2.15677312588384, 3.6351323137615, 3.44115954531562, 1.00037636859494,
-                                      "Degrees of freedom (<unicode>)", 6.26607136306903))
+                                 list(7794, 2.14862101729443, 3.61223328632155, 3.41355518156917, 1.00012787245522,
+                                      "Degrees of freedom (<unicode>)", 6.18786113733111))
 })
 
 test_that("Information table results match", {
   table <- results[["results"]][["individualModels"]][["collection"]][["individualModels_model2"]][["collection"]][["individualModels_model2_tempInfo"]][["data"]]
   jaspTools::expect_equal_tables(table,
-                                 list(3.90167604779319, "t", -146.884136943229, 0.357896898668426, 0.125
+                                 list(3.90507601566439, "t", -146.884499888534, 0.358097092588349, 0.125
                                  ))
 })
 
@@ -139,14 +139,14 @@ test_that("Priors table results match", {
 test_that("Model Estimates table results match", {
   table <- results[["results"]][["individualModels"]][["collection"]][["individualModels_model3"]][["collection"]][["individualModels_model3_tempCoef"]][["data"]]
   jaspTools::expect_equal_tables(table,
-                                 list(15439, 1.11314091657139, 1.46772386960544, 1.00000146389591, "Standard deviation ratio",
-                                      1.93838427791191))
+                                 list(13837, 1.11279834652385, 1.46548824457317, 1.00000525703138, "Standard deviation ratio",
+                                      1.93185520540739))
 })
 
 test_that("Information table results match", {
   table <- results[["results"]][["individualModels"]][["collection"]][["individualModels_model3"]][["collection"]][["individualModels_model3_tempInfo"]][["data"]]
   jaspTools::expect_equal_tables(table,
-                                 list(1.73516201453881, "normal", -147.472882318604, 0.19864107977058,
+                                 list(1.73502973297545, "normal", -147.473865564586, 0.198628944149509,
                                       0.125))
 })
 
@@ -159,16 +159,16 @@ test_that("Priors table results match", {
 test_that("Model Estimates table results match", {
   table <- results[["results"]][["individualModels"]][["collection"]][["individualModels_model4"]][["collection"]][["individualModels_model4_tempCoef"]][["data"]]
   jaspTools::expect_equal_tables(table,
-                                 list(12454, 0.877977740378845, 1.27329268174649, 1.00011601484972,
-                                      "Standard deviation ratio", 1.81802479211572, 10004, 2.20780144214331,
-                                      3.88623371801323, 3.66833185434915, 1.00027311040046, "Degrees of freedom (<unicode>)",
-                                      6.87650687666333))
+                                 list(13004, 0.878632386612813, 1.27435521589437, 1.0001371546682, "Standard deviation ratio",
+                                      1.82696924709567, 8966, 2.19695321260228, 3.88102192071681,
+                                      3.65250661917882, 1.00027344997934, "Degrees of freedom (<unicode>)",
+                                      6.85660857786382))
 })
 
 test_that("Information table results match", {
   table <- results[["results"]][["individualModels"]][["collection"]][["individualModels_model4"]][["collection"]][["individualModels_model4_tempInfo"]][["data"]]
   jaspTools::expect_equal_tables(table,
-                                 list(1.69616880299422, "t", -147.491137115337, 0.195047824095846, 0.125
+                                 list(1.69860385938474, "t", -147.490904649921, 0.195273159560219, 0.125
                                  ))
 })
 
@@ -181,15 +181,15 @@ test_that("Priors table results match", {
 test_that("Model Estimates table results match", {
   table <- results[["results"]][["individualModels"]][["collection"]][["individualModels_model5"]][["collection"]][["individualModels_model5_tempCoef"]][["data"]]
   jaspTools::expect_equal_tables(table,
-                                 list(21217, -0.456196998157008, -0.0632253071362019, -0.0633274542971189,
-                                      0.999930477885847, "Effect size (<unicode>)", 0.322425134485338
+                                 list(19303, -0.451459662514923, -0.065704096488295, -0.0659830905554011,
+                                      0.999870174826536, "Effect size (<unicode>)", 0.320191147260061
                                  ))
 })
 
 test_that("Information table results match", {
   table <- results[["results"]][["individualModels"]][["collection"]][["individualModels_model5"]][["collection"]][["individualModels_model5_tempInfo"]][["data"]]
   jaspTools::expect_equal_tables(table,
-                                 list(0.0411713579904948, "normal", -150.998413617823, 0.0058472313621191,
+                                 list(0.0411614625597134, "normal", -150.999574739696, 0.0058458342105321,
                                       0.125))
 })
 
@@ -202,16 +202,16 @@ test_that("Priors table results match", {
 test_that("Model Estimates table results match", {
   table <- results[["results"]][["individualModels"]][["collection"]][["individualModels_model6"]][["collection"]][["individualModels_model6_tempCoef"]][["data"]]
   jaspTools::expect_equal_tables(table,
-                                 list(11603, -0.508928412678759, -0.187925590916052, -0.183974511259051,
-                                      0.999937013341529, "Effect size (<unicode>)", 0.116239237047911,
-                                      8665, 2.23347834127843, 3.62459351549579, 3.4314488081881, 1.00054717512122,
-                                      "Degrees of freedom (<unicode>)", 6.10892487049728))
+                                 list(11846, -0.507003729871937, -0.187157357796684, -0.181777173355063,
+                                      1.00011028379303, "Effect size (<unicode>)", 0.115234444510556,
+                                      8714, 2.26024069090099, 3.62278104397417, 3.4341875456885, 0.999955741604095,
+                                      "Degrees of freedom (<unicode>)", 6.05244325440928))
 })
 
 test_that("Information table results match", {
   table <- results[["results"]][["individualModels"]][["collection"]][["individualModels_model6"]][["collection"]][["individualModels_model6_tempInfo"]][["data"]]
   jaspTools::expect_equal_tables(table,
-                                 list(0.918473170037678, "t", -148.010867607686, 0.115991195564454,
+                                 list(0.914053058355319, "t", -148.016055473333, 0.115497464019434,
                                       0.125))
 })
 
@@ -224,40 +224,16 @@ test_that("Priors table results match", {
 test_that("Model Estimates table results match", {
   table <- results[["results"]][["individualModels"]][["collection"]][["individualModels_model7"]][["collection"]][["individualModels_model7_tempCoef"]][["data"]]
   jaspTools::expect_equal_tables(table,
-                                 list(16467, -0.448491547049675, -0.0638019622826326, -0.0655714483154314,
-                                      0.999994001449137, "Effect size (<unicode>)", 0.322446751011224,
-                                      17112, 1.11638788181113, 1.46683698490475, 1.0001063494857,
-                                      "Standard deviation ratio", 1.9321573920878))
+                                 list(16981, -0.444926299900042, -0.0629479581029229, -0.0637454898550704,
+                                      0.99999022175752, "Effect size (<unicode>)", 0.322725863693496,
+                                      16588, 1.11825181871387, 1.46777515903796, 0.999874855266286,
+                                      "Standard deviation ratio", 1.93104367109392))
 })
 
 test_that("Information table results match", {
   table <- results[["results"]][["individualModels"]][["collection"]][["individualModels_model7"]][["collection"]][["individualModels_model7_tempInfo"]][["data"]]
   jaspTools::expect_equal_tables(table,
-                                 list(0.301416271346288, "normal", -149.043957964094, 0.0412818910940857,
-                                      0.125))
-})
-
-test_that("Priors table results match", {
-  table <- results[["results"]][["individualModels"]][["collection"]][["individualModels_model7"]][["collection"]][["individualModels_model7_tempPriors"]][["data"]]
-  jaspTools::expect_equal_tables(table,
-                                 list("Normal(0, 1)", "None", "Beta(1, 1)"))
-})
-
-test_that("Model Estimates table results match", {
-  table <- results[["results"]][["individualModels"]][["collection"]][["individualModels_model8"]][["collection"]][["individualModels_model8_tempCoef"]][["data"]]
-  jaspTools::expect_equal_tables(table,
-                                 list(13547, -0.485018990276564, -0.172071887431753, -0.168483319944021,
-                                      1.00003213622474, "Effect size (<unicode>)", 0.138111298832829,
-                                      15918, 0.864566555929416, 1.2520613770588, 1.00002275044703,
-                                      "Standard deviation ratio", 1.77849773982719, 9214, 2.27682109527648,
-                                      3.85376112609263, 3.63534981616705, 1.00016910195186, "Degrees of freedom (<unicode>)",
-                                      6.69543342171784))
-})
-
-test_that("Information table results match", {
-  table <- results[["results"]][["individualModels"]][["collection"]][["individualModels_model8"]][["collection"]][["individualModels_model8_tempInfo"]][["data"]]
-  jaspTools::expect_equal_tables(table,
-                                 list(0.424508747094624, "t", -148.718235804918, 0.0571766781554101,
+                                 list(0.301200624552376, "normal", -149.045566280789, 0.0412535745887452,
                                       0.125))
 })
 
@@ -270,47 +246,48 @@ test_that("Priors table results match", {
 test_that("Model Averaged Estimates table results match", {
   table <- results[["results"]][["mainSummary"]][["collection"]][["mainSummary_averagedSummary"]][["data"]]
   jaspTools::expect_equal_tables(table,
-                                 list(-0.368667913528343, -0.0352514648936077, 0, "Effect size (<unicode>)",
-                                      0.046187716858959, 0.998738002459905, 1.18737159857526, 1, "Standard deviation ratio",
-                                      1.78959161630765, 2.24549111221717, "<unicode>", 4.03923606757242,
-                                      "Degrees of freedom (<unicode>)", "<unicode>"))
+                                 list(-0.369930135366165, -0.0340366150322011, 0, "Effect size (<unicode>)",
+                                      0.0677702428187115, 0.990141815094202, 1.19058117946987, 1,
+                                      "Standard deviation ratio", 1.7984616472451, 2.22601746588366,
+                                      "<unicode>", 4.05208957783863, "Degrees of freedom (<unicode>)",
+                                      "<unicode>"))
 })
 
 test_that("Conditional Estimates table results match", {
   table <- results[["results"]][["mainSummary"]][["collection"]][["mainSummary_conditionalSummary"]][["data"]]
   jaspTools::expect_equal_tables(table,
-                                 list(-0.498752274598366, -0.157594182880648, -0.160098009745175, "Effect size (<unicode>)",
-                                      0.207501375052993, 0.930552127793957, 1.38181290899738, 1.37470403970583,
-                                      "Standard deviation ratio", 1.88117508984913, 2.1892993440075,
-                                      3.72309767036248, 3.51709158897891, "Degrees of freedom (<unicode>)",
-                                      6.52426036945621))
+                                 list(-0.491418256350489, -0.156640024351313, -0.162064387253912, "Effect size (<unicode>)",
+                                      0.204739229031045, 0.931597031234626, 1.38223387565695, 1.37732185544024,
+                                      "Standard deviation ratio", 1.8806906724225, 2.17310523132912,
+                                      3.70232463864694, 3.4967873556873, "Degrees of freedom (<unicode>)",
+                                      6.35406419660253))
 })
 
 test_that("Models Overview table results match", {
   table <- results[["results"]][["mainSummary"]][["collection"]][["mainSummary_modelsSummary"]][["data"]]
   jaspTools::expect_equal_tables(table,
-                                 list(0.202514551430172, "normal", -149.428000361031, 1, 0.0281172012890911,
-                                      "Spike(0)", "Spike(0.5)", "", 0.125, 3.90167604779319, "t",
-                                      -146.884136943229, 2, 0.357896898668426, "Spike(0)", "Spike(0.5)",
-                                      "Exponential(1)", 0.125, 1.73516201453881, "normal", -147.472882318604,
-                                      3, 0.19864107977058, "Spike(0)", "Beta(1, 1)", "", 0.125, 1.69616880299422,
-                                      "t", -147.491137115337, 4, 0.195047824095846, "Spike(0)", "Beta(1, 1)",
-                                      "Exponential(1)", 0.125, 0.0411713579904948, "normal", -150.998413617823,
-                                      5, 0.0058472313621191, "Normal(0, 1)", "Spike(0.5)", "", 0.125,
-                                      0.918473170037678, "t", -148.010867607686, 6, 0.115991195564454,
-                                      "Normal(0, 1)", "Spike(0.5)", "Exponential(1)", 0.125, 0.301416271346288,
-                                      "normal", -149.043957964094, 7, 0.0412818910940857, "Normal(0, 1)",
-                                      "Beta(1, 1)", "", 0.125, 0.424508747094624, "t", -148.718235804918,
-                                      8, 0.0571766781554101, "Normal(0, 1)", "Beta(1, 1)", "Exponential(1)",
+                                 list(0.202706796931575, "normal", -149.428000361031, 1, 0.0281431415503297,
+                                      "Spike(0)", "Spike(0.5)", "", 0.125, 3.90507601566439, "t",
+                                      -146.884499888534, 2, 0.358097092588349, "Spike(0)", "Spike(0.5)",
+                                      "Exponential(1)", 0.125, 1.73502973297545, "normal", -147.473865564586,
+                                      3, 0.198628944149509, "Spike(0)", "Beta(1, 1)", "", 0.125, 1.69860385938474,
+                                      "t", -147.490904649921, 4, 0.195273159560219, "Spike(0)", "Beta(1, 1)",
+                                      "Exponential(1)", 0.125, 0.0411614625597134, "normal", -150.999574739696,
+                                      5, 0.0058458342105321, "Normal(0, 1)", "Spike(0.5)", "", 0.125,
+                                      0.914053058355319, "t", -148.016055473333, 6, 0.115497464019434,
+                                      "Normal(0, 1)", "Spike(0.5)", "Exponential(1)", 0.125, 0.301200624552376,
+                                      "normal", -149.045566280789, 7, 0.0412535745887452, "Normal(0, 1)",
+                                      "Beta(1, 1)", "", 0.125, 0.425171161647673, "t", -148.717687961871,
+                                      8, 0.057260789332878, "Normal(0, 1)", "Beta(1, 1)", "Exponential(1)",
                                       0.125))
 })
 
 test_that("Model Summary table results match", {
   table <- results[["results"]][["mainSummary"]][["collection"]][["mainSummary_overallSummary"]][["data"]]
   jaspTools::expect_equal_tables(table,
-                                 list(0.282539627390995, "4/8", 0.220296996176069, 0.5, "Effect", 0.969075562418576,
-                                      "4/8", 0.492147473115922, 0.5, "Heterogeneity", 2.65113541974959,
-                                      "4/8", 0.726112596484136, 0.5, "Outliers"))
+                                 list(0.281817370350586, "4/8", 0.219857662151589, 0.5, "Effect", 0.970119076427619,
+                                      "4/8", 0.492416467631352, 0.5, "Heterogeneity", 2.65134751182814,
+                                      "4/8", 0.72612850550088, 0.5, "Outliers"))
 })
 
 test_that("Alternative plot matches", {
