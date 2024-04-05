@@ -15,7 +15,7 @@
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 #
 
-robttBayesianModelAveragedInternal <- function(jaspResults, dataset, options) {
+robttBayesianModelAveraged <- function(jaspResults, dataset, options) {
 
   # load & check data (re-using .ttestBayesian functions)
   if (.robttCheckReady(options)) {
@@ -222,11 +222,11 @@ robttBayesianModelAveragedInternal <- function(jaspResults, dataset, options) {
     if (length(dependents)) {
       dataset <- .readDataSetToEnd(columns = c(dependents, grouping), exclude.na.listwise = excl)
       if (!is.null(grouping))
-        dataset[[.v(grouping)]] <- as.factor(dataset[[.v(grouping)]])
+        dataset[[grouping]] <- as.factor(dataset[[grouping]])
 
       # 100% required if we fully switch to columns = ... , but also allow the QML interface to be not strict in terms of input,
       # so factors can be entered in scale boxes. Joris probably has more ideas about this
-      for (var in .v(dependents)) {
+      for (var in dependents) {
         if (is.factor(dataset[[var]]))
           dataset[[var]] <- as.numeric(levels(dataset[[var]]))[dataset[[var]]]
       }
@@ -433,8 +433,8 @@ robttBayesianModelAveragedInternal <- function(jaspResults, dataset, options) {
           "effect"        = bquote(delta),
           "heterogeneity" = bquote(rho),
           "outliers"      = bquote(nu)),
-        xlim                     = if(parameter == "heterogeneity" && options[["inferencePrecisionAllocationAsStandardDeviationRatio"]]) log(2^c(-4,4)),
-        transformation           = switch(
+        xlim            = if(parameter == "heterogeneity" && options[["inferencePrecisionAllocationAsStandardDeviationRatio"]]) log(2^c(-4,4)),
+        transformation  = switch(
           parameter,
           "effect"        = NULL,
           "heterogeneity" = if(options[["inferencePrecisionAllocationAsStandardDeviationRatio"]]) RoBTT::rho2logsdr else NULL,
@@ -453,7 +453,7 @@ robttBayesianModelAveragedInternal <- function(jaspResults, dataset, options) {
         p <- p + ggplot2::scale_x_continuous("Standard deviation ratio", limits = log(2^c(-4,4)), breaks = log(2^seq(-4,4,1)), labels = round(2^seq(-4,4,1), 3))
       }
 
-      p <- jaspGraphs::themeJasp(p)
+      p <- p + jaspGraphs::geom_rangeframe(sides = "bl") + jaspGraphs::themeJaspRaw()
 
       typePrior[["plotObject"]] <- p
     }
@@ -480,9 +480,9 @@ robttBayesianModelAveragedInternal <- function(jaspResults, dataset, options) {
 
   # set error if no priors are specified
   if (
-    (length(priors[["modelsEffect"]])        == 0 && length(priors[["modelsEffectNull"]])        == 0) ||
+    (length(priors[["modelsEffect"]])           == 0 && length(priors[["modelsEffectNull"]])        == 0) ||
     (length(priors[["modelsUnequalVariances"]]) == 0 && length(priors[["modelsUnequalVariancesNull"]]) == 0) ||
-    (length(priors[["modelsOutliers"]])      == 0 && length(priors[["modelsOutliersNull"]])      == 0)
+    (length(priors[["modelsOutliers"]])         == 0 && length(priors[["modelsOutliersNull"]])      == 0)
   ) {
     priorsError <- createJaspTable()
     priorsError$setError(gettext("Please specify a prior distribution for each parameter in the Models specification section (either null or alternative)."))
@@ -978,11 +978,11 @@ robttBayesianModelAveragedInternal <- function(jaspResults, dataset, options) {
   }
 
   if (attr(p, "sec_axis"))
-    p <- jaspGraphs::themeJasp(p, sides = "blr") + ggplot2::theme(
+    p <- p + jaspGraphs::geom_rangeframe(sides = "blr") + jaspGraphs::themeJaspRaw() + ggplot2::theme(
       axis.title.y.right = ggplot2::element_text(vjust = 3.25),
       plot.margin        = ggplot2::margin(t = 3, r = 12, b = 0, l = 1))
   else
-    p <- jaspGraphs::themeJasp(p, sides = "bl")
+    p <- p + jaspGraphs::geom_rangeframe(sides = "bl") + jaspGraphs::themeJaspRaw()
 
   estimatesPlots[[parameter]]$plotObject <- p
 
