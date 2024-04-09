@@ -1,16 +1,33 @@
-context("Bayesian Model-Averaged T-Test")
+context("Robust Bayesian Model-Averaged T-Test")
 
 # all output test
-options <- analysisOptions("robttBayesianModelAveraged")
+options <- analysisOptions("RobustBayesianModelAveragedTTest")
+options$advancedMcmcAdaptation <- 5000
+options$advancedMcmcChains <- 4
+options$advancedMcmcSamples <- 5000
+options$advancedMcmcThin <- 1
+options$bayesFactorType <- "BF10"
 options$dependent <- "contNormal"
 options$group <- "facExperim"
+options$inferenceCiWidth <- 0.95
+options$inferenceConditionalParameterEstimates <- TRUE
 options$inferenceIndividualModels <- TRUE
+options$inferenceIndividualModelsSingleModel <- FALSE
+options$inferenceIndividualModelsSingleModelNumber <- 1
 options$inferenceModelsOverview <- TRUE
 options$inferenceModelsOverviewBfComparison <- "inclusion"
 options$inferenceModelsOverviewOrder <- "modelNumber"
+options$inferencePrecisionAllocationAsStandardDeviationRatio <- TRUE
+options$inferenceShortenPriorName <- FALSE
 options$mcmcDiagnosticsOverviewTable <- TRUE
 options$mcmcDiagnosticsPlotEffect <- TRUE
+options$mcmcDiagnosticsPlotOutliers <- FALSE
+options$mcmcDiagnosticsPlotSingleModel <- FALSE
+options$mcmcDiagnosticsPlotSingleModelNumber <- 1
+options$mcmcDiagnosticsPlotTypeAutocorrelation <- FALSE
+options$mcmcDiagnosticsPlotTypePosteriorSamplesDensity <- FALSE
 options$mcmcDiagnosticsPlotTypeTrace <- TRUE
+options$mcmcDiagnosticsPlotUnequalVariances <- FALSE
 options$modelsEffect <- list(list(a = "0", alpha = "1", b = "1", beta = "0.15", k = "1",
                                   lambda = "1", mu = "0", name = "#", nu = "2", priorWeight = "1",
                                   sigma = "1", theta = "1", truncationLower = "-Inf", truncationUpper = "Inf",
@@ -39,12 +56,14 @@ options$plotHeight <- 340
 options$plotWidth <- 420
 options$plotsPooledEstimatesEffect <- TRUE
 options$plotsPooledEstimatesOutliers <- TRUE
+options$plotsPooledEstimatesPriorDistribution <- TRUE
+options$plotsPooledEstimatesType <- "averaged"
 options$plotsPooledEstimatesUnequalVariances <- TRUE
 options$priorDistributionPlot <- TRUE
-options$setSeed <- TRUE
 options$seed <- 1
+options$setSeed <- TRUE
 set.seed(1)
-results <- runAnalysis("robttBayesianModelAveraged", "debug.csv", options)
+results <- runAnalysis("RobustBayesianModelAveragedTTest", "debug.csv", options)
 
 
 test_that("Models Diagnostics Overview table results match", {

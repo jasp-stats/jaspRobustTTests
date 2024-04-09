@@ -1,2 +1,2 @@
 import(jaspBase)
-export(robttBayesianModelAveraged)
+export(RobustBayesianModelAveragedTTest)
