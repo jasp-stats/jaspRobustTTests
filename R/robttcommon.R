@@ -1,90 +1,3 @@
-#
-# Copyright (C) 2013-2018 University of Amsterdam
-#
-# This program is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 2 of the License, or
-# (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program. If not, see <http://www.gnu.org/licenses/>.
-#
-
-robttBayesianModelAveraged <- function(jaspResults, dataset, options) {
-
-  # load & check data (re-using .ttestBayesian functions)
-  if (.robttCheckReady(options)) {
-    dataset <- .robttReadData(dataset, options)
-    errors  <- .robttGetErrorsPerVariable(dataset, options)
-  }
-
-  # get the priors
-  .robttGetPriors(jaspResults, options)
-
-  # show the model preview
-  if (is.null(jaspResults[["model"]]))
-   .robttModelPreviewTable(jaspResults, options)
-
-  # priors plot
-  if (options[["priorDistributionPlot"]])
-    .robttPriorsPlots(jaspResults, options)
-
-  # fit model model
-  if (.robttCheckReady(options))
-    .robttFitModel(jaspResults, dataset, options)
-
-  ### Inference
-  # default summary
-  if (.robttCheckReady(options))
-    .robttSummaryTable(jaspResults, options)
-  # models overview
-  if (options[["inferenceModelsOverview"]])
-    .robttModelsOvervievTable(jaspResults, options)
-  # models summary
-  if (options[["inferenceIndividualModels"]])
-    .robttModelsSummaryTable(jaspResults, options)
-
-  ### Plots
-  # pooled estimates plots
-  if (options[["plotsPooledEstimatesEffect"]])
-    .robttEstimatesPlot(jaspResults, options, "delta")
-  if (options[["plotsPooledEstimatesUnequalVariances"]])
-    .robttEstimatesPlot(jaspResults, options, "rho")
-  if (options[["plotsPooledEstimatesOutliers"]])
-    .robttEstimatesPlot(jaspResults, options, "nu")
-
-  ### Diagnostics
-  # overview
-  if (options[["mcmcDiagnosticsOverviewTable"]])
-    .robttDiagnosticsOverviewTable(jaspResults, options)
-  # plots
-  if ((
-    options[["mcmcDiagnosticsPlotEffect"]]    ||
-    options[["mcmcDiagnosticsPlotUnequalVariances"]]   ||
-    options[["mcmcDiagnosticsPlotOutliers"]]
-  ) ||
-  (
-    options[["mcmcDiagnosticsPlotTypeTrace"]]           ||
-    options[["mcmcDiagnosticsPlotTypeAutocorrelation"]] ||
-    options[["mcmcDiagnosticsPlotTypePosteriorSamplesDensity"]]
-  ))
-  .robttDiagnosticsPlots(jaspResults, options)
-
-
-  return()
-}
-
-.robttDependencies <- c(
-  "dependent", "group",
-  "modelsEffect", "modelsEffectNull", "modelsUnequalVariances", "modelsUnequalVariancesNull", "modelsOutliers", "modelsOutliersNull",
-  "advancedMcmcAdaptation", "advancedMcmcSamples", "advancedMcmcChains",
-  "seed", "setSeed"
-)
 # priors related functions
 .robttExtractPriorsFromOptions <- function(optionsPrior) {
 
@@ -174,7 +87,7 @@ robttBayesianModelAveraged <- function(jaspResults, dataset, options) {
     return()
   } else {
     priors <- createJaspState()
-    priors$dependOn(.robttDependencies)
+    priors$dependOn(.robttRobustDependencies)
     jaspResults[["priors"]] <- priors
   }
 
@@ -468,7 +381,7 @@ robttBayesianModelAveraged <- function(jaspResults, dataset, options) {
     return()
   } else {
     modelPreview <- createJaspContainer(title = gettext("Model Preview"))
-    modelPreview$dependOn(.robttDependencies)
+    modelPreview$dependOn(.robttRobustDependencies)
     modelPreview$position <- 1
     jaspResults[["modelPreview"]] <- modelPreview
   }
@@ -562,7 +475,7 @@ robttBayesianModelAveraged <- function(jaspResults, dataset, options) {
     return()
 
   model <- createJaspState()
-  model$dependOn(.robttDependencies)
+  model$dependOn(.robttRobustDependencies)
   jaspResults[["model"]] <- model
 
 
@@ -616,7 +529,7 @@ robttBayesianModelAveraged <- function(jaspResults, dataset, options) {
     # create container
     mainSummary <- createJaspContainer(title = gettext("Summary"))
     mainSummary$position <- 3
-    mainSummary$dependOn( c(.robttDependencies, "bayesFactorType", "inferenceCiWidth", "inferenceConditionalParameterEstimates", "inferencePrecisionAllocationAsStandardDeviationRatio"))
+    mainSummary$dependOn( c(.robttRobustDependencies, "bayesFactorType", "inferenceCiWidth", "inferenceConditionalParameterEstimates", "inferencePrecisionAllocationAsStandardDeviationRatio"))
     jaspResults[["mainSummary"]] <- mainSummary
   }
 
@@ -705,7 +618,7 @@ robttBayesianModelAveraged <- function(jaspResults, dataset, options) {
   ### create overview table
   modelsSummary <- createJaspTable(title = gettext("Models Overview"))
   modelsSummary$position <- 6
-  modelsSummary$dependOn(c(.robttDependencies, "bayesFactorType", "inferenceModelsOverview", "inferenceModelsOverviewBF", "inferenceModelsOverviewOrder", "inferenceShortenPriorName"))
+  modelsSummary$dependOn(c(.robttRobustDependencies, "bayesFactorType", "inferenceModelsOverview", "inferenceModelsOverviewBF", "inferenceModelsOverviewOrder", "inferenceShortenPriorName"))
   jaspResults[["mainSummary"]][["modelsSummary"]] <- modelsSummary
 
   if (options[["inferenceModelsOverviewBfComparison"]] == "inclusion")
@@ -789,7 +702,7 @@ robttBayesianModelAveraged <- function(jaspResults, dataset, options) {
   } else {
     individualModels <- createJaspContainer(title = gettext("Individual Models Summary"))
     individualModels$position <- 5
-    individualModels$dependOn(c(.robttDependencies, "bayesFactorType", "inferenceIndividualModels", "inferenceIndividualModelsSingleModel", "inferenceIndividualModelsSingleModelNumber", "inferenceShortenPriorName", "inferenceOutputScale"))
+    individualModels$dependOn(c(.robttRobustDependencies, "bayesFactorType", "inferenceIndividualModels", "inferenceIndividualModelsSingleModel", "inferenceIndividualModelsSingleModelNumber", "inferenceShortenPriorName", "inferenceOutputScale"))
     jaspResults[["individualModels"]] <- individualModels
   }
 
@@ -914,7 +827,7 @@ robttBayesianModelAveraged <- function(jaspResults, dataset, options) {
   if (is.null(jaspResults[["estimatesPlots"]])) {
     estimatesPlots <- createJaspContainer(title = gettext("Posterior Distribution Plots"))
     estimatesPlots$position <- 7
-    estimatesPlots$dependOn(c(.robttDependencies, "plotsPooledEstimatesType", "plotsPooledEstimatesPriorDistribution"))
+    estimatesPlots$dependOn(c(.robttRobustDependencies, "plotsPooledEstimatesType", "plotsPooledEstimatesPriorDistribution"))
     jaspResults[["estimatesPlots"]] <- estimatesPlots
   } else {
     estimatesPlots <- jaspResults[["estimatesPlots"]]
@@ -994,7 +907,7 @@ robttBayesianModelAveraged <- function(jaspResults, dataset, options) {
   if (is.null(jaspResults[["diagnostics"]])) {
     diagnostics <- createJaspContainer(title = gettext("Diagnostics"))
     diagnostics$position <- 9
-    diagnostics$dependOn(.robttDependencies)
+    diagnostics$dependOn(.robttRobustDependencies)
     jaspResults[["diagnostics"]] <- diagnostics
   } else {
     diagnostics <- jaspResults[["diagnostics"]]
@@ -1008,7 +921,7 @@ robttBayesianModelAveraged <- function(jaspResults, dataset, options) {
   ### create overview table
   diagosticsTable <-  createJaspTable(title = gettext("Models Diagnostics Overview"))
   diagosticsTable$position <- 1
-  diagosticsTable$dependOn(c(.robttDependencies, "mcmcDiagnosticsOverviewTable", "inferenceShortenPriorName"))
+  diagosticsTable$dependOn(c(.robttRobustDependencies, "mcmcDiagnosticsOverviewTable", "inferenceShortenPriorName"))
   diagnostics[["diagosticsTable"]] <- diagosticsTable
 
   overtitlePrior <- gettext("Prior Distribution")
@@ -1055,7 +968,7 @@ robttBayesianModelAveraged <- function(jaspResults, dataset, options) {
   if (is.null(jaspResults[["diagnostics"]])) {
     diagnostics <- createJaspContainer(title = gettext("Diagnostics"))
     diagnostics$position <- 9
-    diagnostics$dependOn(.robttDependencies)
+    diagnostics$dependOn(.robttRobustDependencies)
     jaspResults[["diagnostics"]] <- diagnostics
   } else {
     diagnostics <- jaspResults[["diagnostics"]]
