@@ -23,7 +23,9 @@ import JASP				1.0
 
 Section
 {
-	title: qsTr("MCMC Diagnostics")
+	property string testType:	"robust"
+
+	title:	qsTr("MCMC Diagnostics")
 
 	CheckBox
 	{
@@ -51,6 +53,7 @@ Section
 		{
 			label:		qsTr("Degrees of freedom")
 			name:		"mcmcDiagnosticsPlotOutliers"
+			visible:	testType === "robust"
 		}
 	}
 

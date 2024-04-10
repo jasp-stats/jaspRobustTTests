@@ -23,6 +23,8 @@ import JASP				1.0
 
 ColumnLayout
 {
+	property string testType:	"robust"
+
 	Formula { rhs: "dependent" }
 
 	VariablesForm
@@ -53,5 +55,176 @@ ColumnLayout
 	{
 		name:		"priorDistributionPlot"
 		label:		qsTr("Prior distribution plots")
+	}
+
+	RadioButtonGroup
+	{
+		name: 		"truncation"
+		title:		qsTr("Truncation")
+		visible:	testType == "truncated"
+		columns:	2
+
+		RadioButton
+		{
+			name: 		"truncationStandardDeviation"
+			label: 		qsTr("Standard deviation (z-score)")
+			checked:	true
+
+			RadioButtonGroup
+			{
+				name: 		"truncationStandardDeviationGrouping"
+
+				RadioButton
+				{
+					name: 		"perSample"
+					label: 		qsTr("Per sample")
+					checked:	true
+
+					FormulaField
+					{
+						label:				qsTr("Sample 1")
+						name:				"truncationStandardDeviationSample1"
+						value:				"3"
+						min:				0
+						inclusive:			JASP.None
+						fieldWidth: 		40 * preferencesModel.uiScale
+					}
+
+					FormulaField
+					{
+						label:				qsTr("Sample 2")
+						name:				"truncationStandardDeviationSample2"
+						value:				"3"
+						min:				0
+						inclusive:			JASP.None
+						fieldWidth: 		40 * preferencesModel.uiScale
+					}
+				}
+
+				RadioButton
+				{
+					name: 		"acrossSamples"
+					label: 		qsTr("Across samples")
+
+					FormulaField
+					{
+						label:				qsTr("Both samples")
+						name:				"truncationStandardDeviationBothSamples"
+						value:				"3"
+						min:				0
+						inclusive:			JASP.None
+						fieldWidth: 		40 * preferencesModel.uiScale
+					}
+				}
+			}
+		}
+
+		RadioButton
+		{
+			name: 		"truncationBounds"
+			label: 		qsTr("Bounds")
+
+			RadioButtonGroup
+			{
+				name: 		"truncationBoundsGrouping"
+
+				RadioButton
+				{
+					name: 		"perSample"
+					label: 		qsTr("Per sample")
+					checked:	true
+
+					Group
+					{
+						title:		qsTr("Sample 1")
+						columns:	2
+
+						FormulaField
+						{
+							label:				qsTr("Lower")
+							name:				"truncationBoundsSample1Lower"
+							id:					truncationBoundsSample1Lower
+							value:				"-3"
+							max:				truncationBoundsSample1Upper.value
+							inclusive:			JASP.None
+							fieldWidth: 		40 * preferencesModel.uiScale
+						}
+
+						FormulaField
+						{
+							label:				qsTr("Upper")
+							name:				"truncationBoundsSample1Upper"
+							id:					truncationBoundsSample1Upper
+							value:				"3"
+							min:				truncationBoundsSample1Lower.value
+							inclusive:			JASP.None
+							fieldWidth: 		40 * preferencesModel.uiScale
+						}
+					}
+					
+					Group
+					{
+						title:		qsTr("Sample 2")
+						columns:	2
+
+						FormulaField
+						{
+							label:				qsTr("Lower")
+							name:				"truncationBoundsSample2Lower"
+							id:					truncationBoundsSample2Lower
+							value:				"-3"
+							max:				truncationBoundsSample2Upper.value
+							inclusive:			JASP.None
+							fieldWidth: 		40 * preferencesModel.uiScale
+						}
+
+						FormulaField
+						{
+							label:				qsTr("Upper")
+							name:				"truncationBoundsSample2Upper"
+							id:					truncationBoundsSample2Upper
+							value:				"3"
+							min:				truncationBoundsSample2Lower.value
+							inclusive:			JASP.None
+							fieldWidth: 		40 * preferencesModel.uiScale
+						}
+					}
+				}
+
+				RadioButton
+				{
+					name: 		"acrossSamples"
+					label: 		qsTr("Across samples")
+
+					Group
+					{
+						title:		qsTr("Both Samples")
+						columns:	2
+
+						FormulaField
+						{
+							label:				qsTr("Lower")
+							name:				"truncationBoundsBothSamplesLower"
+							id:					truncationBoundsBothSamplesLower
+							value:				"-3"
+							max:				truncationBoundsBothSamplesUpper.value
+							inclusive:			JASP.None
+							fieldWidth: 		40 * preferencesModel.uiScale
+						}
+
+						FormulaField
+						{
+							label:				qsTr("Upper")
+							name:				"truncationBoundsBothSamplesUpper"
+							id:					truncationBoundsBothSamplesUpper
+							value:				"3"
+							min:				truncationBoundsBothSamplesLower.value
+							inclusive:			JASP.None
+							fieldWidth: 		40 * preferencesModel.uiScale
+						}
+					}
+				}
+			}
+		}
 	}
 }

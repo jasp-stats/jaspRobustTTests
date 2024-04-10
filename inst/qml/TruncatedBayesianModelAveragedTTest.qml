@@ -31,7 +31,7 @@ Form {
 
 	Common.ModelAveragedTTestInput
 	{
-		testType: "robust"
+		testType:	"truncated"
 	}
 
 	//// Inference ////
@@ -40,13 +40,13 @@ Form {
 	//// Plots section ////
 	Common.ModelAveragedTTestPlots
 	{
-		testType: "robust"
+		testType:	"truncated"
 	}
 
 	//// Diagnostics section ////
 	Common.ModelAveragedTTestMcmcDiagnostics
 	{
-		testType:	"robust"
+		testType:	"truncated"
 	}
 
 	//// Priors ////
@@ -68,13 +68,6 @@ Form {
 		{
 			Layout.preferredWidth:	parent.width
 			componentType:			"modelsUnequalVariances"
-		}
-
-		// df priors
-		Common.ModelAveragedTTestPriors
-		{
-			Layout.preferredWidth:	parent.width
-			componentType:			"modelsOutliers"
 		}
 
 		Divider { }
@@ -102,12 +95,29 @@ Form {
 			visible:				priorsNull.checked
 		}
 
-		// df priors
+		Divider { }
+
+		CheckBox
+		{
+			id:						priorsCommon
+			name:					"priorsCommon"
+			label:					qsTr("Set common priors")
+		}
+
+		// common mean prior
 		Common.ModelAveragedTTestPriors
 		{
 			Layout.preferredWidth:	parent.width
-			componentType:			"modelsOutliersNull"
-			visible:				priorsNull.checked
+			componentType:			"modelCommonMean"
+			visible:				priorsCommon.checked
+		}
+
+		// common variance prior
+		Common.ModelAveragedTTestPriors
+		{
+			Layout.preferredWidth:	parent.width
+			componentType:			"modelCommonVariance"
+			visible:				priorsCommon.checked
 		}
 
 	}

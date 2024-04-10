@@ -1,2 +1,4 @@
 import(jaspBase)
+export(BayesianModelAveragedTTest)
 export(RobustBayesianModelAveragedTTest)
+export(TruncatedBayesianModelAveragedTTest)

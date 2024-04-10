@@ -40,13 +40,13 @@ Form {
 	//// Plots section ////
 	Common.ModelAveragedTTestPlots
 	{
-		testType: "robust"
+		testType:	"averaged"
 	}
 
 	//// Diagnostics section ////
 	Common.ModelAveragedTTestMcmcDiagnostics
 	{
-		testType:	"robust"
+		testType:	"averaged"
 	}
 
 	//// Priors ////
@@ -68,13 +68,6 @@ Form {
 		{
 			Layout.preferredWidth:	parent.width
 			componentType:			"modelsUnequalVariances"
-		}
-
-		// df priors
-		Common.ModelAveragedTTestPriors
-		{
-			Layout.preferredWidth:	parent.width
-			componentType:			"modelsOutliers"
 		}
 
 		Divider { }
@@ -101,15 +94,6 @@ Form {
 			componentType:			"modelsUnequalVariancesNull"
 			visible:				priorsNull.checked
 		}
-
-		// df priors
-		Common.ModelAveragedTTestPriors
-		{
-			Layout.preferredWidth:	parent.width
-			componentType:			"modelsOutliersNull"
-			visible:				priorsNull.checked
-		}
-
 	}
 
 	//// Advanced section for prior model probabilities sampling settings ////
