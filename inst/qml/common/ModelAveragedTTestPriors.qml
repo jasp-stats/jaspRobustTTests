@@ -32,10 +32,12 @@ ColumnLayout
 		{
 			case "modelsEffect":				qsTr("Effect"); break;
 			case "modelsEffectNull":			qsTr("Effect (null)"); break;
-			case "modelsUnequalVariances":			qsTr("Unequal variances (precision allocation)"); break;
-			case "modelsUnequalVariancesNull":		qsTr("Unequal variances (null)"); break;
+			case "modelsUnequalVariances":		qsTr("Unequal variances (precision allocation)"); break;
+			case "modelsUnequalVariancesNull":	qsTr("Unequal variances (null)"); break;
 			case "modelsOutliers":				qsTr("Outliers (degrees of freedom + 2)"); break;
 			case "modelsOutliersNull":			qsTr("Outliers (null)"); break;
+			case "modelCommonMean":				qsTr("Common mean"); break;
+			case "modelCommonVariance":			qsTr("Common variance"); break;
 		}
 		Layout.preferredHeight:	20 * preferencesModel.uiScale
 	}
@@ -52,17 +54,19 @@ ColumnLayout
 	{
 		name:					componentType
 		optionKey:				"name"
-		minimumItems:			0
+		minimumItems:			componentType == "modelCommonMean" || componentType == "modelCommonVariance" ? 1 : 0
 		maximumItems:			1
 		//showAddIcon:			false
 		defaultValues:			switch (componentType)
 		{
 			case "modelsEffect":				[{"type": "normal"}]; break;
 			case "modelsEffectNull":			[{"type": "spike"}]; break;
-			case "modelsUnequalVariances":			[{"type": "beta", "alpha": "1", "beta": "1"}]; break;
-			case "modelsUnequalVariancesNull":		[{"type": "spike", "x0": "0.5"}]; break;
+			case "modelsUnequalVariances":		[{"type": "beta", "alpha": "1", "beta": "1"}]; break;
+			case "modelsUnequalVariancesNull":	[{"type": "spike", "x0": "0.5"}]; break;
 			case "modelsOutliers":				[{"type": "exponential", "lambda": "1"}]; break;
 			case "modelsOutliersNull":			[{"type": "None"}]; break;
+			case "modelCommonMean":				[{"type": "cauchy", "x0": "0", "theta": "1"}]; break;
+			case "modelCommonVariance":			[{"type": "exponential", "lambda": "1"}]; break;
 		}
 		rowComponent: 			RowLayout
 		{

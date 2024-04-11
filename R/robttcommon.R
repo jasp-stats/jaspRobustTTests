@@ -1,3 +1,85 @@
+.robttCommon <- function(jaspResults, dataset, options, analysis) {
+
+  # load & check data (re-using .ttestBayesian functions)
+  if (.robttCheckReady(options)) {
+    dataset <- .robttReadData(dataset, options)
+    errors  <- .robttGetErrorsPerVariable(dataset, options)
+  }
+
+  if (analysis == "truncated") {
+    options <- .robttEvalTruncation(options)
+  }
+
+  # get the priors
+  .robttGetPriors(jaspResults, options, analysis)
+
+  # show the model preview
+  if (is.null(jaspResults[["model"]]))
+    .robttModelPreviewTable(jaspResults, options, analysis)
+
+  # priors plot
+  if (options[["priorDistributionPlot"]])
+    .robttPriorsPlots(jaspResults, options, analysis)
+
+  # fit model model
+  if (.robttCheckReady(options))
+    .robttFitModel(jaspResults, dataset, options, analysis)
+
+  ### Inference
+  # default summary
+  if (.robttCheckReady(options))
+    .robttSummaryTable(jaspResults, options, analysis)
+  # models overview
+  if (options[["inferenceModelsOverview"]])
+    .robttModelsOvervievTable(jaspResults, options, analysis)
+  # models summary
+  if (options[["inferenceIndividualModels"]])
+    .robttModelsSummaryTable(jaspResults, options, analysis)
+
+  ### Plots
+  # pooled estimates plots
+  if (options[["plotsPooledEstimatesEffect"]])
+    .robttEstimatesPlot(jaspResults, options, "delta", analysis)
+  if (options[["plotsPooledEstimatesUnequalVariances"]])
+    .robttEstimatesPlot(jaspResults, options, "rho", analysis)
+  if (analysis == "robust" && options[["plotsPooledEstimatesOutliers"]])
+    .robttEstimatesPlot(jaspResults, options, "nu", analysis)
+
+  ### Diagnostics
+  # overview
+  if (options[["mcmcDiagnosticsOverviewTable"]])
+    .robttDiagnosticsOverviewTable(jaspResults, options, analysis)
+  # plots
+  if (.robttCheckDiagnostics(options, TRUE, analysis))
+    .robttDiagnosticsPlots(jaspResults, options, analysis)
+
+
+  return()
+}
+
+.robttGetDependencies <- function(analysis) {
+
+  commonDependencies <- c(
+      "dependent", "group",
+      "modelsEffect", "modelsEffectNull", "modelsUnequalVariances", "modelsUnequalVariancesNull",
+      "advancedMcmcAdaptation", "advancedMcmcSamples", "advancedMcmcChains",
+      "seed", "setSeed"
+    )
+
+  if (analysis == "robust") {
+    commonDependencies <- (c(commonDependencies, "modelsOutliers", "modelsOutliersNull"))
+  } else if (analysis == "truncated") {
+    commonDependencies <- (c(commonDependencies, "modelCommonMean", "modelCommonVariance",
+                             "truncation",
+                             "truncationStandardDeviationGrouping", "truncationStandardDeviationSample1", "truncationStandardDeviationSample2", "truncationStandardDeviationBothSamples",
+                             "truncationBoundsGrouping", "truncationBoundsSample1Lower", "truncationBoundsSample1Upper", "truncationBoundsSample2Lower", "truncationBoundsSample2Upper",
+                             "truncationBoundsBothSamplesLower", "truncationBoundsBothSamplesUpper"
+                             ))
+  }
+
+  return(commonDependencies)
+}
+
 # priors related functions
 .robttExtractPriorsFromOptions <- function(optionsPrior) {
 
@@ -81,20 +163,25 @@
 
   return(options[["dependent"]] != "" && options[["group"]] != "" )
 }
-.robttGetPriors            <- function(jaspResults, options) {
+.robttGetPriors            <- function(jaspResults, options, analysis) {
 
   if (!is.null(jaspResults[["priors"]])) {
     return()
   } else {
     priors <- createJaspState()
-    priors$dependOn(.robttRobustDependencies)
+    priors$dependOn(.robttGetDependencies(analysis))
     jaspResults[["priors"]] <- priors
   }
 
   object <- list()
   for(type in c("", "Null")) {
 
-    priorElements <- paste0(c("modelsEffect", "modelsUnequalVariances", "modelsOutliers"), type)
+    priorElements <- switch(
+      analysis,
+      "averaged"  = paste0(c("modelsEffect", "modelsUnequalVariances"), type),
+      "robust"    = paste0(c("modelsEffect", "modelsUnequalVariances", "modelsOutliers"),  type),
+      "truncated" = paste0(c("modelsEffect", "modelsUnequalVariances"), type)
+    )
 
     for (i in seq_along(priorElements)) {
 
@@ -111,6 +198,21 @@
       }
 
       object[[priorElements[i]]] <- tmpPrior
+    }
+  }
+
+  if (analysis != "robust") {
+    object[["modelsOutliersNull"]] <- RoBTT::prior_none()
+  }
+
+  if (analysis == "truncated") {
+    for(priorElement in c("modelCommonMean", "modelCommonVariance")) {
+
+      tmpPrior <- try(.robttExtractPriorsFromOptions(options[[priorElement]][[1]]))
+      if (jaspBase::isTryError(tmpPrior))
+        .quitAnalysis(tmpPrior)
+
+      object[[priorElement]] <- tmpPrior
     }
   }
 
@@ -174,10 +276,61 @@
 
   return(errors)
 }
+.robttEvalTruncation       <- function(options) {
 
+  evalNames <-
+    c(
+      "truncationStandardDeviationSample1",
+      "truncationStandardDeviationSample2",
+      "truncationStandardDeviationBothSamples",
+      "truncationBoundsSample1Lower",
+      "truncationBoundsSample1Upper",
+      "truncationBoundsSample2Lower",
+      "truncationBoundsSample2Upper",
+      "truncationBoundsBothSamplesLower",
+      "truncationBoundsBothSamplesUpper"
+    )
+
+  for (n in evalNames) {
+    if (!is.null(options[[n]]))
+      options[[n]] <- eval(parse(text = options[[n]]))
+  }
+
+  return(options)
+}
+.robttGetTruncation        <- function(options) {
+
+  if (options[["truncation"]] == "truncationStandardDeviation") {
+    truncation <- switch(
+      options[["truncationStandardDeviationGrouping"]],
+      # (JASP uses opposite ordering that the package)
+      "perSample" = list(
+        sigma1 = options[["truncationStandardDeviationSample2"]],
+        sigma2 = options[["truncationStandardDeviationSample1"]]
+      ),
+      "bothSamples" = list(
+        sigma = options[["truncationStandardDeviationBothSamples"]]
+      )
+    )
+  } else {
+    truncation <- switch(
+      options[["truncationBoundsGrouping"]],
+      "perSample" = list(
+        # (JASP uses opposite ordering that the package)
+        x1 = c(options[["truncationBoundsSample2Lower"]], options[["truncationBoundsSample2Upper"]]),
+        x2 = c(options[["truncationBoundsSample1Lower"]], options[["truncationBoundsSample1Upper"]])
+      ),
+      "bothSamples" = list(
+        x = c(options[["truncationBoundsBothSamplesLower"]], options[["truncationBoundsBothSamplesUpper"]])
+      )
+    )
+  }
+
+  return(truncation)
+}
 
 # table filling functions
-.robttTableFillCoef           <- function(jaspTable, resultsTable, options, individual = FALSE, groupLabels = NULL) {
+.robttTableFillCoef           <- function(jaspTable, resultsTable, options, individual = FALSE, groupLabels = NULL, analysis) {
 
   overtitleCi <- gettextf("%s%% CI", 100 * options[["inferenceCiWidth"]])
   # add columns
@@ -201,7 +354,13 @@
 
 
   # fill rows
-  for (i in c(1:nrow(resultsTable))[rownames(resultsTable) %in% c("delta", "rho", "nu")]) {
+  rowsToFill <- switch(
+    analysis,
+    "averaged"  = c("delta", "rho"),
+    "robust"    = c("delta", "rho", "nu"),
+    "truncated" = c("delta", "rho")
+  )
+  for (i in c(1:nrow(resultsTable))[rownames(resultsTable) %in% rowsToFill]) {
 
     if (rownames(resultsTable)[i] == "rho" && options[["inferencePrecisionAllocationAsStandardDeviationRatio"]]) {
       tempRow <- list(
@@ -265,7 +424,7 @@
 }
 
 # main functions
-.robttPriorsPlots              <- function(jaspResults, options) {
+.robttPriorsPlots              <- function(jaspResults, options, analysis) {
 
   # create / access the container
   if (!is.null(jaspResults[["priorPlots"]]))
@@ -281,7 +440,13 @@
   priors <- jaspResults[["priors"]][["object"]]
 
   # create container for each of the parameters
-  for (parameter in c("effect", "heterogeneity", "outliers")) {
+  analysisParameters <- switch(
+    analysis,
+    "averaged"  = c("effect", "heterogeneity"),
+    "robust"    = c("effect", "heterogeneity", "outliers"),
+    "truncated" = c("effect", "heterogeneity")
+  )
+  for (parameter in analysisParameters) {
 
     if (!is.null(priorPlots[[parameter]]))
       parameterContainer <- priorPlots[[parameter]]
@@ -374,14 +539,14 @@
 
   return()
 }
-.robttModelPreviewTable        <- function(jaspResults, options) {
+.robttModelPreviewTable        <- function(jaspResults, options, analysis) {
 
   # create / access the container
   if (!is.null(jaspResults[["modelPreview"]])) {
     return()
   } else {
     modelPreview <- createJaspContainer(title = gettext("Model Preview"))
-    modelPreview$dependOn(.robttRobustDependencies)
+    modelPreview$dependOn(.robttGetDependencies(analysis))
     modelPreview$position <- 1
     jaspResults[["modelPreview"]] <- modelPreview
   }
@@ -395,7 +560,7 @@
   if (
     (length(priors[["modelsEffect"]])           == 0 && length(priors[["modelsEffectNull"]])        == 0) ||
     (length(priors[["modelsUnequalVariances"]]) == 0 && length(priors[["modelsUnequalVariancesNull"]]) == 0) ||
-    (length(priors[["modelsOutliers"]])         == 0 && length(priors[["modelsOutliersNull"]])      == 0)
+    (analysis == "robust" && length(priors[["modelsOutliers"]]) == 0 && length(priors[["modelsOutliersNull"]]) == 0)
   ) {
     priorsError <- createJaspTable()
     priorsError$setError(gettext("Please specify a prior distribution for each parameter in the Models specification section (either null or alternative)."))
@@ -407,7 +572,7 @@
   fitSummary   <- RoBTT::check_setup(
     prior_delta      = priors[["modelsEffect"]],
     prior_rho        = priors[["modelsUnequalVariances"]],
-    prior_nu         = priors[["modelsOutliers"]],
+    prior_nu         = if (analysis == "robust") priors[["modelsOutliers"]],
     prior_delta_null = priors[["modelsEffectNull"]],
     prior_rho_null   = priors[["modelsUnequalVariancesNull"]],
     prior_nu_null    = priors[["modelsOutliersNull"]],
@@ -424,7 +589,7 @@
   overallSummary$addColumnInfo(name = "models",    title = gettext("Models"), type = "string")
   overallSummary$addColumnInfo(name = "priorProb", title = gettext("P(M)"),   type = "number")
 
-  for (i in 1:nrow(fitSummary[["components"]])) {
+  for (i in 1:if(analysis == "robust") 3 else 2) {
     tempRow <- list(
       terms     = if (i == 1) gettext("Effect") else if (i == 2) gettext("Unequal variances") else if (i == 3) gettext("Outliers"),
       models    = paste0(fitSummary[["components"]][[i, "models"]], "/", attr(fitSummary[["components"]], "n_models")),
@@ -447,7 +612,9 @@
   modelsSummary$addColumnInfo(name = "distribution",        title = gettext("Distribution"),      type = "string")
   modelsSummary$addColumnInfo(name = "priorEffect",         title = gettext("Effect"),            type = "string", overtitle = overtitlePrior)
   modelsSummary$addColumnInfo(name = "priorHeterogeneity",  title = gettext("Unequal variances"), type = "string", overtitle = overtitlePrior)
-  modelsSummary$addColumnInfo(name = "priorOutliers",       title = gettext("Outliers"),          type = "string", overtitle = overtitlePrior)
+  if (analysis == "robust") {
+    modelsSummary$addColumnInfo(name = "priorOutliers",       title = gettext("Outliers"),          type = "string", overtitle = overtitlePrior)
+  }
   modelsSummary$addColumnInfo(name = "priorProb",           title = gettext("P(M)"),              type = "number")
 
   for (i in 1:nrow(fitSummary[["summary"]])) {
@@ -456,9 +623,12 @@
       distribution       = fitSummary[["summary"]][i, "Distribution"],
       priorEffect        = fitSummary[["summary"]][i, "delta"],
       priorHeterogeneity = fitSummary[["summary"]][i, "rho"],
-      priorOutliers      = fitSummary[["summary"]][i, "nu"],
       priorProb          = fitSummary[["summary"]][i, "prior_prob"]
     )
+
+    if (analysis == "robust") {
+      tempRow$priorOutliers <- fitSummary[["summary"]][i, "nu"]
+    }
 
     modelsSummary$addRows(tempRow)
   }
@@ -469,29 +639,32 @@
 
   return()
 }
-.robttFitModel                 <- function(jaspResults, dataset, options) {
+.robttFitModel                 <- function(jaspResults, dataset, options, analysis) {
 
   if (!is.null(jaspResults[["model"]]))
     return()
 
   model <- createJaspState()
-  model$dependOn(.robttRobustDependencies)
+  model$dependOn(.robttGetDependencies(analysis))
   jaspResults[["model"]] <- model
 
 
   priors <- jaspResults[["priors"]]$object
   fit    <- try(RoBTT::RoBTT(
-    # data (JASP uses oposite ordering that the package)
+    # data (JASP uses opposite ordering that the package)
     x1 = dataset[[options[["dependent"]]]][dataset[[options[["group"]]]] == levels(dataset[[options[["group"]]]])[2]],
     x2 = dataset[[options[["dependent"]]]][dataset[[options[["group"]]]] == levels(dataset[[options[["group"]]]])[1]],
 
     # priors
     prior_delta      = priors[["modelsEffect"]],
     prior_rho        = priors[["modelsUnequalVariances"]],
-    prior_nu         = priors[["modelsOutliers"]],
+    prior_nu         = if (analysis == "robust") priors[["modelsOutliers"]],
     prior_delta_null = priors[["modelsEffectNull"]],
     prior_rho_null   = priors[["modelsUnequalVariancesNull"]],
     prior_nu_null    = priors[["modelsOutliersNull"]],
+    prior_mu         = if (analysis == "truncated") priors[["modelCommonMean"]],
+    prior_sigma2     = if (analysis == "truncated") priors[["modelCommonVariance"]],
+    truncation       = if (analysis == "truncated") .robttGetTruncation(options),
     # sampling settings
     chains  = options[["advancedMcmcChains"]],
     warmup  = options[["advancedMcmcAdaptation"]],
@@ -521,7 +694,7 @@
 
   return()
 }
-.robttSummaryTable             <- function(jaspResults, options) {
+.robttSummaryTable             <- function(jaspResults, options, analysis) {
 
   if (!is.null(jaspResults[["mainSummary"]])) {
     return()
@@ -529,14 +702,16 @@
     # create container
     mainSummary <- createJaspContainer(title = gettext("Summary"))
     mainSummary$position <- 3
-    mainSummary$dependOn( c(.robttRobustDependencies, "bayesFactorType", "inferenceCiWidth", "inferenceConditionalParameterEstimates", "inferencePrecisionAllocationAsStandardDeviationRatio"))
+    mainSummary$dependOn( c(
+      .robttGetDependencies(analysis), "bayesFactorType", "inferenceCiWidth",
+      "inferenceConditionalParameterEstimates", "inferencePrecisionAllocationAsStandardDeviationRatio"))
     jaspResults[["mainSummary"]] <- mainSummary
   }
 
   if (is.null(jaspResults[["model"]])) {
     if (options[["inferenceConditionalParameterEstimates"]]) {
       conditionalSummary <- createJaspTable(title = gettext("Conditional Estimates"), dependencies = "inferenceConditionalParameterEstimates")
-      conditionalSummary <- .robttTableFillCoef(conditionalSummary, NULL, options)
+      conditionalSummary <- .robttTableFillCoef(conditionalSummary, NULL, options, analysis = analysis)
       jaspResults[["mainSummary"]][["conditionalSummary"]] <- conditionalSummary
     }
     return()
@@ -597,7 +772,7 @@
   averagedSummary <- createJaspTable(title = gettext("Model Averaged Estimates"))
   averagedSummary$position <- 2
   attr(fitSummary[["estimates"]], "mean_sdr") <- mean(exp(RoBTT::rho2logsdr$fun(fit[["RoBTT"]][["posteriors"]][["rho"]])))
-  averagedSummary <- .robttTableFillCoef(averagedSummary, fitSummary[["estimates"]], options, groupLabels = attr(fit, "groupLabels"))
+  averagedSummary <- .robttTableFillCoef(averagedSummary, fitSummary[["estimates"]], options, groupLabels = attr(fit, "groupLabels"), analysis = analysis)
   mainSummary[["averagedSummary"]] <- averagedSummary
 
 
@@ -607,18 +782,18 @@
     conditionalSummary <- createJaspTable(title = gettext("Conditional Estimates"))
     conditionalSummary$position <- 5
     attr(fitSummary[["estimates_conditional"]], "mean_sdr") <- mean(exp(RoBTT::rho2logsdr$fun(fit[["RoBTT"]][["posteriors_conditional"]][["rho"]])))
-    conditionalSummary <- .robttTableFillCoef(conditionalSummary, fitSummary[["estimates_conditional"]], options, groupLabels = attr(fit, "groupLabels"))
+    conditionalSummary <- .robttTableFillCoef(conditionalSummary, fitSummary[["estimates_conditional"]], options, groupLabels = attr(fit, "groupLabels"), analysis = analysis)
     mainSummary[["conditionalSummary"]] <- conditionalSummary
   }
 
   return()
 }
-.robttModelsOvervievTable      <- function(jaspResults, options) {
+.robttModelsOvervievTable      <- function(jaspResults, options, analysis) {
 
   ### create overview table
   modelsSummary <- createJaspTable(title = gettext("Models Overview"))
   modelsSummary$position <- 6
-  modelsSummary$dependOn(c(.robttRobustDependencies, "bayesFactorType", "inferenceModelsOverview", "inferenceModelsOverviewBF", "inferenceModelsOverviewOrder", "inferenceShortenPriorName"))
+  modelsSummary$dependOn(c(.robttGetDependencies(analysis), "bayesFactorType", "inferenceModelsOverview", "inferenceModelsOverviewBF", "inferenceModelsOverviewOrder", "inferenceShortenPriorName"))
   jaspResults[["mainSummary"]][["modelsSummary"]] <- modelsSummary
 
   if (options[["inferenceModelsOverviewBfComparison"]] == "inclusion")
@@ -695,14 +870,14 @@
 
   return()
 }
-.robttModelsSummaryTable       <- function(jaspResults, options) {
+.robttModelsSummaryTable       <- function(jaspResults, options, analysis) {
 
   if (!is.null(jaspResults[["individualModels"]])) {
     return()
   } else {
     individualModels <- createJaspContainer(title = gettext("Individual Models Summary"))
     individualModels$position <- 5
-    individualModels$dependOn(c(.robttRobustDependencies, "bayesFactorType", "inferenceIndividualModels", "inferenceIndividualModelsSingleModel", "inferenceIndividualModelsSingleModelNumber", "inferenceShortenPriorName", "inferenceOutputScale"))
+    individualModels$dependOn(c(.robttGetDependencies(analysis), "bayesFactorType", "inferenceIndividualModels", "inferenceIndividualModelsSingleModel", "inferenceIndividualModelsSingleModelNumber", "inferenceShortenPriorName", "inferenceOutputScale"))
     jaspResults[["individualModels"]] <- individualModels
   }
 
@@ -721,7 +896,9 @@
     tempPriors <- createJaspTable(title = gettext("Priors"))
     tempPriors$addColumnInfo(name = "priorDelta",   title = gettext("Effect"),            type = "string")
     tempPriors$addColumnInfo(name = "priorRho",     title = gettext("Unequal variances"), type = "string")
-    tempPriors$addColumnInfo(name = "priorNu",      title = gettext("Outliers"),          type = "string")
+    if (analysis == "robust") {
+      tempPriors$addColumnInfo(name = "priorNu",      title = gettext("Outliers"),          type = "string")
+    }
     tempModel[["tempPriors"]] <- tempPriors
 
     tempInfo <- createJaspTable(title = gettext("Information"))
@@ -733,7 +910,7 @@
     tempModel[["tempInfo"]] <- tempInfo
 
     tempCoef <- createJaspTable(title = gettext("Model Estimates"))
-    tempCoef <- .robttTableFillCoef(tempCoef, NULL, options, individual = TRUE)
+    tempCoef <- .robttTableFillCoef(tempCoef, NULL, options, individual = TRUE, analysis = analysis)
     tempModel[["tempCoef"]] <- tempCoef
 
     return()
@@ -777,16 +954,23 @@
     tempPriors <- createJaspTable(title = gettext("Priors"))
     tempPriors$addColumnInfo(name = "priorDelta",  title = gettext("Effect"),            type = "string")
     tempPriors$addColumnInfo(name = "priorRho",    title = gettext("Unequal variances"), type = "string")
-    tempPriors$addColumnInfo(name = "priorNu",     title = gettext("Outliers"),          type = "string")
+    if (analysis == "robust") {
+      tempPriors$addColumnInfo(name = "priorNu", title = gettext("Outliers"), type = "string")
+    }
 
-    tempPriors$addRows(list(
+    tempRow <- list(
       priorDelta  = print(fit[["models"]][[i]][["priors"]][["delta"]], silent = TRUE, short_name = options[["inferenceShortenPriorName"]]),
-      priorRho    = print(fit[["models"]][[i]][["priors"]][["rho"]],   silent = TRUE, short_name = options[["inferenceShortenPriorName"]]),
-      priorNu     = if (is.null(fit[["models"]][[i]][["priors"]][["nu"]]))
+      priorRho    = print(fit[["models"]][[i]][["priors"]][["rho"]],   silent = TRUE, short_name = options[["inferenceShortenPriorName"]])
+    )
+
+    if (analysis == "robust") {
+      tempRow$priorNu = if (is.null(fit[["models"]][[i]][["priors"]][["nu"]]))
         ""
       else
         print(fit[["models"]][[i]][["priors"]][["nu"]], silent = TRUE, short_name = options[["inferenceShortenPriorName"]])
-    ))
+    }
+
+    tempPriors$addRows(tempRow)
 
     tempModel[["tempPriors"]] <- tempPriors
 
@@ -814,20 +998,20 @@
     ### model coefficients
     # estimate table
     tempCoef <- createJaspTable(title = gettext("Model Estimates"))
-    tempCoef <- .robttTableFillCoef(tempCoef, fitSummary$models[[i]][["estimates"]], options, individual = TRUE)
+    tempCoef <- .robttTableFillCoef(tempCoef, fitSummary$models[[i]][["estimates"]], options, individual = TRUE, analysis = analysis)
     tempModel[["tempCoef"]] <- tempCoef
 
   }
 
   return()
 }
-.robttEstimatesPlot            <- function(jaspResults, options, parameter) {
+.robttEstimatesPlot            <- function(jaspResults, options, parameter, analysis) {
 
   # create / access the container
   if (is.null(jaspResults[["estimatesPlots"]])) {
     estimatesPlots <- createJaspContainer(title = gettext("Posterior Distribution Plots"))
     estimatesPlots$position <- 7
-    estimatesPlots$dependOn(c(.robttRobustDependencies, "plotsPooledEstimatesType", "plotsPooledEstimatesPriorDistribution"))
+    estimatesPlots$dependOn(c(.robttGetDependencies(analysis), "plotsPooledEstimatesType", "plotsPooledEstimatesPriorDistribution"))
     jaspResults[["estimatesPlots"]] <- estimatesPlots
   } else {
     estimatesPlots <- jaspResults[["estimatesPlots"]]
@@ -901,13 +1085,13 @@
 
   return()
 }
-.robttDiagnosticsOverviewTable <- function(jaspResults, options) {
+.robttDiagnosticsOverviewTable <- function(jaspResults, options, analysis) {
 
   # create / access the container
   if (is.null(jaspResults[["diagnostics"]])) {
     diagnostics <- createJaspContainer(title = gettext("Diagnostics"))
     diagnostics$position <- 9
-    diagnostics$dependOn(.robttRobustDependencies)
+    diagnostics$dependOn(.robttGetDependencies(analysis))
     jaspResults[["diagnostics"]] <- diagnostics
   } else {
     diagnostics <- jaspResults[["diagnostics"]]
@@ -921,7 +1105,7 @@
   ### create overview table
   diagosticsTable <-  createJaspTable(title = gettext("Models Diagnostics Overview"))
   diagosticsTable$position <- 1
-  diagosticsTable$dependOn(c(.robttRobustDependencies, "mcmcDiagnosticsOverviewTable", "inferenceShortenPriorName"))
+  diagosticsTable$dependOn(c(.robttGetDependencies(analysis), "mcmcDiagnosticsOverviewTable", "inferenceShortenPriorName"))
   diagnostics[["diagosticsTable"]] <- diagosticsTable
 
   overtitlePrior <- gettext("Prior Distribution")
@@ -930,7 +1114,9 @@
   diagosticsTable$addColumnInfo(name = "distribution",       title = gettext("Distribution"),      type = "string")
   diagosticsTable$addColumnInfo(name = "priorEffect",        title = gettext("Effect"),            type = "string",  overtitle = overtitlePrior)
   diagosticsTable$addColumnInfo(name = "priorHeterogeneity", title = gettext("Unequal variances"), type = "string",  overtitle = overtitlePrior)
-  diagosticsTable$addColumnInfo(name = "priorOutliers",      title = gettext("Outliers"),          type = "string",  overtitle = overtitlePrior)
+  if (analysis == "robust") {
+    diagosticsTable$addColumnInfo(name = "priorOutliers",      title = gettext("Outliers"),          type = "string",  overtitle = overtitlePrior)
+  }
   diagosticsTable$addColumnInfo(name = "ess",                title = gettext("min(ESS)"),          type = "integer")
   diagosticsTable$addColumnInfo(name = "rHat",               title = gettext("max(R-hat)"),        type = "number")
 
@@ -949,39 +1135,47 @@
   )
 
   for (i in 1:nrow(fitSummary[["diagnostics"]])) {
-    diagosticsTable$addRows(list(
+
+    tempRows <- list(
       number             = fitSummary[["diagnostics"]][i, "Model"],
       distribution       = fitSummary[["diagnostics"]][i, "Distribution"],
       priorEffect        = fitSummary[["diagnostics"]][i, "delta"],
       priorHeterogeneity = fitSummary[["diagnostics"]][i, "rho"],
-      priorOutliers      = fitSummary[["diagnostics"]][i, "nu"],
       ess                = round(fitSummary[["diagnostics"]][i, "min_ESS"]),
       rHat               = fitSummary[["diagnostics"]][i, "max_R_hat"]
-    ))
+    )
+    if (analysis == "robust") {
+      tempRows$priorOutliers <- fitSummary[["diagnostics"]][i, "nu"]
+    }
+
+    diagosticsTable$addRows(tempRows)
   }
 
   return()
 }
-.robttDiagnosticsPlots         <- function(jaspResults, options) {
+.robttDiagnosticsPlots         <- function(jaspResults, options, analysis) {
 
   # create / access the container
   if (is.null(jaspResults[["diagnostics"]])) {
     diagnostics <- createJaspContainer(title = gettext("Diagnostics"))
     diagnostics$position <- 9
-    diagnostics$dependOn(.robttRobustDependencies)
+    diagnostics$dependOn(.robttGetDependencies(analysis))
     jaspResults[["diagnostics"]] <- diagnostics
   } else {
     diagnostics <- jaspResults[["diagnostics"]]
   }
 
 
-  # create waiting plot
-  if (all(!c(options[["mcmcDiagnosticsPlotEffect"]], options[["mcmcDiagnosticsPlotUnequalVariances"]], options[["mcmcDiagnosticsPlotOutliers"]])) ||
-      all(!c(options[["mcmcDiagnosticsPlotTypeTrace"]], options[["mcmcDiagnosticsPlotTypeAutocorrelation"]], options[["mcmcDiagnosticsPlotTypePosteriorSamplesDensity"]])) ||
-      is.null(jaspResults[["model"]])) {
-    tempWait  <- createJaspPlot(title = "")
-    tempWait$dependOn(c("mcmcDiagnosticsPlotEffect", "mcmcDiagnosticsPlotUnequalVariances", "mcmcDiagnosticsPlotOutliers",
-                        "mcmcDiagnosticsPlotTypeTrace", "mcmcDiagnosticsPlotTypeAutocorrelation", "mcmcDiagnosticsPlotTypePosteriorSamplesDensity"))
+  if (is.null(jaspResults[["model"]]))
+    wait <- TRUE
+  else if (!.robttCheckDiagnostics(options, any = FALSE, analysis))
+    wait <- TRUE
+  else
+    wait <- FALSE
+
+  if (wait) {
+    tempWait  <- createJaspHtml(text = gettext("MCMC Diagnostics plots are created once both the plotted parameter ('Plot') and the plot type ('Type') options are selected."))
+    tempWait$dependOn(.robttGetDiagnosticsDependencies(analysis))
     diagnostics[["tempWait"]] <- tempWait
     return()
   }
@@ -1012,7 +1206,7 @@
     parameters <- c(parameters, "delta")
   if (options[["mcmcDiagnosticsPlotUnequalVariances"]])
     parameters <- c(parameters, "rho")
-  if (options[["mcmcDiagnosticsPlotOutliers"]])
+  if (analysis == "robust" && options[["mcmcDiagnosticsPlotOutliers"]])
     parameters <- c(parameters, "nu")
 
 
@@ -1153,8 +1347,7 @@
     # show error if only one model is selected but doesn't contain any of the diagnostics
     if (noPars && options[["mcmcDiagnosticsPlotSingleModelNumber"]]) {
       tempError  <- createJaspPlot(title = "")
-      tempError$dependOn(c("mcmcDiagnosticsPlotEffect", "mcmcDiagnosticsPlotUnequalVariances", "mcmcDiagnosticsPlotOutliers",
-                           "mcmcDiagnosticsPlotTypeTrace", "mcmcDiagnosticsPlotTypeAutocorrelation", "mcmcDiagnosticsPlotTypePosteriorSamplesDensity"))
+      tempError$dependOn(.robttGetDiagnosticsDependencies(analysis))
       tempError$setError(gettextf("Model %i does not contain any of the selected parameters.", i))
       tempModel[["tempError"]] <- tempError
     }
@@ -1169,4 +1362,42 @@
     "BF01"    = 1/BF,
     "LogBF10" = log(BF)
   ))
+}
+.robttCheckDiagnostics           <- function(options, any, analysis) {
+
+  if (analysis == "robust") {
+    parametersAny <-
+      options[["mcmcDiagnosticsPlotEffect"]]           ||
+      options[["mcmcDiagnosticsPlotUnequalVariances"]] ||
+      options[["mcmcDiagnosticsPlotOutliers"]]
+    typeAny       <-
+      options[["mcmcDiagnosticsPlotTypeTrace"]]            ||
+      options[["mcmcDiagnosticsPlotTypeAutocorrelation"]]  ||
+      options[["mcmcDiagnosticsPlotTypePosteriorSamplesDensity"]]
+  } else {
+    parametersAny <-
+      options[["mcmcDiagnosticsPlotEffect"]]           ||
+      options[["mcmcDiagnosticsPlotUnequalVariances"]]
+    typeAny       <-
+      options[["mcmcDiagnosticsPlotTypeTrace"]]            ||
+      options[["mcmcDiagnosticsPlotTypeAutocorrelation"]]
+  }
+
+  if (any)
+    return(parametersAny || typeAny)
+  else
+    return(parametersAny && typeAny)
+}
+.robttGetDiagnosticsDependencies <- function(analysis) {
+  if (analysis == "robust") {
+    return(c(
+      "mcmcDiagnosticsPlotEffect", "mcmcDiagnosticsPlotUnequalVariances", "mcmcDiagnosticsPlotOutliers",
+      "mcmcDiagnosticsPlotTypeTrace", "mcmcDiagnosticsPlotTypeAutocorrelation", "mcmcDiagnosticsPlotTypePosteriorSamplesDensity"
+    ))
+  } else {
+    return(c(
+      "mcmcDiagnosticsPlotEffect", "mcmcDiagnosticsPlotUnequalVariances",
+      "mcmcDiagnosticsPlotTypeTrace", "mcmcDiagnosticsPlotTypeAutocorrelation"
+    ))
+  }
 }

@@ -23,8 +23,9 @@ import JASP				1.0
 
 Section
 {
-	title: 		qsTr("Plots")
+	property string testType:	"robust"
 
+	title: 		qsTr("Plots")
 
 	Group
 	{
@@ -47,6 +48,7 @@ Section
 		{
 			label:	qsTr("Outliers (degrees of freedom)")
 			name:	"plotsPooledEstimatesOutliers"
+			visible:testType === "robust"
 		}
 
 	}
