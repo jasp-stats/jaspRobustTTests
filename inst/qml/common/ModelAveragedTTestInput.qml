@@ -38,7 +38,7 @@ ColumnLayout
 		{
 			name:				"dependent"
 			title:				qsTr("Dependent Variable")
-			suggestedColumns:	["scale"]
+			allowedColumns:		["scale"]
 			singleVariable:		true
 		}
 
@@ -46,7 +46,7 @@ ColumnLayout
 		{
 			name:				"group"
 			title:				qsTr("Grouping Variable")
-			suggestedColumns:	["ordinal", "nominal"]
+			allowedColumns:		["nominal"]
 			singleVariable:		true
 		}
 	}
