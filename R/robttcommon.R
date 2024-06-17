@@ -223,29 +223,10 @@
 .robttReadData             <- function(dataset = NULL, options) {
 
   if (is.null(dataset)) {
-
-    dependents <- options[["dependent"]]
-    grouping   <- options[["group"]]
-
-    if (identical(grouping, ""))
-      grouping <- NULL
-
-    excl <- grouping
-    excl <- c(excl, dependents)
-
-
-    if (length(dependents)) {
-      dataset <- .readDataSetToEnd(columns = c(dependents, grouping), exclude.na.listwise = excl)
-      if (!is.null(grouping))
-        dataset[[grouping]] <- as.factor(dataset[[grouping]])
-
-      # 100% required if we fully switch to columns = ... , but also allow the QML interface to be not strict in terms of input,
-      # so factors can be entered in scale boxes. Joris probably has more ideas about this
-      for (var in dependents) {
-        if (is.factor(dataset[[var]]))
-          dataset[[var]] <- as.numeric(levels(dataset[[var]]))[dataset[[var]]]
-      }
-    }
+    dataset <- .readDataSetToEnd(
+      columns.as.numeric  = if (options[["dependent"]] != "") options[["dependent"]],
+      columns.as.factor   = if (options[["group"]] != "")     options[["group"]]
+    )
   }
   return(dataset)
 }
