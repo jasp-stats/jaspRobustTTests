@@ -28,7 +28,7 @@
   ### Inference
   # default summary
   if (.robttCheckReady(options))
-    .robttSummaryTable(jaspResults, options, analysis)
+    .robttSummaryTable(jaspResults, dataset, options, analysis)
   # models overview
   if (options[["inferenceModelsOverview"]])
     .robttModelsOvervievTable(jaspResults, options, analysis)
@@ -227,6 +227,8 @@
       columns.as.numeric  = if (options[["dependent"]] != "") options[["dependent"]],
       columns.as.factor   = if (options[["group"]] != "")     options[["group"]]
     )
+
+    dataset <- na.omit(dataset)
   }
   return(dataset)
 }
@@ -675,7 +677,7 @@
 
   return()
 }
-.robttSummaryTable             <- function(jaspResults, options, analysis) {
+.robttSummaryTable             <- function(jaspResults, dataset, options, analysis) {
 
   if (!is.null(jaspResults[["mainSummary"]])) {
     return()
@@ -744,6 +746,10 @@
   for (i in seq_along(errorsAndWarnings)) {
     overallSummary$addFootnote(symbol = gettext("Warning:"), errorsAndWarnings[i])
   }
+
+  if (!is.null(attr(dataset, "na.action")))
+    overallSummary$addFootnote(gettextf("%1$i observations were removed due to missing values.", length(attr(dataset, "na.action"))))
+
 
   mainSummary[["overallSummary"]] <- overallSummary
 
