@@ -6,7 +6,7 @@ Description
 	name		: "jaspRobustTTests"
 	title		: qsTr("Robust T-Tests")
 	description	: qsTr("Robustly evaluate the difference between two means")
-	version			: "0.19.0"
+	version			: "0.19.2"
 	author		: "JASP Team"
 	maintainer	: "JASP Team <info@jasp-stats.org>"
 	website		: "jasp-stats.org"
