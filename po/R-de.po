@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jaspRobustTTests 0.19.2\n"
 "POT-Creation-Date: 2024-10-19 03:53\n"
-"PO-Revision-Date: 2024-10-19 09:24+0000\n"
+"PO-Revision-Date: 2024-10-21 07:19+0000\n"
 "Last-Translator: Johannes Keyser <joke@fsfe.org>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/jasp/"
 "jasprobustttests-r/de/>\n"
@@ -48,34 +48,34 @@ msgid "The precision allocation corresponds to the proportion of total precision
 msgstr ""
 
 msgid "Effect size (%s)"
-msgstr ""
+msgstr "Effektstärke (%s)"
 
 msgid "Precision allocation (%s)"
 msgstr ""
 
 msgid "Degrees of freedom (%s)"
-msgstr ""
+msgstr "Freiheitsgrade (%s)"
 
 msgid "Prior Plots"
-msgstr ""
+msgstr "Prior-Diagramme"
 
 msgid "Effect"
-msgstr ""
+msgstr "Effekt"
 
 msgid "Unequal variances"
-msgstr ""
+msgstr "Ungleiche Varianzen"
 
 msgid "Outliers"
-msgstr ""
+msgstr "Ausreißer"
 
 msgid "Null"
-msgstr ""
+msgstr "Null"
 
 msgid "Alternative"
-msgstr ""
+msgstr "Alternative"
 
 msgid "Model Preview"
-msgstr ""
+msgstr "Modell-Vorschau"
 
 msgid "Please specify a prior distribution for each parameter in the Models specification section (either null or alternative)."
 msgstr ""
