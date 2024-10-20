@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2024-10-19 09:24+0000\n"
+"PO-Revision-Date: 2024-10-21 07:15+0000\n"
 "Last-Translator: Johannes Keyser <joke@fsfe.org>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/jasp/"
 "jasprobustttests-qml/de/>\n"
@@ -79,19 +79,19 @@ msgstr "Ausdünnen"
 
 msgctxt "ModelAveragedTTestInference|"
 msgid "Inference"
-msgstr ""
+msgstr "Inferenz"
 
 msgctxt "ModelAveragedTTestInference|"
 msgid "Conditional parameter estimates"
-msgstr ""
+msgstr "Bedingte Parameterschätzungen"
 
 msgctxt "ModelAveragedTTestInference|"
 msgid "Models overview"
-msgstr ""
+msgstr "Modellübersicht"
 
 msgctxt "ModelAveragedTTestInference|"
 msgid "BF Comparison"
-msgstr ""
+msgstr "BF-Vergleich"
 
 msgctxt "ModelAveragedTTestInference|"
 msgid "Inclusion"
@@ -99,19 +99,19 @@ msgstr ""
 
 msgctxt "ModelAveragedTTestInference|"
 msgid "vs. best"
-msgstr ""
+msgstr "vs. bestes"
 
 msgctxt "ModelAveragedTTestInference|"
 msgid "vs. previous"
-msgstr ""
+msgstr "vs. vorheriges"
 
 msgctxt "ModelAveragedTTestInference|"
 msgid "Order"
-msgstr ""
+msgstr "Reihenfolge"
 
 msgctxt "ModelAveragedTTestInference|"
 msgid "Model number"
-msgstr ""
+msgstr "Modellnummer"
 
 msgctxt "ModelAveragedTTestInference|"
 msgid "Marginal likelihood"
@@ -119,23 +119,23 @@ msgstr ""
 
 msgctxt "ModelAveragedTTestInference|"
 msgid "Posterior probability"
-msgstr ""
+msgstr "Posterior-Wahrscheinlichkeit"
 
 msgctxt "ModelAveragedTTestInference|"
 msgid "Individual models"
-msgstr ""
+msgstr "Einzelne Modelle"
 
 msgctxt "ModelAveragedTTestInference|"
 msgid "Single model"
-msgstr ""
+msgstr "Einzelnes Modell"
 
 msgctxt "ModelAveragedTTestInference|"
 msgid "CI width"
-msgstr ""
+msgstr "KI-Breite"
 
 msgctxt "ModelAveragedTTestInference|"
 msgid "Shorten prior names"
-msgstr ""
+msgstr "Prior-Namen kürzen"
 
 msgctxt "ModelAveragedTTestInference|"
 msgid "Precision allocation as standard deviation ratio"
@@ -143,35 +143,35 @@ msgstr ""
 
 msgctxt "ModelAveragedTTestInput|"
 msgid "Dependent Variable"
-msgstr ""
+msgstr "Abhängige Variable"
 
 msgctxt "ModelAveragedTTestInput|"
 msgid "Grouping Variable"
-msgstr ""
+msgstr "Gruppierungsvariable"
 
 msgctxt "ModelAveragedTTestInput|"
 msgid "Prior distribution plots"
-msgstr ""
+msgstr "Prior-Verteilungsdiagramme"
 
 msgctxt "ModelAveragedTTestInput|"
 msgid "Truncation"
-msgstr ""
+msgstr "Stutzung"
 
 msgctxt "ModelAveragedTTestInput|"
 msgid "Standard deviation (z-score)"
-msgstr ""
+msgstr "Standardabweichung (Z-Score)"
 
 msgctxt "ModelAveragedTTestInput|"
 msgid "Per sample"
-msgstr ""
+msgstr "Pro Stichprobe"
 
 msgctxt "ModelAveragedTTestInput|"
 msgid "Sample 1"
-msgstr ""
+msgstr "Stichprobe 1"
 
 msgctxt "ModelAveragedTTestInput|"
 msgid "Sample 2"
-msgstr ""
+msgstr "Stichprobe 2"
 
 msgctxt "ModelAveragedTTestInput|"
 msgid "Across samples"
@@ -179,51 +179,51 @@ msgstr ""
 
 msgctxt "ModelAveragedTTestInput|"
 msgid "Both samples"
-msgstr ""
+msgstr "Beide Stichproben"
 
 msgctxt "ModelAveragedTTestInput|"
 msgid "Bounds"
-msgstr ""
+msgstr "Grenzen"
 
 msgctxt "ModelAveragedTTestInput|"
 msgid "Lower"
-msgstr ""
+msgstr "Untere"
 
 msgctxt "ModelAveragedTTestInput|"
 msgid "Upper"
-msgstr ""
+msgstr "Obere"
 
 msgctxt "ModelAveragedTTestInput|"
 msgid "Both Samples"
-msgstr ""
+msgstr "Beide Stichproben"
 
 msgctxt "ModelAveragedTTestMcmcDiagnostics|"
 msgid "MCMC Diagnostics"
-msgstr ""
+msgstr "MCMC-Diagnostiken"
 
 msgctxt "ModelAveragedTTestMcmcDiagnostics|"
 msgid "Overview table"
-msgstr ""
+msgstr "Übersichtstabelle"
 
 msgctxt "ModelAveragedTTestMcmcDiagnostics|"
 msgid "Plot"
-msgstr ""
+msgstr "Diagramm"
 
 msgctxt "ModelAveragedTTestMcmcDiagnostics|"
 msgid "Effect"
-msgstr ""
+msgstr "Effekt"
 
 msgctxt "ModelAveragedTTestMcmcDiagnostics|"
 msgid "Unequal variances"
-msgstr ""
+msgstr "Ungleiche Varianzen"
 
 msgctxt "ModelAveragedTTestMcmcDiagnostics|"
 msgid "Degrees of freedom"
-msgstr ""
+msgstr "Freiheitsgrade"
 
 msgctxt "ModelAveragedTTestMcmcDiagnostics|"
 msgid "Type"
-msgstr ""
+msgstr "Typ"
 
 msgctxt "ModelAveragedTTestMcmcDiagnostics|"
 msgid "Trace"
@@ -231,27 +231,27 @@ msgstr ""
 
 msgctxt "ModelAveragedTTestMcmcDiagnostics|"
 msgid "Autocorrelation"
-msgstr ""
+msgstr "Autokorrelation"
 
 msgctxt "ModelAveragedTTestMcmcDiagnostics|"
 msgid "Posterior samples density"
-msgstr ""
+msgstr "Dichte Posterior-Stichprobe"
 
 msgctxt "ModelAveragedTTestMcmcDiagnostics|"
 msgid "Single model"
-msgstr ""
+msgstr "Einzelnes Modell"
 
 msgctxt "ModelAveragedTTestPlots|"
 msgid "Plots"
-msgstr ""
+msgstr "Diagramme"
 
 msgctxt "ModelAveragedTTestPlots|"
 msgid "Pooled estimates"
-msgstr ""
+msgstr "Gepoolte Schätzungen"
 
 msgctxt "ModelAveragedTTestPlots|"
 msgid "Effect"
-msgstr ""
+msgstr "Effekt"
 
 msgctxt "ModelAveragedTTestPlots|"
 msgid "Unequal variances (precision allocation)"
@@ -263,27 +263,28 @@ msgstr ""
 
 msgctxt "ModelAveragedTTestPlots|"
 msgid "Type"
-msgstr ""
+msgstr "Typ"
 
 msgctxt "ModelAveragedTTestPlots|"
 msgid "Model averaged"
-msgstr ""
+msgstr "Modell-gemittelt"
 
+#, fuzzy
 msgctxt "ModelAveragedTTestPlots|"
 msgid "Conditional"
-msgstr ""
+msgstr "Bedingt"
 
 msgctxt "ModelAveragedTTestPlots|"
 msgid "Prior distribution"
-msgstr ""
+msgstr "Prior-Verteilung"
 
 msgctxt "ModelAveragedTTestPriors|"
 msgid "Effect"
-msgstr ""
+msgstr "Effekt"
 
 msgctxt "ModelAveragedTTestPriors|"
 msgid "Effect (null)"
-msgstr ""
+msgstr "Effekt (Null)"
 
 msgctxt "ModelAveragedTTestPriors|"
 msgid "Unequal variances (precision allocation)"
@@ -291,7 +292,7 @@ msgstr ""
 
 msgctxt "ModelAveragedTTestPriors|"
 msgid "Unequal variances (null)"
-msgstr ""
+msgstr "Ungleiche Varianzen (Null)"
 
 msgctxt "ModelAveragedTTestPriors|"
 msgid "Outliers (degrees of freedom + 2)"
@@ -303,103 +304,103 @@ msgstr ""
 
 msgctxt "ModelAveragedTTestPriors|"
 msgid "Common mean"
-msgstr ""
+msgstr "Gemeinsamer Mittelwert"
 
 msgctxt "ModelAveragedTTestPriors|"
 msgid "Common variance"
-msgstr ""
+msgstr "Gemeinsame Varianz"
 
 msgctxt "ModelAveragedTTestPriors|"
 msgid "Distribution"
-msgstr ""
+msgstr "Verteilung"
 
 msgctxt "ModelAveragedTTestPriors|"
 msgid "Parameters"
-msgstr ""
+msgstr "Parameter"
 
 msgctxt "ModelAveragedTTestPriors|"
 msgid "Truncation"
-msgstr ""
+msgstr "Stutzung"
 
 msgctxt "ModelAveragedTTestPriors|"
 msgid "Prior weights"
-msgstr ""
+msgstr "Prior-Gewichte"
 
 msgctxt "ModelAveragedTTestPriors|"
 msgid "Normal(μ,σ)"
-msgstr ""
+msgstr "Normal(μ,σ)"
 
 msgctxt "ModelAveragedTTestPriors|"
 msgid "Student-t(μ,σ,v)"
-msgstr ""
+msgstr "Student-t(μ,σ,v)"
 
 msgctxt "ModelAveragedTTestPriors|"
 msgid "Cauchy(x₀,θ)"
-msgstr ""
+msgstr "Cauchy(x₀,θ)"
 
 msgctxt "ModelAveragedTTestPriors|"
 msgid "Gamma(α,β)"
-msgstr ""
+msgstr "Gamma(α,β)"
 
 msgctxt "ModelAveragedTTestPriors|"
 msgid "Gamma(k,θ)"
-msgstr ""
+msgstr "Gamma(k,θ)"
 
 msgctxt "ModelAveragedTTestPriors|"
 msgid "Inverse-Gamma(α,β)"
-msgstr ""
+msgstr "Inverse-Gamma(α,β)"
 
 msgctxt "ModelAveragedTTestPriors|"
 msgid "Log-Normal(μ,σ)"
-msgstr ""
+msgstr "Log-Normal(μ,σ)"
 
 msgctxt "ModelAveragedTTestPriors|"
 msgid "Beta(α,β)"
-msgstr ""
+msgstr "Beta(α,β)"
 
 msgctxt "ModelAveragedTTestPriors|"
 msgid "Uniform(a,b)"
-msgstr ""
+msgstr "Uniform(a,b)"
 
 msgctxt "ModelAveragedTTestPriors|"
 msgid "Exponential(λ)"
-msgstr ""
+msgstr "Exponential(λ)"
 
 msgctxt "ModelAveragedTTestPriors|"
 msgid "Spike(x₀)"
-msgstr ""
+msgstr "Punktmasse(x₀)"
 
 msgctxt "ModelAveragedTTestPriors|"
 msgid "None"
-msgstr ""
+msgstr "Keine"
 
 msgctxt "ModelAveragedTTestPriors|"
 msgid "lower"
-msgstr ""
+msgstr "untere"
 
 msgctxt "ModelAveragedTTestPriors|"
 msgid "upper"
-msgstr ""
+msgstr "obere"
 
 msgctxt "ModelAveragedTTestPriors|"
 msgid "Weight"
-msgstr ""
+msgstr "Gewicht"
 
 msgctxt "RobustBayesianModelAveragedTTest|"
 msgid "Models"
-msgstr ""
+msgstr "Modelle"
 
 msgctxt "RobustBayesianModelAveragedTTest|"
 msgid "Set null priors"
-msgstr ""
+msgstr "Null-Prior setzen"
 
 msgctxt "TruncatedBayesianModelAveragedTTest|"
 msgid "Models"
-msgstr ""
+msgstr "Modelle"
 
 msgctxt "TruncatedBayesianModelAveragedTTest|"
 msgid "Set null priors"
-msgstr ""
+msgstr "Null-Prior setzen"
 
 msgctxt "TruncatedBayesianModelAveragedTTest|"
 msgid "Set common priors"
