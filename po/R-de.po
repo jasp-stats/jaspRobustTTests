@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jaspRobustTTests 0.19.2\n"
 "POT-Creation-Date: 2024-10-19 03:53\n"
-"PO-Revision-Date: 2024-10-21 07:19+0000\n"
+"PO-Revision-Date: 2024-10-31 18:00+0000\n"
 "Last-Translator: Johannes Keyser <joke@fsfe.org>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/jasp/"
 "jasprobustttests-r/de/>\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.8-rc\n"
+"X-Generator: Weblate 5.8.2-dev\n"
 
 msgid "%s%% CI"
 msgstr "%s%% KI"
@@ -79,36 +79,40 @@ msgstr "Modell-Vorschau"
 
 msgid "Please specify a prior distribution for each parameter in the Models specification section (either null or alternative)."
 msgstr ""
+"Bitte geben Sie im Abschnitt Modellspezifikation für jeden Parameter eine "
+"Prior-Verteilung an (entweder Null oder alternativ)."
 
 msgid "Model Summary"
-msgstr ""
+msgstr "Modellzusammenfassung"
 
 msgid "Models"
-msgstr ""
+msgstr "Modelle"
 
 msgid "P(M)"
-msgstr ""
+msgstr "P(M)"
 
 msgid "This analysis uses MCMC and might require a prolonged time to complete."
-msgstr ""
+msgstr "Die Analyse nutzt MCMC, was eine längere Zeit dauern könnte."
 
 msgid "Model Specification Preview"
-msgstr ""
+msgstr "Vorschau der Modellspezifikation"
 
 msgid "Prior Distribution"
-msgstr ""
+msgstr "Priorverteilung"
 
 msgid "Distribution"
-msgstr ""
+msgstr "Verteilung"
 
 msgid "The analysis will estimate multiple models using MCMC and might require a prolonged time to complete."
 msgstr ""
+"Die Analyse wird mehrere Modelle mit MCMC schätzen, was eine längere Zeit "
+"dauern könnte."
 
 msgid "Summary"
-msgstr ""
+msgstr "Zusammenfassung"
 
 msgid "Conditional Estimates"
-msgstr ""
+msgstr "Konditionale Schätzungen"
 
 msgid "Inclusion BF"
 msgstr ""
@@ -120,52 +124,53 @@ msgid "log(Inclusion BF)"
 msgstr ""
 
 msgid "P(M|data)"
-msgstr ""
+msgstr "P(M|Daten)"
 
 msgid "Warning:"
-msgstr ""
+msgstr "Warnung:"
 
 msgid "%1$i observations were removed due to missing values."
-msgstr ""
+msgstr "%1$i Beobachtungen wurden wegen fehlender Werte gelöscht."
 
 msgid "Model Averaged Estimates"
-msgstr ""
+msgstr "Modellgemittelte Schätzungen"
 
 msgid "Models Overview"
-msgstr ""
+msgstr "Modell-Überblick"
 
 msgid "BF%s"
-msgstr ""
+msgstr "BF%s"
 
 msgid "log(BF%s)"
-msgstr ""
+msgstr "Log(BF%s)"
 
 msgid "log(MargLik)"
-msgstr ""
+msgstr "Log(MargLik)"
 
 msgid "Individual Models Summary"
-msgstr ""
+msgstr "Zusammenfassung einzelner Modelle"
 
 msgid "Model #"
-msgstr ""
+msgstr "Modell #"
 
 msgid "Priors"
-msgstr ""
+msgstr "Prior"
 
 msgid "Information"
-msgstr ""
+msgstr "Information"
 
 msgid "Model Estimates"
-msgstr ""
+msgstr "Modell-Schätzungen"
 
 msgid "Model %i"
-msgstr ""
+msgstr "Modell %i"
 
 msgid "Model %1$i does not exist. Select one of the models between 1 and %2$i."
 msgstr ""
+"Modell %1$i existiert nicht. Wähle eins der Modelle zwischen 1 und %2$i."
 
 msgid "Posterior Distribution Plots"
-msgstr ""
+msgstr "Posteriorverteilung-Diagramme"
 
 msgid "Conditional"
 msgstr ""
@@ -174,7 +179,7 @@ msgid "Model Averaged"
 msgstr ""
 
 msgid "Effect Size Estimate"
-msgstr ""
+msgstr "Effekstärke-Schätzung"
 
 msgid "Heterogeneity Estimate (Precision Allocation)"
 msgstr ""
@@ -183,16 +188,16 @@ msgid "Outliers Estimate (Degrees of Freedom)"
 msgstr ""
 
 msgid "Diagnostics"
-msgstr ""
+msgstr "Diagnostiken"
 
 msgid "Models Diagnostics Overview"
-msgstr ""
+msgstr "Modell-Diagnostiken-Überblick"
 
 msgid "min(ESS)"
-msgstr ""
+msgstr "min(ESS)"
 
 msgid "max(R-hat)"
-msgstr ""
+msgstr "max(R-Dach)"
 
 msgid "MCMC Diagnostics plots are created once both the plotted parameter ('Plot') and the plot type ('Type') options are selected."
 msgstr ""
@@ -204,13 +209,13 @@ msgid "Outliers (Degrees of Freedom)"
 msgstr ""
 
 msgid "Trace plots"
-msgstr ""
+msgstr "Verlaufsdiagramme"
 
 msgid "Average autocorrelations"
-msgstr ""
+msgstr "Mittlere Autokorrelation"
 
 msgid "Posterior samples densities"
-msgstr ""
+msgstr "Dichte Posterior-Stichproben"
 
 msgid "Model %i does not contain any of the selected parameters."
-msgstr ""
+msgstr "Modell %i enthält keinen der ausgewählten Parameter."
