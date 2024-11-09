@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jaspRobustTTests 0.19.2\n"
 "POT-Creation-Date: 2024-10-19 03:53\n"
-"PO-Revision-Date: 2024-10-31 18:00+0000\n"
+"PO-Revision-Date: 2024-11-09 03:52+0000\n"
 "Last-Translator: Johannes Keyser <joke@fsfe.org>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/jasp/"
 "jasprobustttests-r/de/>\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.8.2-dev\n"
+"X-Generator: Weblate 5.8.2\n"
 
 msgid "%s%% CI"
 msgstr "%s%% KI"
@@ -114,14 +114,17 @@ msgstr "Zusammenfassung"
 msgid "Conditional Estimates"
 msgstr "Konditionale Schätzungen"
 
+#, fuzzy
 msgid "Inclusion BF"
-msgstr ""
+msgstr "Einschluss-BF"
 
+#, fuzzy
 msgid "Exclusion BF"
-msgstr ""
+msgstr "Ausschluss-BF"
 
+#, fuzzy
 msgid "log(Inclusion BF)"
-msgstr ""
+msgstr "Log(Einschluss-BF)"
 
 msgid "P(M|data)"
 msgstr "P(M|Daten)"
@@ -172,11 +175,13 @@ msgstr ""
 msgid "Posterior Distribution Plots"
 msgstr "Posteriorverteilung-Diagramme"
 
+#, fuzzy
 msgid "Conditional"
-msgstr ""
+msgstr "Bedingt"
 
+#, fuzzy
 msgid "Model Averaged"
-msgstr ""
+msgstr "Modell-gemittelt"
 
 msgid "Effect Size Estimate"
 msgstr "Effekstärke-Schätzung"
@@ -185,7 +190,7 @@ msgid "Heterogeneity Estimate (Precision Allocation)"
 msgstr ""
 
 msgid "Outliers Estimate (Degrees of Freedom)"
-msgstr ""
+msgstr "Ausreißer-Schätzung (Freiheitsgrade)"
 
 msgid "Diagnostics"
 msgstr "Diagnostiken"
@@ -201,12 +206,15 @@ msgstr "max(R-Dach)"
 
 msgid "MCMC Diagnostics plots are created once both the plotted parameter ('Plot') and the plot type ('Type') options are selected."
 msgstr ""
+"MCMC-Diagnostikdiagramme werden erstellt, sobald beide Optionen des "
+"aufgetragenen Parameters ('Diagramm') und des Diagrammtyps ('Typ') "
+"ausgewählt werden."
 
 msgid "Heterogeneity (Precision Allocation)"
 msgstr ""
 
 msgid "Outliers (Degrees of Freedom)"
-msgstr ""
+msgstr "Ausreißer (Freiheitsgrade)"
 
 msgid "Trace plots"
 msgstr "Verlaufsdiagramme"
