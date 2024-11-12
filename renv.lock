@@ -178,7 +178,7 @@
     },
     "RoBTT": {
       "Package": "RoBTT",
-      "Version": "1.3.0",
+      "Version": "1.3.1",
       "Source": "Repository",
       "Requirements": [
         "R",
@@ -705,7 +705,7 @@
     },
     "inline": {
       "Package": "inline",
-      "Version": "0.3.19",
+      "Version": "0.3.20",
       "Source": "Repository",
       "Requirements": [
         "methods"
@@ -804,7 +804,7 @@
     },
     "knitr": {
       "Package": "knitr",
-      "Version": "1.48",
+      "Version": "1.49",
       "Source": "Repository",
       "Requirements": [
         "R",
