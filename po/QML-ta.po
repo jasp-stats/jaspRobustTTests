@@ -1,0 +1,405 @@
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2025-01-04 03:52+0000\n"
+"Last-Translator: தமிழ்நேரம் <anishprabu.t@gmail.com>\n"
+"Language-Team: Tamil <https://hosted.weblate.org/projects/jasp/"
+"jasprobustttests-qml/ta/>\n"
+"Language: ta\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.10-dev\n"
+"X-Qt-Contexts: true\n"
+
+msgctxt "Description|"
+msgid "Robust T-Tests"
+msgstr "வலுவான டி-சோதனைகள்"
+
+msgctxt "Description|"
+msgid "Robustly evaluate the difference between two means"
+msgstr "இரண்டு வழிமுறைகளுக்கு இடையிலான வேறுபாட்டை வலுவாக மதிப்பிடுங்கள்"
+
+msgctxt "Description|"
+msgid "Model-Averaged T-Test"
+msgstr "மாதிரி சராசரி டி-சோதனை"
+
+msgctxt "Description|"
+msgid "Bayesian Model-Averaged T-Test"
+msgstr "பேய்சியன் மாதிரி-சராசரி டி-சோதனை"
+
+msgctxt "Description|"
+msgid "Robust Model-Averaged T-Test"
+msgstr "வலுவான மாதிரி-சராசரி டி-சோதனை"
+
+msgctxt "Description|"
+msgid "Robust Bayesian Model-Averaged T-Test"
+msgstr "வலுவான பேய்சியன் மாதிரி-சராசரி டி-சோதனை"
+
+msgctxt "Description|"
+msgid "Truncated Model-Averaged T-Test"
+msgstr "துண்டிக்கப்பட்ட மாதிரி-சராசரி டி-சோதனை"
+
+msgctxt "Description|"
+msgid "Truncated Bayesian Model-Averaged T-Test"
+msgstr "துண்டிக்கப்பட்ட பேய்சியன் மாதிரி-சராசரி டி-சோதனை"
+
+msgctxt "BayesianModelAveragedTTest|"
+msgid "Models"
+msgstr "மாதிரிகள்"
+
+msgctxt "BayesianModelAveragedTTest|"
+msgid "Set null priors"
+msgstr "சுழிய முன்னோடிகளை அமைக்கவும்"
+
+msgctxt "ModelAveragedTTestAdvanced|"
+msgid "Advanced"
+msgstr "மேம்பட்ட"
+
+msgctxt "ModelAveragedTTestAdvanced|"
+msgid "MCMC"
+msgstr "எம்.சி.எம்.சி."
+
+msgctxt "ModelAveragedTTestAdvanced|"
+msgid "Adaptation"
+msgstr "தழுவல்"
+
+msgctxt "ModelAveragedTTestAdvanced|"
+msgid "Samples"
+msgstr "மாதிரிகள்"
+
+msgctxt "ModelAveragedTTestAdvanced|"
+msgid "Chains"
+msgstr "சங்கிலிகள்"
+
+msgctxt "ModelAveragedTTestAdvanced|"
+msgid "Thin"
+msgstr "மெல்லிய"
+
+msgctxt "ModelAveragedTTestInference|"
+msgid "Inference"
+msgstr "அனுமானம்"
+
+msgctxt "ModelAveragedTTestInference|"
+msgid "Conditional parameter estimates"
+msgstr "நிபந்தனை அளவுரு மதிப்பீடுகள்"
+
+msgctxt "ModelAveragedTTestInference|"
+msgid "Models overview"
+msgstr "மாதிரிகள் கண்ணோட்டம்"
+
+msgctxt "ModelAveragedTTestInference|"
+msgid "BF Comparison"
+msgstr "பி.எஃப் ஒப்பீடு"
+
+msgctxt "ModelAveragedTTestInference|"
+msgid "Inclusion"
+msgstr "சேர்த்தல்"
+
+msgctxt "ModelAveragedTTestInference|"
+msgid "vs. best"
+msgstr "எதிராக சிறந்தது"
+
+msgctxt "ModelAveragedTTestInference|"
+msgid "vs. previous"
+msgstr "எதிராக முந்தையது"
+
+msgctxt "ModelAveragedTTestInference|"
+msgid "Order"
+msgstr "ஒழுங்கு"
+
+msgctxt "ModelAveragedTTestInference|"
+msgid "Model number"
+msgstr "மாதிரி எண்"
+
+msgctxt "ModelAveragedTTestInference|"
+msgid "Marginal likelihood"
+msgstr "விளிம்பு வாய்ப்பு"
+
+msgctxt "ModelAveragedTTestInference|"
+msgid "Posterior probability"
+msgstr "பின்புற நிகழ்தகவு"
+
+msgctxt "ModelAveragedTTestInference|"
+msgid "Individual models"
+msgstr "தனிப்பட்ட மாதிரிகள்"
+
+msgctxt "ModelAveragedTTestInference|"
+msgid "Single model"
+msgstr "ஒற்றை மாதிரி"
+
+msgctxt "ModelAveragedTTestInference|"
+msgid "CI width"
+msgstr "தொஒ அகலம்"
+
+msgctxt "ModelAveragedTTestInference|"
+msgid "Shorten prior names"
+msgstr "முந்தைய பெயர்களைக் குறிக்கவும்"
+
+msgctxt "ModelAveragedTTestInference|"
+msgid "Precision allocation as standard deviation ratio"
+msgstr "நிலையான விலகல் விகிதமாக துல்லிய ஒதுக்கீடு"
+
+msgctxt "ModelAveragedTTestInput|"
+msgid "Dependent Variable"
+msgstr "சார்பு மாறி"
+
+msgctxt "ModelAveragedTTestInput|"
+msgid "Grouping Variable"
+msgstr "தொகுத்தல் மாறி"
+
+msgctxt "ModelAveragedTTestInput|"
+msgid "Prior distribution plots"
+msgstr "முன் விநியோக அடுக்குகள்"
+
+msgctxt "ModelAveragedTTestInput|"
+msgid "Truncation"
+msgstr "துண்டிப்பு"
+
+msgctxt "ModelAveragedTTestInput|"
+msgid "Standard deviation (z-score)"
+msgstr "நிலையான விலகல் (z- மதிப்பெண்)"
+
+msgctxt "ModelAveragedTTestInput|"
+msgid "Per sample"
+msgstr "ஒரு மாதிரிக்கு"
+
+msgctxt "ModelAveragedTTestInput|"
+msgid "Sample 1"
+msgstr "மாதிரி 1"
+
+msgctxt "ModelAveragedTTestInput|"
+msgid "Sample 2"
+msgstr "மாதிரி 2"
+
+msgctxt "ModelAveragedTTestInput|"
+msgid "Across samples"
+msgstr "மாதிரிகள் முழுவதும்"
+
+msgctxt "ModelAveragedTTestInput|"
+msgid "Both samples"
+msgstr "இரண்டு மாதிரிகள்"
+
+msgctxt "ModelAveragedTTestInput|"
+msgid "Bounds"
+msgstr "எல்லைகள்"
+
+msgctxt "ModelAveragedTTestInput|"
+msgid "Lower"
+msgstr "கீழ்"
+
+msgctxt "ModelAveragedTTestInput|"
+msgid "Upper"
+msgstr "மேல்"
+
+msgctxt "ModelAveragedTTestInput|"
+msgid "Both Samples"
+msgstr "இரண்டு மாதிரிகள்"
+
+msgctxt "ModelAveragedTTestMcmcDiagnostics|"
+msgid "MCMC Diagnostics"
+msgstr "எம்.சி.எம்.சி கண்டறிதல்"
+
+msgctxt "ModelAveragedTTestMcmcDiagnostics|"
+msgid "Overview table"
+msgstr "கண்ணோட்டம் அட்டவணை"
+
+msgctxt "ModelAveragedTTestMcmcDiagnostics|"
+msgid "Plot"
+msgstr "சூழ்ச்சி"
+
+msgctxt "ModelAveragedTTestMcmcDiagnostics|"
+msgid "Effect"
+msgstr "விளைவு"
+
+msgctxt "ModelAveragedTTestMcmcDiagnostics|"
+msgid "Unequal variances"
+msgstr "சமமற்ற மாறுபாடுகள்"
+
+msgctxt "ModelAveragedTTestMcmcDiagnostics|"
+msgid "Degrees of freedom"
+msgstr "சுதந்திரத்தின் டிகிரி"
+
+msgctxt "ModelAveragedTTestMcmcDiagnostics|"
+msgid "Type"
+msgstr "வகை"
+
+msgctxt "ModelAveragedTTestMcmcDiagnostics|"
+msgid "Trace"
+msgstr "சுவடு"
+
+msgctxt "ModelAveragedTTestMcmcDiagnostics|"
+msgid "Autocorrelation"
+msgstr "தன்னொட்டுறவு"
+
+msgctxt "ModelAveragedTTestMcmcDiagnostics|"
+msgid "Posterior samples density"
+msgstr "பின்புற மாதிரிகள் அடர்த்தி"
+
+msgctxt "ModelAveragedTTestMcmcDiagnostics|"
+msgid "Single model"
+msgstr "ஒற்றை மாதிரி"
+
+msgctxt "ModelAveragedTTestPlots|"
+msgid "Plots"
+msgstr "அடுக்கு"
+
+msgctxt "ModelAveragedTTestPlots|"
+msgid "Pooled estimates"
+msgstr "பூல் மதிப்பீடுகள்"
+
+msgctxt "ModelAveragedTTestPlots|"
+msgid "Effect"
+msgstr "விளைவு"
+
+msgctxt "ModelAveragedTTestPlots|"
+msgid "Unequal variances (precision allocation)"
+msgstr "சமமற்ற மாறுபாடுகள் (துல்லிய ஒதுக்கீடு)"
+
+msgctxt "ModelAveragedTTestPlots|"
+msgid "Outliers (degrees of freedom)"
+msgstr "வெளிநாட்டவர்கள் (சுதந்திரத்தின் டிகிரி)"
+
+msgctxt "ModelAveragedTTestPlots|"
+msgid "Type"
+msgstr "வகை"
+
+msgctxt "ModelAveragedTTestPlots|"
+msgid "Model averaged"
+msgstr "மாதிரி சராசரி"
+
+msgctxt "ModelAveragedTTestPlots|"
+msgid "Conditional"
+msgstr "நிபந்தனை"
+
+msgctxt "ModelAveragedTTestPlots|"
+msgid "Prior distribution"
+msgstr "முன் வழங்கல்"
+
+msgctxt "ModelAveragedTTestPriors|"
+msgid "Effect"
+msgstr "விளைவு"
+
+msgctxt "ModelAveragedTTestPriors|"
+msgid "Effect (null)"
+msgstr "விளைவு (பூச்யம்)"
+
+msgctxt "ModelAveragedTTestPriors|"
+msgid "Unequal variances (precision allocation)"
+msgstr "சமமற்ற மாறுபாடுகள் (துல்லிய ஒதுக்கீடு)"
+
+msgctxt "ModelAveragedTTestPriors|"
+msgid "Unequal variances (null)"
+msgstr "சமமற்ற மாறுபாடுகள் (பூச்யம்)"
+
+msgctxt "ModelAveragedTTestPriors|"
+msgid "Outliers (degrees of freedom + 2)"
+msgstr "வெளியீட்டாளர்கள் (சுதந்திரத்தின் டிகிரி + 2)"
+
+msgctxt "ModelAveragedTTestPriors|"
+msgid "Outliers (null)"
+msgstr "வெளிநாட்டினர் (பூச்யம்)"
+
+msgctxt "ModelAveragedTTestPriors|"
+msgid "Common mean"
+msgstr "பொதுவான சராசரி"
+
+msgctxt "ModelAveragedTTestPriors|"
+msgid "Common variance"
+msgstr "பொதுவான மாறுபாடு"
+
+msgctxt "ModelAveragedTTestPriors|"
+msgid "Distribution"
+msgstr "பரவல்"
+
+msgctxt "ModelAveragedTTestPriors|"
+msgid "Parameters"
+msgstr "அளவுருக்கள்"
+
+msgctxt "ModelAveragedTTestPriors|"
+msgid "Truncation"
+msgstr "துண்டிப்பு"
+
+msgctxt "ModelAveragedTTestPriors|"
+msgid "Prior weights"
+msgstr "முன் எடைகள்"
+
+msgctxt "ModelAveragedTTestPriors|"
+msgid "Normal(μ,σ)"
+msgstr "இயல்பான (மீ, கள்)"
+
+msgctxt "ModelAveragedTTestPriors|"
+msgid "Student-t(μ,σ,v)"
+msgstr "மாணவர்-டி (μ, σ, வி)"
+
+msgctxt "ModelAveragedTTestPriors|"
+msgid "Cauchy(x₀,θ)"
+msgstr "Cauchy (x₀, θ)"
+
+msgctxt "ModelAveragedTTestPriors|"
+msgid "Gamma(α,β)"
+msgstr "காமா (α, β)"
+
+msgctxt "ModelAveragedTTestPriors|"
+msgid "Gamma(k,θ)"
+msgstr "காமா (கே, θ)"
+
+msgctxt "ModelAveragedTTestPriors|"
+msgid "Inverse-Gamma(α,β)"
+msgstr "தலைகீழ்-கம்மா (அ, பி)"
+
+msgctxt "ModelAveragedTTestPriors|"
+msgid "Log-Normal(μ,σ)"
+msgstr "பதிவு-இயல்பான (எம், கள்)"
+
+msgctxt "ModelAveragedTTestPriors|"
+msgid "Beta(α,β)"
+msgstr "பீட்டா (ஏ, பி)"
+
+msgctxt "ModelAveragedTTestPriors|"
+msgid "Uniform(a,b)"
+msgstr "சீருடை (ஏ, பி)"
+
+msgctxt "ModelAveragedTTestPriors|"
+msgid "Exponential(λ)"
+msgstr "அதிவேக (λ)"
+
+msgctxt "ModelAveragedTTestPriors|"
+msgid "Spike(x₀)"
+msgstr "ச்பைக் (x₀)"
+
+msgctxt "ModelAveragedTTestPriors|"
+msgid "None"
+msgstr "எதுவுமில்லை"
+
+msgctxt "ModelAveragedTTestPriors|"
+msgid "lower"
+msgstr "கீழ்"
+
+msgctxt "ModelAveragedTTestPriors|"
+msgid "upper"
+msgstr "மேல்"
+
+msgctxt "ModelAveragedTTestPriors|"
+msgid "Weight"
+msgstr "எடை"
+
+msgctxt "RobustBayesianModelAveragedTTest|"
+msgid "Models"
+msgstr "மாதிரிகள்"
+
+msgctxt "RobustBayesianModelAveragedTTest|"
+msgid "Set null priors"
+msgstr "சுழிய முன்னோடிகளை அமைக்கவும்"
+
+msgctxt "TruncatedBayesianModelAveragedTTest|"
+msgid "Models"
+msgstr "மாதிரிகள்"
+
+msgctxt "TruncatedBayesianModelAveragedTTest|"
+msgid "Set null priors"
+msgstr "சுழிய முன்னோடிகளை அமைக்கவும்"
+
+msgctxt "TruncatedBayesianModelAveragedTTest|"
+msgid "Set common priors"
+msgstr "பொதுவான முன்னோடிகளை அமைக்கவும்"
