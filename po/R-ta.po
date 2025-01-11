@@ -1,0 +1,227 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: jaspRobustTTests 0.19.2\n"
+"POT-Creation-Date: 2024-10-19 03:53\n"
+"PO-Revision-Date: 2025-01-04 21:55+0000\n"
+"Last-Translator: தமிழ்நேரம் <anishprabu.t@gmail.com>\n"
+"Language-Team: Tamil <https://hosted.weblate.org/projects/jasp/"
+"jasprobustttests-r/ta/>\n"
+"Language: ta\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.10-dev\n"
+
+msgid "%s%% CI"
+msgstr "%s %% தொஒ"
+
+msgid "Mean"
+msgstr "இடை, சராசரி"
+
+msgid "Median"
+msgstr "இடைநடு"
+
+msgid "Lower"
+msgstr "கீழ்"
+
+msgid "Upper"
+msgstr "மேல்"
+
+msgid "ESS"
+msgstr "எச்"
+
+msgid "R-hat"
+msgstr "R-hat"
+
+msgid "The effect size corresponds to the standardized mean difference of group '%1$s' - '%2$s'."
+msgstr ""
+"விளைவு அளவு '%1$s' - '%2$s' குழுவின் தரப்படுத்தப்பட்ட சராசரி வேறுபாட்டிற்கு "
+"ஒத்திருக்கிறது."
+
+msgid "The standard deviation ratio corresponds to the ratio of standard deviations of group '%1$s' / '%2$s'."
+msgstr ""
+"நிலையான விலகல் விகிதம் '%1$s' / '%2$s' குழுவின் நிலையான விலகல்களின் விகிதத்திற்கு "
+"ஒத்திருக்கிறது."
+
+msgid "The precision allocation corresponds to the proportion of total precision allocated to group '%1$s'."
+msgstr ""
+"துல்லியமான ஒதுக்கீடு '%1$s' குழுவிற்கு ஒதுக்கப்பட்ட மொத்த துல்லியத்தின் விகிதத்திற்கு "
+"ஒத்திருக்கிறது."
+
+msgid "Effect size (%s)"
+msgstr "விளைவு அளவு (%s)"
+
+msgid "Precision allocation (%s)"
+msgstr "துல்லிய ஒதுக்கீடு (%s)"
+
+msgid "Degrees of freedom (%s)"
+msgstr "சுதந்திரத்தின் டிகிரி (%s)"
+
+msgid "Prior Plots"
+msgstr "முன் அடுக்கு"
+
+msgid "Effect"
+msgstr "விளைவு"
+
+msgid "Unequal variances"
+msgstr "சமமற்ற மாறுபாடுகள்"
+
+msgid "Outliers"
+msgstr "வெளிநாட்டவர்கள்"
+
+msgid "Null"
+msgstr "சுழியம்"
+
+msgid "Alternative"
+msgstr "மாற்று"
+
+msgid "Model Preview"
+msgstr "மாதிரி முன்னோட்டம்"
+
+msgid "Please specify a prior distribution for each parameter in the Models specification section (either null or alternative)."
+msgstr ""
+"மாதிரிகள் விவரக்குறிப்பு பிரிவில் (பூச்ய அல்லது மாற்று) ஒவ்வொரு அளவுருவுக்கும் முன் "
+"விநியோகத்தைக் குறிப்பிடவும்."
+
+msgid "Model Summary"
+msgstr "மாதிரி சுருக்கம்"
+
+msgid "Models"
+msgstr "மாதிரிகள்"
+
+msgid "P(M)"
+msgstr "பி (மீ)"
+
+msgid "This analysis uses MCMC and might require a prolonged time to complete."
+msgstr ""
+"இந்த பகுப்பாய்வு MCMC ஐப் பயன்படுத்துகிறது மற்றும் முடிக்க நீண்ட நேரம் தேவைப்படலாம்."
+
+msgid "Model Specification Preview"
+msgstr "மாதிரி விவரக்குறிப்பு முன்னோட்டம்"
+
+msgid "Prior Distribution"
+msgstr "முன் வழங்கல்"
+
+msgid "Distribution"
+msgstr "பரவல்"
+
+msgid "The analysis will estimate multiple models using MCMC and might require a prolonged time to complete."
+msgstr ""
+"பகுப்பாய்வு MCMC ஐப் பயன்படுத்தி பல மாதிரிகளை மதிப்பிடும் மற்றும் முடிக்க நீண்ட நேரம் "
+"தேவைப்படலாம்."
+
+msgid "Summary"
+msgstr "சுருக்கம்"
+
+msgid "Conditional Estimates"
+msgstr "நிபந்தனை மதிப்பீடுகள்"
+
+msgid "Inclusion BF"
+msgstr ""
+
+msgid "Exclusion BF"
+msgstr "விலக்கு பி.எஃப்"
+
+msgid "log(Inclusion BF)"
+msgstr "பதிவு (சேர்த்தல் பி.எஃப்)"
+
+msgid "P(M|data)"
+msgstr "பி (எம் | தரவு)"
+
+msgid "Warning:"
+msgstr "எச்சரிக்கை:"
+
+msgid "%1$i observations were removed due to missing values."
+msgstr "மதிப்புகள் காணாமல் போனதால் %1 $ I அவதானிப்புகள் அகற்றப்பட்டன."
+
+msgid "Model Averaged Estimates"
+msgstr "மாதிரி சராசரி மதிப்பீடுகள்"
+
+msgid "Models Overview"
+msgstr "மாதிரிகள் கண்ணோட்டம்"
+
+msgid "BF%s"
+msgstr "பி.எஃப்%s"
+
+msgid "log(BF%s)"
+msgstr "பதிவு (பி.எஃப்%s)"
+
+msgid "log(MargLik)"
+msgstr "பதிவு (பாலிக்)"
+
+msgid "Individual Models Summary"
+msgstr "தனிப்பட்ட மாதிரிகள் சுருக்கம்"
+
+msgid "Model #"
+msgstr "மாதிரி #"
+
+msgid "Priors"
+msgstr "ப்ரியர்ச்"
+
+msgid "Information"
+msgstr "தகவல்"
+
+msgid "Model Estimates"
+msgstr "மாதிரி மதிப்பீடுகள்"
+
+msgid "Model %i"
+msgstr "மாதிரி %i"
+
+msgid "Model %1$i does not exist. Select one of the models between 1 and %2$i."
+msgstr ""
+"மாதிரி %1 $ நான் இல்லை. 1 முதல் %2 $ i க்கு இடையில் மாதிரிகளில் ஒன்றைத் "
+"தேர்ந்தெடுக்கவும்."
+
+msgid "Posterior Distribution Plots"
+msgstr "பின்புற விநியோக அடுக்குகள்"
+
+msgid "Conditional"
+msgstr "நிபந்தனை"
+
+msgid "Model Averaged"
+msgstr "மாதிரி சராசரி"
+
+msgid "Effect Size Estimate"
+msgstr "விளைவு அளவு மதிப்பீடு"
+
+msgid "Heterogeneity Estimate (Precision Allocation)"
+msgstr "பன்முகத்தன்மை மதிப்பீடு (துல்லிய ஒதுக்கீடு)"
+
+msgid "Outliers Estimate (Degrees of Freedom)"
+msgstr "வெளியீட்டாளர்கள் மதிப்பீடு (சுதந்திரத்தின் பட்டங்கள்)"
+
+msgid "Diagnostics"
+msgstr "கண்டறிதல்"
+
+msgid "Models Diagnostics Overview"
+msgstr "மாதிரிகள் கண்டறிதல் கண்ணோட்டம்"
+
+msgid "min(ESS)"
+msgstr "என் (ஏச்)"
+
+msgid "max(R-hat)"
+msgstr "அதிகபட்சம் (ஆர்-தொப்பி)"
+
+msgid "MCMC Diagnostics plots are created once both the plotted parameter ('Plot') and the plot type ('Type') options are selected."
+msgstr ""
+"திட்டமிடப்பட்ட அளவுரு ('சதி') மற்றும் சூழ்ச்சி வகை ('வகை') விருப்பங்கள் "
+"தேர்ந்தெடுக்கப்பட்டவுடன் எம்.சி.எம்.சி கண்டறிதல் அடுக்கு உருவாக்கப்படுகிறது."
+
+msgid "Heterogeneity (Precision Allocation)"
+msgstr "பன்முகத்தன்மை (துல்லிய ஒதுக்கீடு)"
+
+msgid "Outliers (Degrees of Freedom)"
+msgstr "வெளிநாட்டவர்கள் (சுதந்திரத்தின் டிகிரி)"
+
+msgid "Trace plots"
+msgstr "சுவடு அடுக்கு"
+
+msgid "Average autocorrelations"
+msgstr "சராசரி தன்னியக்க தொடர்புகள்"
+
+msgid "Posterior samples densities"
+msgstr "பின்புற மாதிரிகள் அடர்த்தி"
+
+msgid "Model %i does not contain any of the selected parameters."
+msgstr "மாதிரி %நான் தேர்ந்தெடுக்கப்பட்ட அளவுருக்கள் எதுவும் இல்லை."
