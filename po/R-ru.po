@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jaspRobustTTests 0.19.2\n"
 "POT-Creation-Date: 2024-10-19 03:53\n"
-"PO-Revision-Date: 2025-04-01 15:06+0000\n"
+"PO-Revision-Date: 2025-04-02 18:58+0000\n"
 "Last-Translator: Иван Рудаков <riv@polygene.ru>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/jasp/"
 "jasprobustttests-r/ru/>\n"
@@ -18,7 +18,7 @@ msgid "%s%% CI"
 msgstr "%s%% ДИ"
 
 msgid "Mean"
-msgstr "Среднее значение"
+msgstr "Математическое ожидание"
 
 msgid "Median"
 msgstr "Медиана"
@@ -30,184 +30,200 @@ msgid "Upper"
 msgstr "Верхний"
 
 msgid "ESS"
-msgstr "ECC"
+msgstr "ESS"
 
 msgid "R-hat"
 msgstr "R-hat"
 
 msgid "The effect size corresponds to the standardized mean difference of group '%1$s' - '%2$s'."
 msgstr ""
+"Величина эффекта соответствует стандартизированной средней разнице групп '%1$"
+"s' - '%2$s'."
 
 msgid "The standard deviation ratio corresponds to the ratio of standard deviations of group '%1$s' / '%2$s'."
 msgstr ""
+"Стандартное отклонение соответствует стандартным отклонениям группы '%1$s' / "
+"'%2$s'."
 
 msgid "The precision allocation corresponds to the proportion of total precision allocated to group '%1$s'."
 msgstr ""
+"Точное распределение соответствует пропорции общей точности, выделенной "
+"группе '%1$s'."
 
 msgid "Effect size (%s)"
-msgstr ""
+msgstr "Размер эффекта (%s)"
 
 msgid "Precision allocation (%s)"
-msgstr ""
+msgstr "Распределение точности (%s)"
 
 msgid "Degrees of freedom (%s)"
-msgstr ""
+msgstr "Степени свободы (%s)"
 
 msgid "Prior Plots"
-msgstr ""
+msgstr "Априорные графики"
 
 msgid "Effect"
-msgstr ""
+msgstr "Эффект"
 
 msgid "Unequal variances"
-msgstr ""
+msgstr "Неравные дисперсии"
 
 msgid "Outliers"
-msgstr ""
+msgstr "Выброс"
 
 msgid "Null"
-msgstr ""
+msgstr "Ноль"
 
 msgid "Alternative"
-msgstr ""
+msgstr "Альтернатива"
 
 msgid "Model Preview"
-msgstr ""
+msgstr "Предпросмотр модели"
 
 msgid "Please specify a prior distribution for each parameter in the Models specification section (either null or alternative)."
 msgstr ""
+"Пожалуйста, укажите априорное распределение для каждого параметра в разделе "
+"Спецификация моделей (нулевое или альтернативное)."
 
 msgid "Model Summary"
-msgstr ""
+msgstr "Сводка по Модели"
 
 msgid "Models"
-msgstr ""
+msgstr "Модели"
 
 msgid "P(M)"
-msgstr ""
+msgstr "P(M)"
 
 msgid "This analysis uses MCMC and might require a prolonged time to complete."
 msgstr ""
+"Этот анализ использует MCMC и может потребовать длительного времени для "
+"завершения."
 
 msgid "Model Specification Preview"
-msgstr ""
+msgstr "Предпросмотр описания Модели"
 
 msgid "Prior Distribution"
-msgstr ""
+msgstr "Априорное Распределение"
 
 msgid "Distribution"
-msgstr ""
+msgstr "Распределение"
 
 msgid "The analysis will estimate multiple models using MCMC and might require a prolonged time to complete."
 msgstr ""
+"Анализ будет вычислять несколько моделей с использованием MCMC и может "
+"потребовать длительного времени для завершения."
 
 msgid "Summary"
-msgstr ""
+msgstr "Сводка"
 
 msgid "Conditional Estimates"
-msgstr ""
+msgstr "Условные оценки"
 
 msgid "Inclusion BF"
-msgstr ""
+msgstr "Включение КБ"
 
 msgid "Exclusion BF"
-msgstr ""
+msgstr "Исключение КБ"
 
 msgid "log(Inclusion BF)"
-msgstr ""
+msgstr "log(Включение КБ)"
 
 msgid "P(M|data)"
-msgstr ""
+msgstr "P(M|данные)"
 
 msgid "Warning:"
-msgstr ""
+msgstr "Предупреждение:"
 
 msgid "%1$i observations were removed due to missing values."
-msgstr ""
+msgstr "%1$i наблюдения были удалены из-за пропущенных значений."
 
 msgid "Model Averaged Estimates"
-msgstr ""
+msgstr "Усредненные оценки модели"
 
 msgid "Models Overview"
-msgstr ""
+msgstr "Обзор Моделей"
 
 msgid "BF%s"
-msgstr ""
+msgstr "КБ%s"
 
 msgid "log(BF%s)"
-msgstr ""
+msgstr "log(КБ%s)"
 
 msgid "log(MargLik)"
-msgstr ""
+msgstr "log(ПредПрав)"
 
 msgid "Individual Models Summary"
-msgstr ""
+msgstr "Сводка отдельных моделей"
 
 msgid "Model #"
-msgstr ""
+msgstr "Модель #"
 
 msgid "Priors"
-msgstr ""
+msgstr "Априорные распределения"
 
 msgid "Information"
-msgstr ""
+msgstr "Информация"
 
 msgid "Model Estimates"
-msgstr ""
+msgstr "Оценки Модели"
 
 msgid "Model %i"
-msgstr ""
+msgstr "Модель %i"
 
 msgid "Model %1$i does not exist. Select one of the models between 1 and %2$i."
-msgstr ""
+msgstr "Модель %1$i не существует. Выберите одну из моделей от 1 до %2$i."
 
 msgid "Posterior Distribution Plots"
-msgstr ""
+msgstr "Графики Апостериорной Вероятности"
 
 msgid "Conditional"
-msgstr ""
+msgstr "Условные"
 
 msgid "Model Averaged"
-msgstr ""
+msgstr "Усредненная Модель"
 
+#, fuzzy
 msgid "Effect Size Estimate"
-msgstr ""
+msgstr "Оценка эффективности"
 
 msgid "Heterogeneity Estimate (Precision Allocation)"
-msgstr ""
+msgstr "Оценка Гетерогенности (Точное Распределение)"
 
 msgid "Outliers Estimate (Degrees of Freedom)"
-msgstr ""
+msgstr "Оценка Выбросов (Степени Свободы)"
 
 msgid "Diagnostics"
-msgstr ""
+msgstr "Диагностика"
 
 msgid "Models Diagnostics Overview"
-msgstr ""
+msgstr "Обзор Диагностики Моделей"
 
 msgid "min(ESS)"
-msgstr ""
+msgstr "min(ЕСС)"
 
 msgid "max(R-hat)"
-msgstr ""
+msgstr "max(R-hat)"
 
 msgid "MCMC Diagnostics plots are created once both the plotted parameter ('Plot') and the plot type ('Type') options are selected."
 msgstr ""
+"MCMC Диагностические графики создаются после выбора параметра для построения "
+"('График') и типа графика ('Тип')."
 
 msgid "Heterogeneity (Precision Allocation)"
-msgstr ""
+msgstr "Гетерогенность (Точное распределение)"
 
 msgid "Outliers (Degrees of Freedom)"
-msgstr ""
+msgstr "Выбросы (Степени Свободы)"
 
+#, fuzzy
 msgid "Trace plots"
-msgstr ""
+msgstr "Графики трендов"
 
 msgid "Average autocorrelations"
-msgstr ""
+msgstr "Среднее автокоррелирование"
 
 msgid "Posterior samples densities"
-msgstr ""
+msgstr "Плотности образцов апостериорной вероятности"
 
 msgid "Model %i does not contain any of the selected parameters."
-msgstr ""
+msgstr "Модель %i не содержит ни одного из выбранных параметров."
