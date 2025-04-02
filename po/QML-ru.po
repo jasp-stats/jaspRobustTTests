@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-04-01 15:06+0000\n"
+"PO-Revision-Date: 2025-04-02 18:05+0000\n"
 "Last-Translator: Иван Рудаков <riv@polygene.ru>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/jasp/"
 "jasprobustttests-qml/ru/>\n"
@@ -48,7 +48,7 @@ msgstr ""
 
 msgctxt "BayesianModelAveragedTTest|"
 msgid "Models"
-msgstr ""
+msgstr "Модели"
 
 msgctxt "BayesianModelAveragedTTest|"
 msgid "Set null priors"
@@ -88,7 +88,7 @@ msgstr ""
 
 msgctxt "ModelAveragedTTestInference|"
 msgid "Models overview"
-msgstr ""
+msgstr "Обзор моделей"
 
 msgctxt "ModelAveragedTTestInference|"
 msgid "BF Comparison"
@@ -212,7 +212,7 @@ msgstr ""
 
 msgctxt "ModelAveragedTTestMcmcDiagnostics|"
 msgid "Effect"
-msgstr ""
+msgstr "Эффект"
 
 msgctxt "ModelAveragedTTestMcmcDiagnostics|"
 msgid "Unequal variances"
@@ -252,7 +252,7 @@ msgstr ""
 
 msgctxt "ModelAveragedTTestPlots|"
 msgid "Effect"
-msgstr ""
+msgstr "Эффект"
 
 msgctxt "ModelAveragedTTestPlots|"
 msgid "Unequal variances (precision allocation)"
@@ -260,7 +260,7 @@ msgstr ""
 
 msgctxt "ModelAveragedTTestPlots|"
 msgid "Outliers (degrees of freedom)"
-msgstr ""
+msgstr "Выбросы (степени свободы)"
 
 msgctxt "ModelAveragedTTestPlots|"
 msgid "Type"
@@ -268,19 +268,20 @@ msgstr ""
 
 msgctxt "ModelAveragedTTestPlots|"
 msgid "Model averaged"
-msgstr ""
+msgstr "Усредненная модель"
 
+#, fuzzy
 msgctxt "ModelAveragedTTestPlots|"
 msgid "Conditional"
-msgstr ""
+msgstr "Условные"
 
 msgctxt "ModelAveragedTTestPlots|"
 msgid "Prior distribution"
-msgstr ""
+msgstr "Априорное распределение"
 
 msgctxt "ModelAveragedTTestPriors|"
 msgid "Effect"
-msgstr ""
+msgstr "Эффект"
 
 msgctxt "ModelAveragedTTestPriors|"
 msgid "Effect (null)"
@@ -312,7 +313,7 @@ msgstr ""
 
 msgctxt "ModelAveragedTTestPriors|"
 msgid "Distribution"
-msgstr ""
+msgstr "Распределение"
 
 msgctxt "ModelAveragedTTestPriors|"
 msgid "Parameters"
@@ -388,7 +389,7 @@ msgstr ""
 
 msgctxt "RobustBayesianModelAveragedTTest|"
 msgid "Models"
-msgstr ""
+msgstr "Модели"
 
 msgctxt "RobustBayesianModelAveragedTTest|"
 msgid "Set null priors"
@@ -396,7 +397,7 @@ msgstr ""
 
 msgctxt "TruncatedBayesianModelAveragedTTest|"
 msgid "Models"
-msgstr ""
+msgstr "Модели"
 
 msgctxt "TruncatedBayesianModelAveragedTTest|"
 msgid "Set null priors"
