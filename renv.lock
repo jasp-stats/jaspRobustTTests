@@ -17,7 +17,7 @@
     },
     "BayesTools": {
       "Package": "BayesTools",
-      "Version": "0.2.18",
+      "Version": "0.2.19",
       "Source": "Repository",
       "Requirements": [
         "bridgesampling",
@@ -312,16 +312,6 @@
         "Rcpp"
       ]
     },
-    "fansi": {
-      "Package": "fansi",
-      "Version": "1.0.6",
-      "Source": "Repository",
-      "Requirements": [
-        "grDevices",
-        "R",
-        "utils"
-      ]
-    },
     "farver": {
       "Package": "farver",
       "Version": "2.1.2",
@@ -533,7 +523,7 @@
       "RemoteHost": "api.github.com",
       "RemoteUsername": "jasp-stats",
       "RemoteRepo": "jaspGraphs",
-      "RemoteSha": "e9e962c1e3c95e09f984b52708d39e49599e394e"
+      "RemoteSha": "c884a4239590cdb08c1f18cbeaad9107395425aa"
     },
     "jsonlite": {
       "Package": "jsonlite",
@@ -651,7 +641,7 @@
     },
     "officer": {
       "Package": "officer",
-      "Version": "0.6.9",
+      "Version": "0.6.10",
       "Source": "Repository",
       "Requirements": [
         "cli",
@@ -938,10 +928,10 @@
     },
     "tibble": {
       "Package": "tibble",
-      "Version": "3.2.1",
+      "Version": "3.3.0",
       "Source": "Repository",
       "Requirements": [
-        "fansi",
+        "cli",
         "lifecycle",
         "magrittr",
         "methods",
@@ -955,7 +945,7 @@
     },
     "utf8": {
       "Package": "utf8",
-      "Version": "1.2.5",
+      "Version": "1.2.6",
       "Source": "Repository",
       "Requirements": [
         "R"
