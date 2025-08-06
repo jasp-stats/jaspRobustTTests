@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-08-06 02:01+0000\n"
+"PO-Revision-Date: 2025-08-06 07:43+0000\n"
 "Last-Translator: Wendel Paulo Silvestre <wpsilvestre@ucs.br>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/jasp/"
 "jasprobustttests-qml/pt/>\n"
@@ -51,39 +51,39 @@ msgstr "Modelos"
 
 msgctxt "BayesianModelAveragedTTest|"
 msgid "Set null priors"
-msgstr ""
+msgstr "Definir anteriores nulos"
 
 msgctxt "ModelAveragedTTestAdvanced|"
 msgid "Advanced"
-msgstr ""
+msgstr "Avançado"
 
 msgctxt "ModelAveragedTTestAdvanced|"
 msgid "MCMC"
-msgstr ""
+msgstr "MCMC"
 
 msgctxt "ModelAveragedTTestAdvanced|"
 msgid "Adaptation"
-msgstr ""
+msgstr "Adaptação"
 
 msgctxt "ModelAveragedTTestAdvanced|"
 msgid "Samples"
-msgstr ""
+msgstr "Amostras"
 
 msgctxt "ModelAveragedTTestAdvanced|"
 msgid "Chains"
-msgstr ""
+msgstr "Cadeias"
 
 msgctxt "ModelAveragedTTestAdvanced|"
 msgid "Thin"
-msgstr ""
+msgstr "Fino"
 
 msgctxt "ModelAveragedTTestInference|"
 msgid "Inference"
-msgstr ""
+msgstr "Inferência"
 
 msgctxt "ModelAveragedTTestInference|"
 msgid "Conditional parameter estimates"
-msgstr ""
+msgstr "Estimativas de parâmetros condicionais"
 
 msgctxt "ModelAveragedTTestInference|"
 msgid "Models overview"
