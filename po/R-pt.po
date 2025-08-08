@@ -2,209 +2,225 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jaspRobustTTests 0.95.0\n"
 "POT-Creation-Date: 2025-06-21 04:00\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2025-08-09 01:01+0000\n"
+"Last-Translator: Wendel Paulo Silvestre <wpsilvestre@ucs.br>\n"
+"Language-Team: Portuguese <https://hosted.weblate.org/projects/jasp/"
+"jasprobustttests-r/pt/>\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 5.13-dev\n"
 
 msgid "%s%% CI"
-msgstr ""
+msgstr "%s%% IC"
 
 msgid "Mean"
-msgstr ""
+msgstr "Média"
 
 msgid "Median"
-msgstr ""
+msgstr "Mediana"
 
 msgid "Lower"
-msgstr ""
+msgstr "Inferior"
 
 msgid "Upper"
-msgstr ""
+msgstr "Superior"
 
 msgid "ESS"
-msgstr ""
+msgstr "SQE"
 
 msgid "R-hat"
-msgstr ""
+msgstr "R-hat"
 
 msgid "The effect size corresponds to the standardized mean difference of group '%1$s' - '%2$s'."
 msgstr ""
+"O tamanho do efeito corresponde à diferença média padronizada dos grupos '%1$"
+"s' - '%2$s'."
 
 msgid "The standard deviation ratio corresponds to the ratio of standard deviations of group '%1$s' / '%2$s'."
 msgstr ""
+"A razão dos desvios padrões corresponde ao quociente dos desvios padrões dos "
+"grupos '%1$s' / '%2$s'."
 
 msgid "The precision allocation corresponds to the proportion of total precision allocated to group '%1$s'."
 msgstr ""
+"A precisão de alocação corresponde à proporção da precisão total alocada ao "
+"grupo '%1$s'."
 
 msgid "Effect size (%s)"
-msgstr ""
+msgstr "Tamanho de efeito (%s)"
 
 msgid "Precision allocation (%s)"
-msgstr ""
+msgstr "Alocação de precisão (%s)"
 
 msgid "Degrees of freedom (%s)"
-msgstr ""
+msgstr "Graus de liberdade (%s)"
 
 msgid "Prior Plots"
-msgstr ""
+msgstr "Gráficos Anteriores"
 
 msgid "Effect"
-msgstr ""
+msgstr "Efeito"
 
 msgid "Unequal variances"
-msgstr ""
+msgstr "Variâncias desiguais"
 
 msgid "Outliers"
-msgstr ""
+msgstr "Valores atípicos"
 
 msgid "Null"
-msgstr ""
+msgstr "Nulo"
 
 msgid "Alternative"
-msgstr ""
+msgstr "Alternativo"
 
 msgid "Model Preview"
-msgstr ""
+msgstr "Previsão do Modelo"
 
 msgid "Please specify a prior distribution for each parameter in the Models specification section (either null or alternative)."
 msgstr ""
+"Por favor, especifique uma distribuição anterior para cada parâmetro na "
+"seção de especificação de Modelos (seja nulo ou alternativo)."
 
 msgid "Model Summary"
-msgstr ""
+msgstr "Resumo do Modelo"
 
 msgid "Models"
-msgstr ""
+msgstr "Modelos"
 
 msgid "P(M)"
-msgstr ""
+msgstr "P(M)"
 
 msgid "This analysis uses MCMC and might require a prolonged time to complete."
 msgstr ""
+"Esta análise utiliza MCMC e pode requerer um tempo prolongado para ser "
+"finalizada."
 
 msgid "Model Specification Preview"
-msgstr ""
+msgstr "Visualização da Especificação do Modelo"
 
 msgid "Prior Distribution"
-msgstr ""
+msgstr "Distribuição Anterior"
 
 msgid "Distribution"
-msgstr ""
+msgstr "Distribuição"
 
 msgid "The analysis will estimate multiple models using MCMC and might require a prolonged time to complete."
 msgstr ""
+"A análise irá estimar múltiplos modelos usando MCMC e pode requer um tempo "
+"prolongado para ser finalizada."
 
 msgid "Summary"
-msgstr ""
+msgstr "Resumo"
 
 msgid "Conditional Estimates"
-msgstr ""
+msgstr "Estimativas Condicionais"
 
 msgid "Inclusion BF"
-msgstr ""
+msgstr "FB da Inclusão"
 
 msgid "Exclusion BF"
-msgstr ""
+msgstr "FB da Exclusão"
 
 msgid "log(Inclusion BF)"
-msgstr ""
+msgstr "log(Inclusion BF)"
 
 msgid "P(M|data)"
-msgstr ""
+msgstr "P(M|dado)"
 
 msgid "Warning:"
-msgstr ""
+msgstr "Aviso:"
 
 msgid "%1$i observations were removed due to missing values."
-msgstr ""
+msgstr "%1$i observações foram removidas devido a valores ausentes."
 
 msgid "Model Averaged Estimates"
-msgstr ""
+msgstr "Estimativas Médias do Modelo"
 
 msgid "Models Overview"
-msgstr ""
+msgstr "Visão Geral dos Modelos"
 
 msgid "BF%s"
-msgstr ""
+msgstr "BF%s"
 
 msgid "log(BF%s)"
-msgstr ""
+msgstr "log(BF%s)"
 
 msgid "log(MargLik)"
-msgstr ""
+msgstr "log(MargLik)"
 
 msgid "Individual Models Summary"
-msgstr ""
+msgstr "Resumo dos Modelos Individuais"
 
 msgid "Model #"
-msgstr ""
+msgstr "Modelo #"
 
 msgid "Priors"
-msgstr ""
+msgstr "Anteriores"
 
 msgid "Information"
-msgstr ""
+msgstr "Informação"
 
 msgid "Model Estimates"
-msgstr ""
+msgstr "Estimativas do Modelo"
 
 msgid "Model %i"
-msgstr ""
+msgstr "Modelo %i"
 
 msgid "Model %1$i does not exist. Select one of the models between 1 and %2$i."
-msgstr ""
+msgstr "O modelo %1$i não existe. Selecione um dos modelos entre 1 e %2$i."
 
 msgid "Posterior Distribution Plots"
-msgstr ""
+msgstr "Gráficos de Distribuição Posterior"
 
 msgid "Conditional"
-msgstr ""
+msgstr "Condicional"
 
 msgid "Model Averaged"
-msgstr ""
+msgstr "Modelo Médio"
 
 msgid "Effect Size Estimate"
-msgstr ""
+msgstr "Estimativa do Tamanho de Efeito"
 
 msgid "Heterogeneity Estimate (Precision Allocation)"
-msgstr ""
+msgstr "Estimativa de Heterogeneidade (Alocação de Precisão)"
 
 msgid "Outliers Estimate (Degrees of Freedom)"
-msgstr ""
+msgstr "Estimativa de Valores Atípicos (Graus de Liberdade)"
 
 msgid "Diagnostics"
-msgstr ""
+msgstr "Diagnóstico"
 
 msgid "Models Diagnostics Overview"
-msgstr ""
+msgstr "Visão Geral dos Modelos de Diagnóstico"
 
 msgid "min(ESS)"
-msgstr ""
+msgstr "min(SQE)"
 
 msgid "max(R-hat)"
-msgstr ""
+msgstr "max(R-hat)"
 
 msgid "MCMC Diagnostics plots are created once both the plotted parameter ('Plot') and the plot type ('Type') options are selected."
 msgstr ""
+"Os gráficos de diagnóstico MCMC são criados uma vez que as opções do "
+"parâmetro plotado ('Gráfico') e o tipo de gráfico ('Tipo') são selecionadas."
 
 msgid "Heterogeneity (Precision Allocation)"
-msgstr ""
+msgstr "Heterogeneidade (Alocação de Precisão)"
 
 msgid "Outliers (Degrees of Freedom)"
-msgstr ""
+msgstr "Valores Atípicos (Graus de Liberdade)"
 
 msgid "Trace plots"
-msgstr ""
+msgstr "Gráfico de Traços"
 
 msgid "Average autocorrelations"
-msgstr ""
+msgstr "Autocorrelações médias"
 
 msgid "Posterior samples densities"
-msgstr ""
+msgstr "Denisdades posteriores das amostras"
 
 msgid "Model %i does not contain any of the selected parameters."
-msgstr ""
+msgstr "O modelo %i não contém nenhum dos parâmetros selecionados."
