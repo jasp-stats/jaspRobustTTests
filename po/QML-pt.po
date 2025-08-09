@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-08-09 01:01+0000\n"
+"PO-Revision-Date: 2025-08-09 04:02+0000\n"
 "Last-Translator: Wendel Paulo Silvestre <wpsilvestre@ucs.br>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/jasp/"
 "jasprobustttests-qml/pt/>\n"
@@ -267,7 +267,7 @@ msgstr "Tipo"
 
 msgctxt "ModelAveragedTTestPlots|"
 msgid "Model averaged"
-msgstr "Média do modelo"
+msgstr "Modelo médio"
 
 msgctxt "ModelAveragedTTestPlots|"
 msgid "Conditional"
