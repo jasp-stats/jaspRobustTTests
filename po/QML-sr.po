@@ -1,169 +1,178 @@
 msgid ""
 msgstr ""
+"PO-Revision-Date: 2025-08-25 11:01+0000\n"
+"Last-Translator: Marko Bojović <bojovicmarko@outlook.com>\n"
+"Language-Team: Serbian <https://hosted.weblate.org/projects/jasp/"
+"jasprobustttests-qml/sr/>\n"
+"Language: sr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 5.13\n"
 "X-Qt-Contexts: true\n"
 
 msgctxt "Description|"
 msgid "Robust T-Tests"
-msgstr ""
+msgstr "Робусни T-тестови"
 
 msgctxt "Description|"
 msgid "Robustly evaluate the difference between two means"
-msgstr ""
+msgstr "Робусна процена разлике између две средине"
 
 msgctxt "Description|"
 msgid "Model-Averaged T-Test"
-msgstr ""
+msgstr "Тест T са просеченим моделом"
 
 msgctxt "Description|"
 msgid "Bayesian Model-Averaged T-Test"
-msgstr ""
+msgstr "Бајесов T-тест са просеченим моделом"
 
 msgctxt "Description|"
 msgid "Robust Model-Averaged T-Test"
-msgstr ""
+msgstr "Робусни T-тест са просеченим моделом"
 
 msgctxt "Description|"
 msgid "Robust Bayesian Model-Averaged T-Test"
-msgstr ""
+msgstr "Робусни Бајесов T-тест са просеченим моделом"
 
 msgctxt "Description|"
 msgid "Truncated Model-Averaged T-Test"
-msgstr ""
+msgstr "Скраћени T-тест са просеченим моделом"
 
 msgctxt "Description|"
 msgid "Truncated Bayesian Model-Averaged T-Test"
-msgstr ""
+msgstr "Скраћени Бајесов T-тест са просеченим моделом"
 
 msgctxt "BayesianModelAveragedTTest|"
 msgid "Models"
-msgstr ""
+msgstr "Модели"
 
 msgctxt "BayesianModelAveragedTTest|"
 msgid "Set null priors"
-msgstr ""
+msgstr "Постави нулте приоре"
 
 msgctxt "ModelAveragedTTestAdvanced|"
 msgid "Advanced"
-msgstr ""
+msgstr "Напредно"
 
 msgctxt "ModelAveragedTTestAdvanced|"
 msgid "MCMC"
-msgstr ""
+msgstr "MCMC"
 
 msgctxt "ModelAveragedTTestAdvanced|"
 msgid "Adaptation"
-msgstr ""
+msgstr "Адаптација"
 
 msgctxt "ModelAveragedTTestAdvanced|"
 msgid "Samples"
-msgstr ""
+msgstr "Узорци"
 
 msgctxt "ModelAveragedTTestAdvanced|"
 msgid "Chains"
-msgstr ""
+msgstr "Ланци"
 
+#, fuzzy
 msgctxt "ModelAveragedTTestAdvanced|"
 msgid "Thin"
-msgstr ""
+msgstr "Танко"
 
 msgctxt "ModelAveragedTTestInference|"
 msgid "Inference"
-msgstr ""
+msgstr "Закључивање"
 
 msgctxt "ModelAveragedTTestInference|"
 msgid "Conditional parameter estimates"
-msgstr ""
+msgstr "Условне проценe параметара"
 
 msgctxt "ModelAveragedTTestInference|"
 msgid "Models overview"
-msgstr ""
+msgstr "Преглед модела"
 
 msgctxt "ModelAveragedTTestInference|"
 msgid "BF Comparison"
-msgstr ""
+msgstr "BF поређење"
 
 msgctxt "ModelAveragedTTestInference|"
 msgid "Inclusion"
-msgstr ""
+msgstr "Укључивање"
 
 msgctxt "ModelAveragedTTestInference|"
 msgid "vs. best"
-msgstr ""
+msgstr "vs. најбољег"
 
 msgctxt "ModelAveragedTTestInference|"
 msgid "vs. previous"
-msgstr ""
+msgstr "vs. претходни"
 
 msgctxt "ModelAveragedTTestInference|"
 msgid "Order"
-msgstr ""
+msgstr "Наручи"
 
 msgctxt "ModelAveragedTTestInference|"
 msgid "Model number"
-msgstr ""
+msgstr "Број модела"
 
 msgctxt "ModelAveragedTTestInference|"
 msgid "Marginal likelihood"
-msgstr ""
+msgstr "Маргинална вероватноћа"
 
 msgctxt "ModelAveragedTTestInference|"
 msgid "Posterior probability"
-msgstr ""
+msgstr "Задња вероватноћа"
 
 msgctxt "ModelAveragedTTestInference|"
 msgid "Individual models"
-msgstr ""
+msgstr "Индивидуални модели"
 
 msgctxt "ModelAveragedTTestInference|"
 msgid "Single model"
-msgstr ""
+msgstr "Један модел"
 
 msgctxt "ModelAveragedTTestInference|"
 msgid "CI width"
-msgstr ""
+msgstr "CI ширина"
 
 msgctxt "ModelAveragedTTestInference|"
 msgid "Shorten prior names"
-msgstr ""
+msgstr "Скратите претходна имена"
 
 msgctxt "ModelAveragedTTestInference|"
 msgid "Precision allocation as standard deviation ratio"
-msgstr ""
+msgstr "Додела прецизности као однос стандардних девијација"
 
 msgctxt "ModelAveragedTTestInput|"
 msgid "Dependent Variable"
-msgstr ""
+msgstr "Зависна варијабла"
 
 msgctxt "ModelAveragedTTestInput|"
 msgid "Grouping Variable"
-msgstr ""
+msgstr "Групишућa варијаблa"
 
 msgctxt "ModelAveragedTTestInput|"
 msgid "Prior distribution plots"
-msgstr ""
+msgstr "Графикони претходних расподела"
 
 msgctxt "ModelAveragedTTestInput|"
 msgid "Truncation"
-msgstr ""
+msgstr "Скраћивање"
 
 msgctxt "ModelAveragedTTestInput|"
 msgid "Standard deviation (z-score)"
-msgstr ""
+msgstr "Стандардна девијација (z-резултат)"
 
 msgctxt "ModelAveragedTTestInput|"
 msgid "Per sample"
-msgstr ""
+msgstr "По узорку"
 
 msgctxt "ModelAveragedTTestInput|"
 msgid "Sample 1"
-msgstr ""
+msgstr "Узорак 1"
 
 msgctxt "ModelAveragedTTestInput|"
 msgid "Sample 2"
-msgstr ""
+msgstr "Узорак 2"
 
 msgctxt "ModelAveragedTTestInput|"
 msgid "Across samples"
