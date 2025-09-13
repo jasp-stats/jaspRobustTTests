@@ -1,9 +1,15 @@
 msgid ""
 msgstr ""
+"PO-Revision-Date: 2025-09-14 18:01+0000\n"
+"Last-Translator: Johannes Keyser <joke@fsfe.org>\n"
+"Language-Team: German <https://hosted.weblate.org/projects/jasp/"
+"jasprobustttests-qml/de/>\n"
+"Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.14-dev\n"
 "X-Language: de\n"
 "X-Qt-Contexts: true\n"
 
@@ -221,7 +227,6 @@ msgctxt "ModelAveragedTTestMcmcDiagnostics|"
 msgid "Type"
 msgstr "Typ"
 
-#, fuzzy
 msgctxt "ModelAveragedTTestMcmcDiagnostics|"
 msgid "Trace"
 msgstr "Verlauf"
@@ -266,10 +271,9 @@ msgctxt "ModelAveragedTTestPlots|"
 msgid "Model averaged"
 msgstr "Modell-gemittelt"
 
-#, fuzzy
 msgctxt "ModelAveragedTTestPlots|"
 msgid "Conditional"
-msgstr "Bedingt"
+msgstr "Konditional"
 
 msgctxt "ModelAveragedTTestPlots|"
 msgid "Prior distribution"
