@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jaspRobustTTests 0.19.2\n"
 "POT-Creation-Date: 2024-10-19 03:53\n"
-"PO-Revision-Date: 2024-11-09 03:52+0000\n"
+"PO-Revision-Date: 2025-09-22 14:01+0000\n"
 "Last-Translator: Johannes Keyser <joke@fsfe.org>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/jasp/"
 "jasprobustttests-r/de/>\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.8.2\n"
+"X-Generator: Weblate 5.14-dev\n"
 
 msgid "%s%% CI"
 msgstr "%s%% KI"
@@ -28,8 +28,9 @@ msgstr "Untergrenze"
 msgid "Upper"
 msgstr "Obergrenze"
 
+#, fuzzy
 msgid "ESS"
-msgstr ""
+msgstr "ESS"
 
 msgid "R-hat"
 msgstr "R-Dach"
@@ -46,12 +47,14 @@ msgstr ""
 
 msgid "The precision allocation corresponds to the proportion of total precision allocated to group '%1$s'."
 msgstr ""
+"Die Präzisionszuweisung entspricht dem Anteil der Gesamtpräzision, der der "
+"Gruppe '%1$s' zugewiesen wurde."
 
 msgid "Effect size (%s)"
 msgstr "Effektstärke (%s)"
 
 msgid "Precision allocation (%s)"
-msgstr ""
+msgstr "Präzisionszuweisung (%s)"
 
 msgid "Degrees of freedom (%s)"
 msgstr "Freiheitsgrade (%s)"
@@ -114,15 +117,12 @@ msgstr "Zusammenfassung"
 msgid "Conditional Estimates"
 msgstr "Konditionale Schätzungen"
 
-#, fuzzy
 msgid "Inclusion BF"
 msgstr "Einschluss-BF"
 
-#, fuzzy
 msgid "Exclusion BF"
 msgstr "Ausschluss-BF"
 
-#, fuzzy
 msgid "log(Inclusion BF)"
 msgstr "Log(Einschluss-BF)"
 
@@ -175,11 +175,9 @@ msgstr ""
 msgid "Posterior Distribution Plots"
 msgstr "Posteriorverteilung-Diagramme"
 
-#, fuzzy
 msgid "Conditional"
-msgstr "Bedingt"
+msgstr "Konditional"
 
-#, fuzzy
 msgid "Model Averaged"
 msgstr "Modell-gemittelt"
 
@@ -187,7 +185,7 @@ msgid "Effect Size Estimate"
 msgstr "Effekstärke-Schätzung"
 
 msgid "Heterogeneity Estimate (Precision Allocation)"
-msgstr ""
+msgstr "Heterogenitätsschätzung (Präzisionszuweisung)"
 
 msgid "Outliers Estimate (Degrees of Freedom)"
 msgstr "Ausreißer-Schätzung (Freiheitsgrade)"
@@ -211,7 +209,7 @@ msgstr ""
 "ausgewählt werden."
 
 msgid "Heterogeneity (Precision Allocation)"
-msgstr ""
+msgstr "Heterogenität (Präzisionszuweisung)"
 
 msgid "Outliers (Degrees of Freedom)"
 msgstr "Ausreißer (Freiheitsgrade)"
