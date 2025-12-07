@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-12-01 06:15+0000\n"
+"PO-Revision-Date: 2025-12-08 20:00+0000\n"
 "Last-Translator: Marko Bojović <bojovicmarko@outlook.com>\n"
 "Language-Team: Serbian <https://hosted.weblate.org/projects/jasp/"
 "jasprobustttests-qml/sr/>\n"
@@ -27,7 +27,7 @@ msgstr "Тест T са просеченим моделом"
 
 msgctxt "Description|"
 msgid "Bayesian Model-Averaged T-Test"
-msgstr "Бајесов T-тест са просеченим моделом"
+msgstr "Бејзов T-тест са просеченим моделом"
 
 msgctxt "Description|"
 msgid "Robust Model-Averaged T-Test"
@@ -35,7 +35,7 @@ msgstr "Робусни T-тест са просеченим моделом"
 
 msgctxt "Description|"
 msgid "Robust Bayesian Model-Averaged T-Test"
-msgstr "Робусни Бајесов T-тест са просеченим моделом"
+msgstr "Робусни Бејзов T-тест са просеченим моделом"
 
 msgctxt "Description|"
 msgid "Truncated Model-Averaged T-Test"
@@ -43,7 +43,7 @@ msgstr "Скраћени T-тест са просеченим моделом"
 
 msgctxt "Description|"
 msgid "Truncated Bayesian Model-Averaged T-Test"
-msgstr "Скраћени Бајесов T-тест са просеченим моделом"
+msgstr "Скраћени Бејзов T-тест са просеченим моделом"
 
 msgctxt "BayesianModelAveragedTTest|"
 msgid "Models"
@@ -116,7 +116,7 @@ msgstr "Број модела"
 
 msgctxt "ModelAveragedTTestInference|"
 msgid "Marginal likelihood"
-msgstr "Маргинална вероватноћа"
+msgstr "Маргинална веродостојност"
 
 msgctxt "ModelAveragedTTestInference|"
 msgid "Posterior probability"
