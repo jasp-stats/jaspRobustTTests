@@ -1,402 +1,503 @@
 msgid ""
 msgstr ""
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2026-01-03 04:04+0000\n"
+"Last-Translator: Zev Oster <zevelijah@gmail.com>\n"
+"Language-Team: Tibetan <https://hosted.weblate.org/projects/jasp/"
+"jasprobustttests-qml/bo/>\n"
 "Language: bo\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 5.15.1\n"
 "X-Qt-Contexts: true\n"
 
+#, fuzzy
 msgctxt "Description|"
 msgid "Robust T-Tests"
-msgstr ""
+msgstr "བརྟན་པོའི་ཊི་ཚོད་ལྟ།"
 
+#, fuzzy
 msgctxt "Description|"
 msgid "Robustly evaluate the difference between two means"
-msgstr ""
+msgstr "ཆ་སྙོམས་གཉིས་ཀྱི་ཁྱད་པར་ལ་བརྟན་པོའི་སྒོ་ནས་དཔྱད་པ།"
 
+#, fuzzy
 msgctxt "Description|"
 msgid "Model-Averaged T-Test"
-msgstr ""
+msgstr "དཔེ་དབྱིབས་ཆ་སྙོམས་ཅན་གྱི་ཊི་ཚོད་ལྟ།"
 
+#, fuzzy
 msgctxt "Description|"
 msgid "Bayesian Model-Averaged T-Test"
-msgstr ""
+msgstr "བྷེ་ཡེ་སིའི་དཔེ་དབྱིབས་ཆ་སྙོམས་ཅན་གྱི་ཊི་ཚོད་ལྟ།"
 
+#, fuzzy
 msgctxt "Description|"
 msgid "Robust Model-Averaged T-Test"
-msgstr ""
+msgstr "བརྟན་པོའི་དཔེ་དབྱིབས་ཆ་སྙོམས་ཅན་གྱི་ཊི་ཚོད་ལྟ།"
 
+#, fuzzy
 msgctxt "Description|"
 msgid "Robust Bayesian Model-Averaged T-Test"
-msgstr ""
+msgstr "བརྟན་པོའི་བྷེ་ཡེ་སིའི་དཔེ་དབྱིབས་ཆ་སྙོམས་ཅན་གྱི་ཊི་ཚོད་ལྟ།"
 
+#, fuzzy
 msgctxt "Description|"
 msgid "Truncated Model-Averaged T-Test"
-msgstr ""
+msgstr "གཅོད་འབྲེག་བྱས་པའི་དཔེ་དབྱིབས་ཆ་སྙོམས་ཅན་གྱི་ཊི་ཚོད་ལྟ།"
 
+#, fuzzy
 msgctxt "Description|"
 msgid "Truncated Bayesian Model-Averaged T-Test"
-msgstr ""
+msgstr "གཅོད་འབྲེག་བྱས་པའི་བྷེ་ཡེ་སིའི་དཔེ་དབྱིབས་ཆ་སྙོམས་ཅན་གྱི་ཊི་ཚོད་ལྟ།"
 
+#, fuzzy
 msgctxt "BayesianModelAveragedTTest|"
 msgid "Models"
-msgstr ""
+msgstr "དཔེ་དབྱིབས།"
 
+#, fuzzy
 msgctxt "BayesianModelAveragedTTest|"
 msgid "Set null priors"
-msgstr ""
+msgstr "མེད་པའི་སྔོན་ཚུད་སྒྲིག་པ།"
 
+#, fuzzy
 msgctxt "ModelAveragedTTestAdvanced|"
 msgid "Advanced"
-msgstr ""
+msgstr "མཐོ་རིམ།"
 
+#, fuzzy
 msgctxt "ModelAveragedTTestAdvanced|"
 msgid "MCMC"
-msgstr ""
+msgstr "MCMC"
 
+#, fuzzy
 msgctxt "ModelAveragedTTestAdvanced|"
 msgid "Adaptation"
-msgstr ""
+msgstr "འཕྲོད་སྦྱོར།"
 
+#, fuzzy
 msgctxt "ModelAveragedTTestAdvanced|"
 msgid "Samples"
-msgstr ""
+msgstr "མ་དཔེ།"
 
+#, fuzzy
 msgctxt "ModelAveragedTTestAdvanced|"
 msgid "Chains"
-msgstr ""
+msgstr "ཕྲེང་ཐག"
 
+#, fuzzy
 msgctxt "ModelAveragedTTestAdvanced|"
 msgid "Thin"
-msgstr ""
+msgstr "སྲབ་པོ།"
 
+#, fuzzy
 msgctxt "ModelAveragedTTestInference|"
 msgid "Inference"
-msgstr ""
+msgstr "རྗེས་དཔག"
 
+#, fuzzy
 msgctxt "ModelAveragedTTestInference|"
 msgid "Conditional parameter estimates"
-msgstr ""
+msgstr "ཆ་རྐྱེན་ཅན་གྱི་ཚད་གཞིའི་ཚོད་དཔག"
 
+#, fuzzy
 msgctxt "ModelAveragedTTestInference|"
 msgid "Models overview"
-msgstr ""
+msgstr "དཔེ་དབྱིབས་ཀྱི་སྤྱི་མཐོང་།"
 
+#, fuzzy
 msgctxt "ModelAveragedTTestInference|"
 msgid "BF Comparison"
-msgstr ""
+msgstr "BF བསྡུར་བ།"
 
+#, fuzzy
 msgctxt "ModelAveragedTTestInference|"
 msgid "Inclusion"
-msgstr ""
+msgstr "ནང་འཇུག"
 
+#, fuzzy
 msgctxt "ModelAveragedTTestInference|"
 msgid "vs. best"
-msgstr ""
+msgstr "ཡག་ཤོས་དང་བསྡུར་བ།"
 
+#, fuzzy
 msgctxt "ModelAveragedTTestInference|"
 msgid "vs. previous"
-msgstr ""
+msgstr "སྔོན་མ་དང་བསྡུར་བ།"
 
+#, fuzzy
 msgctxt "ModelAveragedTTestInference|"
 msgid "Order"
-msgstr ""
+msgstr "གོ་རིམ།"
 
+#, fuzzy
 msgctxt "ModelAveragedTTestInference|"
 msgid "Model number"
-msgstr ""
+msgstr "དཔེ་དབྱིབས་ཀྱི་ཨང་།"
 
+#, fuzzy
 msgctxt "ModelAveragedTTestInference|"
 msgid "Marginal likelihood"
-msgstr ""
+msgstr "མཐའ་འཁོབ་ཀྱི་སྲིད་ཕྱོད།"
 
+#, fuzzy
 msgctxt "ModelAveragedTTestInference|"
 msgid "Posterior probability"
-msgstr ""
+msgstr "རྗེས་ཚུད་ཀྱི་སྲིད་ཕྱོད།"
 
+#, fuzzy
 msgctxt "ModelAveragedTTestInference|"
 msgid "Individual models"
-msgstr ""
+msgstr "དཔེ་དབྱིབས་རེ་རེ།"
 
+#, fuzzy
 msgctxt "ModelAveragedTTestInference|"
 msgid "Single model"
-msgstr ""
+msgstr "དཔེ་དབྱིབས་གཅིག་པ།"
 
+#, fuzzy
 msgctxt "ModelAveragedTTestInference|"
 msgid "CI width"
-msgstr ""
+msgstr "CI ཞེང་ཚད།"
 
+#, fuzzy
 msgctxt "ModelAveragedTTestInference|"
 msgid "Shorten prior names"
-msgstr ""
+msgstr "སྔོན་ཚུད་ཀྱི་མིང་ཐུང་དུ་གཏོང་བ།"
 
+#, fuzzy
 msgctxt "ModelAveragedTTestInference|"
 msgid "Precision allocation as standard deviation ratio"
-msgstr ""
+msgstr "ཞིབ་ཚགས་བགོ་བཤའ་དེ་ཚད་ལྡན་ཁྱད་འགྱུར་གྱི་བསྡུར་ཚད་ལྟར།"
 
+#, fuzzy
 msgctxt "ModelAveragedTTestInput|"
 msgid "Dependent Variable"
-msgstr ""
+msgstr "ལྟོས་བཅས་འགྱུར་གྲངས།"
 
+#, fuzzy
 msgctxt "ModelAveragedTTestInput|"
 msgid "Grouping Variable"
-msgstr ""
+msgstr "ཚོགས་སྒྲིག་འགྱུར་གྲངས།"
 
+#, fuzzy
 msgctxt "ModelAveragedTTestInput|"
 msgid "Prior distribution plots"
-msgstr ""
+msgstr "སྔོན་ཚུད་ཁྱབ་ཚུལ་གྱི་དཔེ་རིས།"
 
+#, fuzzy
 msgctxt "ModelAveragedTTestInput|"
 msgid "Truncation"
-msgstr ""
+msgstr "གཅོད་འབྲེག"
 
+#, fuzzy
 msgctxt "ModelAveragedTTestInput|"
 msgid "Standard deviation (z-score)"
-msgstr ""
+msgstr "ཚད་ལྡན་ཁྱད་འགྱུར། (z-score)"
 
+#, fuzzy
 msgctxt "ModelAveragedTTestInput|"
 msgid "Per sample"
-msgstr ""
+msgstr "མ་དཔེ་རེ་རེ།"
 
+#, fuzzy
 msgctxt "ModelAveragedTTestInput|"
 msgid "Sample 1"
-msgstr ""
+msgstr "མ་དཔེ་ ༡"
 
+#, fuzzy
 msgctxt "ModelAveragedTTestInput|"
 msgid "Sample 2"
-msgstr ""
+msgstr "མ་དཔེ་ ༢"
 
+#, fuzzy
 msgctxt "ModelAveragedTTestInput|"
 msgid "Across samples"
-msgstr ""
+msgstr "མ་དཔེ་བརྒྱུད་ནས།"
 
+#, fuzzy
 msgctxt "ModelAveragedTTestInput|"
 msgid "Both samples"
-msgstr ""
+msgstr "མ་དཔེ་གཉིས་ཀ།"
 
+#, fuzzy
 msgctxt "ModelAveragedTTestInput|"
 msgid "Bounds"
-msgstr ""
+msgstr "མཚམས།"
 
+#, fuzzy
 msgctxt "ModelAveragedTTestInput|"
 msgid "Lower"
-msgstr ""
+msgstr "འོག་མ།"
 
+#, fuzzy
 msgctxt "ModelAveragedTTestInput|"
 msgid "Upper"
-msgstr ""
+msgstr "གོང་མ།"
 
+#, fuzzy
 msgctxt "ModelAveragedTTestInput|"
 msgid "Both Samples"
-msgstr ""
+msgstr "མ་དཔེ་གཉིས་ཀ།"
 
+#, fuzzy
 msgctxt "ModelAveragedTTestMcmcDiagnostics|"
 msgid "MCMC Diagnostics"
-msgstr ""
+msgstr "MCMC ախտདཔྱད།"
 
+#, fuzzy
 msgctxt "ModelAveragedTTestMcmcDiagnostics|"
 msgid "Overview table"
-msgstr ""
+msgstr "སྤྱི་མཐོང་རེའུ་མིག"
 
+#, fuzzy
 msgctxt "ModelAveragedTTestMcmcDiagnostics|"
 msgid "Plot"
-msgstr ""
+msgstr "དཔེ་རིས།"
 
+#, fuzzy
 msgctxt "ModelAveragedTTestMcmcDiagnostics|"
 msgid "Effect"
-msgstr ""
+msgstr "ནུས་པ།"
 
+#, fuzzy
 msgctxt "ModelAveragedTTestMcmcDiagnostics|"
 msgid "Unequal variances"
-msgstr ""
+msgstr "ཁྱད་འགྱུར་མི་མཚུངས་པ།"
 
+#, fuzzy
 msgctxt "ModelAveragedTTestMcmcDiagnostics|"
 msgid "Degrees of freedom"
-msgstr ""
+msgstr "རང་དབང་ཚད།"
 
+#, fuzzy
 msgctxt "ModelAveragedTTestMcmcDiagnostics|"
 msgid "Type"
-msgstr ""
+msgstr "རིགས།"
 
+#, fuzzy
 msgctxt "ModelAveragedTTestMcmcDiagnostics|"
 msgid "Trace"
-msgstr ""
+msgstr "རྗེས་ཤུལ།"
 
+#, fuzzy
 msgctxt "ModelAveragedTTestMcmcDiagnostics|"
 msgid "Autocorrelation"
-msgstr ""
+msgstr "རང་ལྟོས་འབྲེལ"
 
+#, fuzzy
 msgctxt "ModelAveragedTTestMcmcDiagnostics|"
 msgid "Posterior samples density"
-msgstr ""
+msgstr "རྗེས་ཚུད་མ་དཔེའི་སྟུག་ཚད།"
 
+#, fuzzy
 msgctxt "ModelAveragedTTestMcmcDiagnostics|"
 msgid "Single model"
-msgstr ""
+msgstr "དཔེ་དབྱིབས་གཅིག་པ།"
 
+#, fuzzy
 msgctxt "ModelAveragedTTestPlots|"
 msgid "Plots"
-msgstr ""
+msgstr "དཔེ་རིས།"
 
+#, fuzzy
 msgctxt "ModelAveragedTTestPlots|"
 msgid "Pooled estimates"
-msgstr ""
+msgstr "བསྡོམས་པའི་ཚོད་དཔག"
 
+#, fuzzy
 msgctxt "ModelAveragedTTestPlots|"
 msgid "Effect"
-msgstr ""
+msgstr "ནུས་པ།"
 
+#, fuzzy
 msgctxt "ModelAveragedTTestPlots|"
 msgid "Unequal variances (precision allocation)"
-msgstr ""
+msgstr "ཁྱད་འགྱུར་མི་མཚུངས་པ། (ཞིབ་ཚགས་བགོ་བཤའ།)"
 
+#, fuzzy
 msgctxt "ModelAveragedTTestPlots|"
 msgid "Outliers (degrees of freedom)"
-msgstr ""
+msgstr "ཕྱིར་གྱར་བ། (རང་དབང་ཚད།)"
 
+#, fuzzy
 msgctxt "ModelAveragedTTestPlots|"
 msgid "Type"
-msgstr ""
+msgstr "རིགས།"
 
+#, fuzzy
 msgctxt "ModelAveragedTTestPlots|"
 msgid "Model averaged"
-msgstr ""
+msgstr "དཔེ་དབྱིབས་ཆ་སྙོམས་ཅན།"
 
+#, fuzzy
 msgctxt "ModelAveragedTTestPlots|"
 msgid "Conditional"
-msgstr ""
+msgstr "ཆ་རྐྱེན་ཅན།"
 
+#, fuzzy
 msgctxt "ModelAveragedTTestPlots|"
 msgid "Prior distribution"
-msgstr ""
+msgstr "སྔོན་ཚུད་ཁྱབ་ཚུལ།"
 
+#, fuzzy
 msgctxt "ModelAveragedTTestPriors|"
 msgid "Effect"
-msgstr ""
+msgstr "ནུས་པ།"
 
+#, fuzzy
 msgctxt "ModelAveragedTTestPriors|"
 msgid "Effect (null)"
-msgstr ""
+msgstr "ནུས་པ། (མེད་པ།)"
 
+#, fuzzy
 msgctxt "ModelAveragedTTestPriors|"
 msgid "Unequal variances (precision allocation)"
-msgstr ""
+msgstr "ཁྱད་འགྱུར་མི་མཚུངས་པ། (ཞིབ་ཚགས་བགོ་བཤའ།)"
 
+#, fuzzy
 msgctxt "ModelAveragedTTestPriors|"
 msgid "Unequal variances (null)"
-msgstr ""
+msgstr "ཁྱད་འགྱུར་མི་མཚུངས་པ། (མེད་པ།)"
 
+#, fuzzy
 msgctxt "ModelAveragedTTestPriors|"
 msgid "Outliers (degrees of freedom + 2)"
-msgstr ""
+msgstr "ཕྱིར་གྱར་བ། (རང་དབང་ཚད། + 2)"
 
+#, fuzzy
 msgctxt "ModelAveragedTTestPriors|"
 msgid "Outliers (null)"
-msgstr ""
+msgstr "ཕྱིར་གྱར་བ། (མེད་པ།)"
 
+#, fuzzy
 msgctxt "ModelAveragedTTestPriors|"
 msgid "Common mean"
-msgstr ""
+msgstr "སྤྱི་མཐུན་ཆ་སྙོམས།"
 
+#, fuzzy
 msgctxt "ModelAveragedTTestPriors|"
 msgid "Common variance"
-msgstr ""
+msgstr "སྤྱི་མཐུན་འགྱུར་ཚད།"
 
+#, fuzzy
 msgctxt "ModelAveragedTTestPriors|"
 msgid "Distribution"
-msgstr ""
+msgstr "ཁྱབ་ཚུལ།"
 
+#, fuzzy
 msgctxt "ModelAveragedTTestPriors|"
 msgid "Parameters"
-msgstr ""
+msgstr "ཚད་གཞི།"
 
+#, fuzzy
 msgctxt "ModelAveragedTTestPriors|"
 msgid "Truncation"
-msgstr ""
+msgstr "གཅོད་འབྲེག"
 
+#, fuzzy
 msgctxt "ModelAveragedTTestPriors|"
 msgid "Prior weights"
-msgstr ""
+msgstr "སྔོན་ཚུད་ཀྱི་ལྗིད་ཚད།"
 
+#, fuzzy
 msgctxt "ModelAveragedTTestPriors|"
 msgid "Normal(μ,σ)"
-msgstr ""
+msgstr "Normal(μ,σ)"
 
+#, fuzzy
 msgctxt "ModelAveragedTTestPriors|"
 msgid "Student-t(μ,σ,v)"
-msgstr ""
+msgstr "Student-t(μ,σ,v)"
 
+#, fuzzy
 msgctxt "ModelAveragedTTestPriors|"
 msgid "Cauchy(x₀,θ)"
-msgstr ""
+msgstr "Cauchy(x₀,θ)"
 
+#, fuzzy
 msgctxt "ModelAveragedTTestPriors|"
 msgid "Gamma(α,β)"
-msgstr ""
+msgstr "Gamma(α,β)"
 
+#, fuzzy
 msgctxt "ModelAveragedTTestPriors|"
 msgid "Gamma(k,θ)"
-msgstr ""
+msgstr "Gamma(k,θ)"
 
+#, fuzzy
 msgctxt "ModelAveragedTTestPriors|"
 msgid "Inverse-Gamma(α,β)"
-msgstr ""
+msgstr "Inverse-Gamma(α,β)"
 
+#, fuzzy
 msgctxt "ModelAveragedTTestPriors|"
 msgid "Log-Normal(μ,σ)"
-msgstr ""
+msgstr "Log-Normal(μ,σ)"
 
+#, fuzzy
 msgctxt "ModelAveragedTTestPriors|"
 msgid "Beta(α,β)"
-msgstr ""
+msgstr "Beta(α,β)"
 
+#, fuzzy
 msgctxt "ModelAveragedTTestPriors|"
 msgid "Uniform(a,b)"
-msgstr ""
+msgstr "Uniform(a,b)"
 
+#, fuzzy
 msgctxt "ModelAveragedTTestPriors|"
 msgid "Exponential(λ)"
-msgstr ""
+msgstr "Exponential(λ)"
 
+#, fuzzy
 msgctxt "ModelAveragedTTestPriors|"
 msgid "Spike(x₀)"
-msgstr ""
+msgstr "Spike(x₀)"
 
+#, fuzzy
 msgctxt "ModelAveragedTTestPriors|"
 msgid "None"
-msgstr ""
+msgstr "མེད།"
 
+#, fuzzy
 msgctxt "ModelAveragedTTestPriors|"
 msgid "lower"
-msgstr ""
+msgstr "འོག་མ།"
 
+#, fuzzy
 msgctxt "ModelAveragedTTestPriors|"
 msgid "upper"
-msgstr ""
+msgstr "གོང་མ།"
 
+#, fuzzy
 msgctxt "ModelAveragedTTestPriors|"
 msgid "Weight"
-msgstr ""
+msgstr "ལྗིད་ཚད།"
 
+#, fuzzy
 msgctxt "RobustBayesianModelAveragedTTest|"
 msgid "Models"
-msgstr ""
+msgstr "དཔེ་དབྱིབས།"
 
+#, fuzzy
 msgctxt "RobustBayesianModelAveragedTTest|"
 msgid "Set null priors"
-msgstr ""
+msgstr "མེད་པའི་སྔོན་ཚུད་སྒྲིག་པ།"
 
+#, fuzzy
 msgctxt "TruncatedBayesianModelAveragedTTest|"
 msgid "Models"
-msgstr ""
+msgstr "དཔེ་དབྱིབས།"
 
+#, fuzzy
 msgctxt "TruncatedBayesianModelAveragedTTest|"
 msgid "Set null priors"
-msgstr ""
+msgstr "མེད་པའི་སྔོན་ཚུད་སྒྲིག་པ།"
 
+#, fuzzy
 msgctxt "TruncatedBayesianModelAveragedTTest|"
 msgid "Set common priors"
-msgstr ""
+msgstr "སྤྱི་མཐུན་སྔོན་ཚུད་སྒྲིག་པ།"
