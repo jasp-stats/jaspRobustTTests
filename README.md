@@ -13,7 +13,7 @@
 
 <img src='inst/icons/analysis-bayesian-ttest.svg' width='149' height='173' align='right'/>
 
-**JASP Robust T-Test module** is an add-on module for JASP that provides tools for fitting and interpreting robust Bayesian t-tests. The Robust T-Test module offers an ability to fit a Bayesian model-averaged t-test (model-averaging across t-tests with equal of unequal variances), robust Bayesian model-averaged t-tests (incorporating models with t-likelihoods to account for outliers), and truncated Bayesian model-averaged t-tests (excluding outliers and adjusting for their removal).
+**JASP Robust T-Test module** is an add-on module for JASP that provides tools for fitting and interpreting robust Bayesian t-tests. The Robust T-Test module can fit a Bayesian model-averaged t-test (model-averaging across t-tests with equal or unequal variances), robust Bayesian model-averaged t-tests (incorporating models with t-likelihoods to account for outliers), and truncated Bayesian model-averaged t-tests (excluding outliers and adjusting for their removal).
 
 
 ## R Packages
