@@ -1330,7 +1330,7 @@
             tempPlot <- createJaspPlot(gettext("Posterior samples densities"), width = 400, aspectRatio = .7)
             tempPlot$position <- 3
             tempPlot$dependOn("mcmcDiagnosticsPlotTypePosteriorSamplesDensity")
-            tempPlot$plotObject  <- newPlot + jaspGraphs::geom_rangeframe(sides = "b") + jaspGraphs::themeJaspRaw()
+            tempPlot$plotObject  <- newPlot + jaspGraphs::geom_rangeframe(sides = "bl") + jaspGraphs::themeJaspRaw()
             tempPar[["samples"]] <- tempPlot
 
             noPars <- FALSE
