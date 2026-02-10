@@ -227,9 +227,21 @@
       columns.as.numeric  = if (options[["dependent"]] != "") options[["dependent"]],
       columns.as.factor   = if (options[["group"]] != "")     options[["group"]]
     )
-
-    dataset <- na.omit(dataset)
   }
+  
+  # Remove rows with invalid values (NA, NaN, Inf, -Inf) in dependent variable
+  # is.finite() returns FALSE for all of these cases
+  dep_var <- options[["dependent"]]
+  if (dep_var != "" && dep_var %in% names(dataset)) {
+    valid_rows <- is.finite(dataset[[dep_var]])
+    n_removed  <- sum(!valid_rows)
+    
+    if (n_removed > 0) {
+      attr(dataset, "nRemoved") <- n_removed
+      dataset <- dataset[valid_rows, , drop = FALSE]
+    }
+  }
+  
   return(dataset)
 }
 .robttGetErrorsPerVariable <- function(dataset, options) {
@@ -251,8 +263,9 @@
 
   for (var in dependents) {
 
+    # Note: infinity is now handled gracefully by removing values with footnote
     errors[[var]] <- .hasErrors(dataset, message = 'short',
-                                type = c('infinity','observations','variance'),
+                                type = c('observations','variance'),
                                 all.target = var, observations.amount = "< 2",
                                 all.grouping = grouping)
   }
@@ -747,8 +760,9 @@
     overallSummary$addFootnote(symbol = gettext("Warning:"), errorsAndWarnings[i])
   }
 
-  if (!is.null(attr(dataset, "na.action")))
-    overallSummary$addFootnote(gettextf("%1$i observations were removed due to missing values.", length(attr(dataset, "na.action"))))
+  # Add footnote for removed values
+  if (!is.null(attr(dataset, "nRemoved")))
+    overallSummary$addFootnote(gettextf("%i observations were removed due to missing values.", attr(dataset, "nRemoved")))
 
 
   mainSummary[["overallSummary"]] <- overallSummary
@@ -1178,7 +1192,7 @@
       tempModel  <- createJaspContainer(title = gettextf("Model %i", modelsI))
       diagnostics[[paste0("model", modelsI)]] <- tempModel
       tempError  <- createJaspPlot(title = "")
-      tempError$dependOn("mcmcDiagnosticsPlotSingleModelNumber", "mcmcDiagnosticsPlotSingleModel")
+      tempError$dependOn(c("mcmcDiagnosticsPlotSingleModelNumber", "mcmcDiagnosticsPlotSingleModel"))
       tempError$setError(gettextf("Model %1$i does not exist. Select one of the models between 1 and %2$i.", modelsI, length(fit[["models"]])))
       tempModel[["tempError"]] <- tempError
       return()
@@ -1200,7 +1214,7 @@
   # do the iterations
   for (i in modelsI) {
     # create / access container for individual models
-    if (is.null(diagnostics[[paste0("model_", i)]])) {
+    if (is.null(diagnostics[[paste0("model", i)]])) {
       tempModel <- createJaspContainer(title = gettextf("Model %i", i))
       tempModel$position <- 1 + i
       tempModel$dependOn(c("mcmcDiagnosticsPlotSingleModelNumber", "mcmcDiagnosticsPlotSingleModel"))
@@ -1316,7 +1330,7 @@
             tempPlot <- createJaspPlot(gettext("Posterior samples densities"), width = 400, aspectRatio = .7)
             tempPlot$position <- 3
             tempPlot$dependOn("mcmcDiagnosticsPlotTypePosteriorSamplesDensity")
-            tempPlot$plotObject  <- newPlot + jaspGraphs::geom_rangeframe(sides = "b") + jaspGraphs::themeJaspRaw()
+            tempPlot$plotObject  <- newPlot + jaspGraphs::geom_rangeframe(sides = "bl") + jaspGraphs::themeJaspRaw()
             tempPar[["samples"]] <- tempPlot
 
             noPars <- FALSE
@@ -1357,18 +1371,16 @@
       options[["mcmcDiagnosticsPlotEffect"]]           ||
       options[["mcmcDiagnosticsPlotUnequalVariances"]] ||
       options[["mcmcDiagnosticsPlotOutliers"]]
-    typeAny       <-
-      options[["mcmcDiagnosticsPlotTypeTrace"]]            ||
-      options[["mcmcDiagnosticsPlotTypeAutocorrelation"]]  ||
-      options[["mcmcDiagnosticsPlotTypePosteriorSamplesDensity"]]
   } else {
     parametersAny <-
       options[["mcmcDiagnosticsPlotEffect"]]           ||
       options[["mcmcDiagnosticsPlotUnequalVariances"]]
-    typeAny       <-
-      options[["mcmcDiagnosticsPlotTypeTrace"]]            ||
-      options[["mcmcDiagnosticsPlotTypeAutocorrelation"]]
   }
+
+  typeAny <-
+    options[["mcmcDiagnosticsPlotTypeTrace"]]            ||
+    options[["mcmcDiagnosticsPlotTypeAutocorrelation"]]  ||
+    options[["mcmcDiagnosticsPlotTypePosteriorSamplesDensity"]]
 
   if (any)
     return(parametersAny || typeAny)
@@ -1384,7 +1396,7 @@
   } else {
     return(c(
       "mcmcDiagnosticsPlotEffect", "mcmcDiagnosticsPlotUnequalVariances",
-      "mcmcDiagnosticsPlotTypeTrace", "mcmcDiagnosticsPlotTypeAutocorrelation"
+      "mcmcDiagnosticsPlotTypeTrace", "mcmcDiagnosticsPlotTypeAutocorrelation", "mcmcDiagnosticsPlotTypePosteriorSamplesDensity"
     ))
   }
 }
