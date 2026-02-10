@@ -1371,18 +1371,16 @@
       options[["mcmcDiagnosticsPlotEffect"]]           ||
       options[["mcmcDiagnosticsPlotUnequalVariances"]] ||
       options[["mcmcDiagnosticsPlotOutliers"]]
-    typeAny       <-
-      options[["mcmcDiagnosticsPlotTypeTrace"]]            ||
-      options[["mcmcDiagnosticsPlotTypeAutocorrelation"]]  ||
-      options[["mcmcDiagnosticsPlotTypePosteriorSamplesDensity"]]
   } else {
     parametersAny <-
       options[["mcmcDiagnosticsPlotEffect"]]           ||
       options[["mcmcDiagnosticsPlotUnequalVariances"]]
-    typeAny       <-
-      options[["mcmcDiagnosticsPlotTypeTrace"]]            ||
-      options[["mcmcDiagnosticsPlotTypeAutocorrelation"]]
   }
+
+  typeAny <-
+    options[["mcmcDiagnosticsPlotTypeTrace"]]            ||
+    options[["mcmcDiagnosticsPlotTypeAutocorrelation"]]  ||
+    options[["mcmcDiagnosticsPlotTypePosteriorSamplesDensity"]]
 
   if (any)
     return(parametersAny || typeAny)
@@ -1398,7 +1396,7 @@
   } else {
     return(c(
       "mcmcDiagnosticsPlotEffect", "mcmcDiagnosticsPlotUnequalVariances",
-      "mcmcDiagnosticsPlotTypeTrace", "mcmcDiagnosticsPlotTypeAutocorrelation"
+      "mcmcDiagnosticsPlotTypeTrace", "mcmcDiagnosticsPlotTypeAutocorrelation", "mcmcDiagnosticsPlotTypePosteriorSamplesDensity"
     ))
   }
 }
