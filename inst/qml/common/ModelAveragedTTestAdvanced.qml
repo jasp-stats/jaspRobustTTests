@@ -43,6 +43,7 @@ Section
 			}
 			IntegerField
 			{
+				id:				advancedMcmcSamples
 				name:			"advancedMcmcSamples"
 				label:			qsTr("Samples")
 				defaultValue:	5000
@@ -63,6 +64,7 @@ Section
 				label:			qsTr("Thin")
 				defaultValue:	1
 				min:			1
+				max:			advancedMcmcSamples.value
 				fieldWidth:		55 * preferencesModel.uiScale
 			}
 
