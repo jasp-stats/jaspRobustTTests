@@ -227,9 +227,21 @@
       columns.as.numeric  = if (options[["dependent"]] != "") options[["dependent"]],
       columns.as.factor   = if (options[["group"]] != "")     options[["group"]]
     )
-
-    dataset <- na.omit(dataset)
   }
+  
+  # Remove rows with invalid values (NA, NaN, Inf, -Inf) in dependent variable
+  # is.finite() returns FALSE for all of these cases
+  dep_var <- options[["dependent"]]
+  if (dep_var != "" && dep_var %in% names(dataset)) {
+    valid_rows <- is.finite(dataset[[dep_var]])
+    n_removed  <- sum(!valid_rows)
+    
+    if (n_removed > 0) {
+      attr(dataset, "nRemoved") <- n_removed
+      dataset <- dataset[valid_rows, , drop = FALSE]
+    }
+  }
+  
   return(dataset)
 }
 .robttGetErrorsPerVariable <- function(dataset, options) {
@@ -251,8 +263,9 @@
 
   for (var in dependents) {
 
+    # Note: infinity is now handled gracefully by removing values with footnote
     errors[[var]] <- .hasErrors(dataset, message = 'short',
-                                type = c('infinity','observations','variance'),
+                                type = c('observations','variance'),
                                 all.target = var, observations.amount = "< 2",
                                 all.grouping = grouping)
   }
@@ -747,8 +760,9 @@
     overallSummary$addFootnote(symbol = gettext("Warning:"), errorsAndWarnings[i])
   }
 
-  if (!is.null(attr(dataset, "na.action")))
-    overallSummary$addFootnote(gettextf("%1$i observations were removed due to missing values.", length(attr(dataset, "na.action"))))
+  # Add footnote for removed values
+  if (!is.null(attr(dataset, "nRemoved")))
+    overallSummary$addFootnote(gettextf("%i observations were removed due to missing values.", attr(dataset, "nRemoved")))
 
 
   mainSummary[["overallSummary"]] <- overallSummary
