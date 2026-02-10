@@ -1178,7 +1178,7 @@
       tempModel  <- createJaspContainer(title = gettextf("Model %i", modelsI))
       diagnostics[[paste0("model", modelsI)]] <- tempModel
       tempError  <- createJaspPlot(title = "")
-      tempError$dependOn("mcmcDiagnosticsPlotSingleModelNumber", "mcmcDiagnosticsPlotSingleModel")
+      tempError$dependOn(c("mcmcDiagnosticsPlotSingleModelNumber", "mcmcDiagnosticsPlotSingleModel"))
       tempError$setError(gettextf("Model %1$i does not exist. Select one of the models between 1 and %2$i.", modelsI, length(fit[["models"]])))
       tempModel[["tempError"]] <- tempError
       return()
@@ -1200,7 +1200,7 @@
   # do the iterations
   for (i in modelsI) {
     # create / access container for individual models
-    if (is.null(diagnostics[[paste0("model_", i)]])) {
+    if (is.null(diagnostics[[paste0("model", i)]])) {
       tempModel <- createJaspContainer(title = gettextf("Model %i", i))
       tempModel$position <- 1 + i
       tempModel$dependOn(c("mcmcDiagnosticsPlotSingleModelNumber", "mcmcDiagnosticsPlotSingleModel"))
