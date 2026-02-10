@@ -14,6 +14,7 @@ test_that("TruncatedBayesianModelAveragedTTest (analysis 2) results match", {
   encoded <- jaspTools:::encodeOptionsAndDataset(opts, dataset)
   set.seed(1)
   results <- jaspTools::runAnalysis("TruncatedBayesianModelAveragedTTest", encoded$dataset, encoded$options, encodedDataset = TRUE)
+  skip_on_os(os = c("mac", "linux")) # MCMC sampling via Stan does not match across OS, tests generated on windows
 
   table <- results[["results"]][["mainSummary"]][["collection"]][["mainSummary_averagedSummary"]][["data"]]
   jaspTools::expect_equal_tables(table,
@@ -39,6 +40,10 @@ test_that("TruncatedBayesianModelAveragedTTest (analysis 3) results match", {
   encoded <- jaspTools:::encodeOptionsAndDataset(opts, dataset)
   set.seed(1)
   results <- jaspTools::runAnalysis("TruncatedBayesianModelAveragedTTest", encoded$dataset, encoded$options, encodedDataset = TRUE)
+
+  # manual tests for complete output, MCMC sampling via Stan does not match across OS, tests generated on windows
+  expect_equal(results$status, "complete")
+  skip_on_os(os = c("mac", "linux"))
 
   table <- results[["results"]][["mainSummary"]][["collection"]][["mainSummary_averagedSummary"]][["data"]]
   jaspTools::expect_equal_tables(table,
