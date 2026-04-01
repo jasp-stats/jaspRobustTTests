@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2026-03-09 14:09+0000\n"
+"PO-Revision-Date: 2026-04-02 09:09+0000\n"
 "Last-Translator: 陳正昌 <chencc99@gmail.com>\n"
 "Language-Team: Chinese (Traditional Han script) <https://hosted.weblate.org/"
 "projects/jasp/jasprobustttests-qml/zh_Hant/>\n"
@@ -19,7 +19,7 @@ msgstr "穩健 T 檢定"
 
 msgctxt "Description|"
 msgid "Robustly evaluate the difference between two means"
-msgstr ""
+msgstr "對兩個平均數差異進行穩健評估"
 
 msgctxt "Description|"
 msgid "Model-Averaged T-Test"
