@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2026-04-02 09:09+0000\n"
+"PO-Revision-Date: 2026-04-03 14:09+0000\n"
 "Last-Translator: 陳正昌 <chencc99@gmail.com>\n"
 "Language-Team: Chinese (Traditional Han script) <https://hosted.weblate.org/"
 "projects/jasp/jasprobustttests-qml/zh_Hant/>\n"
@@ -119,7 +119,7 @@ msgstr ""
 
 msgctxt "ModelAveragedTTestInference|"
 msgid "Posterior probability"
-msgstr ""
+msgstr "後驗機率"
 
 msgctxt "ModelAveragedTTestInference|"
 msgid "Individual models"
