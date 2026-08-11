@@ -9,392 +9,392 @@ msgstr ""
 
 msgctxt "Description|"
 msgid "Robust T-Tests"
-msgstr ""
+msgstr "Tests T robustes"
 
 msgctxt "Description|"
 msgid "Robustly evaluate the difference between two means"
-msgstr ""
+msgstr "Évaluer de manière robuste la différence entre deux moyennes"
 
 msgctxt "Description|"
 msgid "Model-Averaged T-Test"
-msgstr ""
+msgstr "Test T moyenné sur les modèles"
 
 msgctxt "Description|"
 msgid "Bayesian Model-Averaged T-Test"
-msgstr ""
+msgstr "Test T bayésien moyenné sur les modèles"
 
 msgctxt "Description|"
 msgid "Robust Model-Averaged T-Test"
-msgstr ""
+msgstr "Test T robuste moyenné sur les modèles"
 
 msgctxt "Description|"
 msgid "Robust Bayesian Model-Averaged T-Test"
-msgstr ""
+msgstr "Test T bayésien robuste moyenné sur les modèles"
 
 msgctxt "Description|"
 msgid "Truncated Model-Averaged T-Test"
-msgstr ""
+msgstr "Test T tronqué moyenné sur les modèles"
 
 msgctxt "Description|"
 msgid "Truncated Bayesian Model-Averaged T-Test"
-msgstr ""
+msgstr "Test T bayésien tronqué moyenné sur les modèles"
 
 msgctxt "BayesianModelAveragedTTest|"
 msgid "Models"
-msgstr ""
+msgstr "Modèles"
 
 msgctxt "BayesianModelAveragedTTest|"
 msgid "Set null priors"
-msgstr ""
+msgstr "Définir les a priori nuls"
 
 msgctxt "ModelAveragedTTestAdvanced|"
 msgid "Advanced"
-msgstr ""
+msgstr "Avancé"
 
 msgctxt "ModelAveragedTTestAdvanced|"
 msgid "MCMC"
-msgstr ""
+msgstr "MCMC"
 
 msgctxt "ModelAveragedTTestAdvanced|"
 msgid "Adaptation"
-msgstr ""
+msgstr "Adaptation"
 
 msgctxt "ModelAveragedTTestAdvanced|"
 msgid "Samples"
-msgstr ""
+msgstr "Échantillons"
 
 msgctxt "ModelAveragedTTestAdvanced|"
 msgid "Chains"
-msgstr ""
+msgstr "Chaînes"
 
 msgctxt "ModelAveragedTTestAdvanced|"
 msgid "Thin"
-msgstr ""
+msgstr "Espacement"
 
 msgctxt "ModelAveragedTTestInference|"
 msgid "Inference"
-msgstr ""
+msgstr "Inférence"
 
 msgctxt "ModelAveragedTTestInference|"
 msgid "Conditional parameter estimates"
-msgstr ""
+msgstr "Estimations conditionnelles des paramètres"
 
 msgctxt "ModelAveragedTTestInference|"
 msgid "Models overview"
-msgstr ""
+msgstr "Vue d'ensemble des modèles"
 
 msgctxt "ModelAveragedTTestInference|"
 msgid "BF Comparison"
-msgstr ""
+msgstr "Comparaison des BF"
 
 msgctxt "ModelAveragedTTestInference|"
 msgid "Inclusion"
-msgstr ""
+msgstr "Inclusion"
 
 msgctxt "ModelAveragedTTestInference|"
 msgid "vs. best"
-msgstr ""
+msgstr "vs. meilleur"
 
 msgctxt "ModelAveragedTTestInference|"
 msgid "vs. previous"
-msgstr ""
+msgstr "vs. précédent"
 
 msgctxt "ModelAveragedTTestInference|"
 msgid "Order"
-msgstr ""
+msgstr "Ordre"
 
 msgctxt "ModelAveragedTTestInference|"
 msgid "Model number"
-msgstr ""
+msgstr "Numéro du modèle"
 
 msgctxt "ModelAveragedTTestInference|"
 msgid "Marginal likelihood"
-msgstr ""
+msgstr "Vraisemblance marginale"
 
 msgctxt "ModelAveragedTTestInference|"
 msgid "Posterior probability"
-msgstr ""
+msgstr "Probabilité a posteriori"
 
 msgctxt "ModelAveragedTTestInference|"
 msgid "Individual models"
-msgstr ""
+msgstr "Modèles individuels"
 
 msgctxt "ModelAveragedTTestInference|"
 msgid "Single model"
-msgstr ""
+msgstr "Modèle unique"
 
 msgctxt "ModelAveragedTTestInference|"
 msgid "CI width"
-msgstr ""
+msgstr "Largeur de l'IC"
 
 msgctxt "ModelAveragedTTestInference|"
 msgid "Shorten prior names"
-msgstr ""
+msgstr "Raccourcir les noms des a priori"
 
 msgctxt "ModelAveragedTTestInference|"
 msgid "Precision allocation as standard deviation ratio"
-msgstr ""
+msgstr "Attribution de la précision comme rapport des écarts-types"
 
 msgctxt "ModelAveragedTTestInput|"
 msgid "Dependent Variable"
-msgstr ""
+msgstr "Variable dépendante"
 
 msgctxt "ModelAveragedTTestInput|"
 msgid "Grouping Variable"
-msgstr ""
+msgstr "Variable de regroupement"
 
 msgctxt "ModelAveragedTTestInput|"
 msgid "Prior distribution plots"
-msgstr ""
+msgstr "Graphiques des distributions a priori"
 
 msgctxt "ModelAveragedTTestInput|"
 msgid "Truncation"
-msgstr ""
+msgstr "Troncature"
 
 msgctxt "ModelAveragedTTestInput|"
 msgid "Standard deviation (z-score)"
-msgstr ""
+msgstr "Écart-type (score z)"
 
 msgctxt "ModelAveragedTTestInput|"
 msgid "Per sample"
-msgstr ""
+msgstr "Par échantillon"
 
 msgctxt "ModelAveragedTTestInput|"
 msgid "Sample 1"
-msgstr ""
+msgstr "Échantillon 1"
 
 msgctxt "ModelAveragedTTestInput|"
 msgid "Sample 2"
-msgstr ""
+msgstr "Échantillon 2"
 
 msgctxt "ModelAveragedTTestInput|"
 msgid "Across samples"
-msgstr ""
+msgstr "Entre les échantillons"
 
 msgctxt "ModelAveragedTTestInput|"
 msgid "Both samples"
-msgstr ""
+msgstr "Les deux échantillons"
 
 msgctxt "ModelAveragedTTestInput|"
 msgid "Bounds"
-msgstr ""
+msgstr "Limites"
 
 msgctxt "ModelAveragedTTestInput|"
 msgid "Lower"
-msgstr ""
+msgstr "Inférieure"
 
 msgctxt "ModelAveragedTTestInput|"
 msgid "Upper"
-msgstr ""
+msgstr "Supérieure"
 
 msgctxt "ModelAveragedTTestInput|"
 msgid "Both Samples"
-msgstr ""
+msgstr "Les deux échantillons"
 
 msgctxt "ModelAveragedTTestMcmcDiagnostics|"
 msgid "MCMC Diagnostics"
-msgstr ""
+msgstr "Diagnostics MCMC"
 
 msgctxt "ModelAveragedTTestMcmcDiagnostics|"
 msgid "Overview table"
-msgstr ""
+msgstr "Tableau récapitulatif"
 
 msgctxt "ModelAveragedTTestMcmcDiagnostics|"
 msgid "Plot"
-msgstr ""
+msgstr "Graphique"
 
 msgctxt "ModelAveragedTTestMcmcDiagnostics|"
 msgid "Effect"
-msgstr ""
+msgstr "Effet"
 
 msgctxt "ModelAveragedTTestMcmcDiagnostics|"
 msgid "Unequal variances"
-msgstr ""
+msgstr "Variances inégales"
 
 msgctxt "ModelAveragedTTestMcmcDiagnostics|"
 msgid "Degrees of freedom"
-msgstr ""
+msgstr "Degrés de liberté"
 
 msgctxt "ModelAveragedTTestMcmcDiagnostics|"
 msgid "Type"
-msgstr ""
+msgstr "Type"
 
 msgctxt "ModelAveragedTTestMcmcDiagnostics|"
 msgid "Trace"
-msgstr ""
+msgstr "Trace"
 
 msgctxt "ModelAveragedTTestMcmcDiagnostics|"
 msgid "Autocorrelation"
-msgstr ""
+msgstr "Autocorrélation"
 
 msgctxt "ModelAveragedTTestMcmcDiagnostics|"
 msgid "Posterior samples density"
-msgstr ""
+msgstr "Densité des échantillons a posteriori"
 
 msgctxt "ModelAveragedTTestMcmcDiagnostics|"
 msgid "Single model"
-msgstr ""
+msgstr "Modèle unique"
 
 msgctxt "ModelAveragedTTestPlots|"
 msgid "Plots"
-msgstr ""
+msgstr "Graphiques"
 
 msgctxt "ModelAveragedTTestPlots|"
 msgid "Pooled estimates"
-msgstr ""
+msgstr "Estimations groupées"
 
 msgctxt "ModelAveragedTTestPlots|"
 msgid "Effect"
-msgstr ""
+msgstr "Effet"
 
 msgctxt "ModelAveragedTTestPlots|"
 msgid "Unequal variances (precision allocation)"
-msgstr ""
+msgstr "Variances inégales (attribution de la précision)"
 
 msgctxt "ModelAveragedTTestPlots|"
 msgid "Outliers (degrees of freedom)"
-msgstr ""
+msgstr "Valeurs aberrantes (degrés de liberté)"
 
 msgctxt "ModelAveragedTTestPlots|"
 msgid "Type"
-msgstr ""
+msgstr "Type"
 
 msgctxt "ModelAveragedTTestPlots|"
 msgid "Model averaged"
-msgstr ""
+msgstr "Moyenné sur les modèles"
 
 msgctxt "ModelAveragedTTestPlots|"
 msgid "Conditional"
-msgstr ""
+msgstr "Conditionnel"
 
 msgctxt "ModelAveragedTTestPlots|"
 msgid "Prior distribution"
-msgstr ""
+msgstr "Distribution a priori"
 
 msgctxt "ModelAveragedTTestPriors|"
 msgid "Effect"
-msgstr ""
+msgstr "Effet"
 
 msgctxt "ModelAveragedTTestPriors|"
 msgid "Effect (null)"
-msgstr ""
+msgstr "Effet (nul)"
 
 msgctxt "ModelAveragedTTestPriors|"
 msgid "Unequal variances (precision allocation)"
-msgstr ""
+msgstr "Variances inégales (attribution de la précision)"
 
 msgctxt "ModelAveragedTTestPriors|"
 msgid "Unequal variances (null)"
-msgstr ""
+msgstr "Variances inégales (nul)"
 
 msgctxt "ModelAveragedTTestPriors|"
 msgid "Outliers (degrees of freedom + 2)"
-msgstr ""
+msgstr "Valeurs aberrantes (degrés de liberté + 2)"
 
 msgctxt "ModelAveragedTTestPriors|"
 msgid "Outliers (null)"
-msgstr ""
+msgstr "Valeurs aberrantes (nul)"
 
 msgctxt "ModelAveragedTTestPriors|"
 msgid "Common mean"
-msgstr ""
+msgstr "Moyenne commune"
 
 msgctxt "ModelAveragedTTestPriors|"
 msgid "Common variance"
-msgstr ""
+msgstr "Variance commune"
 
 msgctxt "ModelAveragedTTestPriors|"
 msgid "Distribution"
-msgstr ""
+msgstr "Distribution"
 
 msgctxt "ModelAveragedTTestPriors|"
 msgid "Parameters"
-msgstr ""
+msgstr "Paramètres"
 
 msgctxt "ModelAveragedTTestPriors|"
 msgid "Truncation"
-msgstr ""
+msgstr "Troncature"
 
 msgctxt "ModelAveragedTTestPriors|"
 msgid "Prior weights"
-msgstr ""
+msgstr "Poids a priori"
 
 msgctxt "ModelAveragedTTestPriors|"
 msgid "Normal(μ,σ)"
-msgstr ""
+msgstr "Normale(μ,σ)"
 
 msgctxt "ModelAveragedTTestPriors|"
 msgid "Student-t(μ,σ,v)"
-msgstr ""
+msgstr "Student-t(μ,σ,v)"
 
 msgctxt "ModelAveragedTTestPriors|"
 msgid "Cauchy(x₀,θ)"
-msgstr ""
+msgstr "Cauchy(x₀,θ)"
 
 msgctxt "ModelAveragedTTestPriors|"
 msgid "Gamma(α,β)"
-msgstr ""
+msgstr "Gamma(α,β)"
 
 msgctxt "ModelAveragedTTestPriors|"
 msgid "Gamma(k,θ)"
-msgstr ""
+msgstr "Gamma(k,θ)"
 
 msgctxt "ModelAveragedTTestPriors|"
 msgid "Inverse-Gamma(α,β)"
-msgstr ""
+msgstr "Inverse-Gamma(α,β)"
 
 msgctxt "ModelAveragedTTestPriors|"
 msgid "Log-Normal(μ,σ)"
-msgstr ""
+msgstr "Log-Normale(μ,σ)"
 
 msgctxt "ModelAveragedTTestPriors|"
 msgid "Beta(α,β)"
-msgstr ""
+msgstr "Bêta(α,β)"
 
 msgctxt "ModelAveragedTTestPriors|"
 msgid "Uniform(a,b)"
-msgstr ""
+msgstr "Uniforme(a,b)"
 
 msgctxt "ModelAveragedTTestPriors|"
 msgid "Exponential(λ)"
-msgstr ""
+msgstr "Exponentielle(λ)"
 
 msgctxt "ModelAveragedTTestPriors|"
 msgid "Spike(x₀)"
-msgstr ""
+msgstr "Spike(x₀)"
 
 msgctxt "ModelAveragedTTestPriors|"
 msgid "None"
-msgstr ""
+msgstr "Aucun"
 
 msgctxt "ModelAveragedTTestPriors|"
 msgid "lower"
-msgstr ""
+msgstr "inférieure"
 
 msgctxt "ModelAveragedTTestPriors|"
 msgid "upper"
-msgstr ""
+msgstr "supérieure"
 
 msgctxt "ModelAveragedTTestPriors|"
 msgid "Weight"
-msgstr ""
+msgstr "Poids"
 
 msgctxt "RobustBayesianModelAveragedTTest|"
 msgid "Models"
-msgstr ""
+msgstr "Modèles"
 
 msgctxt "RobustBayesianModelAveragedTTest|"
 msgid "Set null priors"
-msgstr ""
+msgstr "Définir les a priori nuls"
 
 msgctxt "TruncatedBayesianModelAveragedTTest|"
 msgid "Models"
-msgstr ""
+msgstr "Modèles"
 
 msgctxt "TruncatedBayesianModelAveragedTTest|"
 msgid "Set null priors"
-msgstr ""
+msgstr "Définir les a priori nuls"
 
 msgctxt "TruncatedBayesianModelAveragedTTest|"
 msgid "Set common priors"
-msgstr ""
+msgstr "Définir les a priori communs"

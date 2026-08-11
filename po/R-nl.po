@@ -12,211 +12,223 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 msgid "%s%% CI"
-msgstr ""
+msgstr "%s%% BI"
 
 msgid "Mean"
-msgstr ""
+msgstr "Gemiddelde"
 
 msgid "Median"
-msgstr ""
+msgstr "Mediaan"
 
 msgid "Lower"
-msgstr ""
+msgstr "Onder"
 
 msgid "Upper"
-msgstr ""
+msgstr "Boven"
 
 msgid "ESS"
-msgstr ""
+msgstr "ESS"
 
 msgid "R-hat"
-msgstr ""
+msgstr "R-hat"
 
 msgid ""
 "The effect size corresponds to the standardized mean difference of group "
 "'%1$s' - '%2$s'."
 msgstr ""
+"De effectgrootte komt overeen met het gestandaardiseerde gemiddelde verschil "
+"van groep '%1$s' - '%2$s'."
 
 msgid ""
 "The standard deviation ratio corresponds to the ratio of standard deviations "
 "of group '%1$s' / '%2$s'."
 msgstr ""
+"De standaarddeviatieverhouding komt overeen met de verhouding van de "
+"standaarddeviaties van groep '%1$s' / '%2$s'."
 
 msgid ""
 "The precision allocation corresponds to the proportion of total precision "
 "allocated to group '%1$s'."
 msgstr ""
+"De precisietoewijzing komt overeen met het aandeel van de totale precisie dat "
+"aan groep '%1$s' is toegewezen."
 
 msgid "Effect size (%s)"
-msgstr ""
+msgstr "Effectgrootte (%s)"
 
 msgid "Precision allocation (%s)"
-msgstr ""
+msgstr "Precisietoewijzing (%s)"
 
 msgid "Degrees of freedom (%s)"
-msgstr ""
+msgstr "Vrijheidsgraden (%s)"
 
 msgid "Prior Plots"
-msgstr ""
+msgstr "Priorplots"
 
 msgid "Effect"
-msgstr ""
+msgstr "Effect"
 
 msgid "Unequal variances"
-msgstr ""
+msgstr "Ongelijke varianties"
 
 msgid "Outliers"
-msgstr ""
+msgstr "Uitschieters"
 
 msgid "Null"
-msgstr ""
+msgstr "Nul"
 
 msgid "Alternative"
-msgstr ""
+msgstr "Alternatief"
 
 msgid "Model Preview"
-msgstr ""
+msgstr "Modelvoorbeeld"
 
 msgid ""
 "Please specify a prior distribution for each parameter in the Models "
 "specification section (either null or alternative)."
 msgstr ""
+"Specificeer een prior-verdeling voor elke parameter in het gedeelte "
+"Modelspecificatie (ofwel nul, ofwel alternatief)."
 
 msgid "Model Summary"
-msgstr ""
+msgstr "Modeloverzicht"
 
 msgid "Models"
-msgstr ""
+msgstr "Modellen"
 
 msgid "P(M)"
-msgstr ""
+msgstr "P(M)"
 
 msgid "This analysis uses MCMC and might require a prolonged time to complete."
-msgstr ""
+msgstr "Deze analyse gebruikt MCMC en kan geruime tijd nodig hebben om te voltooien."
 
 msgid "Model Specification Preview"
-msgstr ""
+msgstr "Voorbeeld van modelspecificatie"
 
 msgid "Prior Distribution"
-msgstr ""
+msgstr "Priorverdeling"
 
 msgid "Distribution"
-msgstr ""
+msgstr "Verdeling"
 
 msgid ""
 "The analysis will estimate multiple models using MCMC and might require a "
 "prolonged time to complete."
 msgstr ""
+"De analyse schat meerdere modellen met behulp van MCMC en kan geruime tijd "
+"nodig hebben om te voltooien."
 
 msgid "Summary"
-msgstr ""
+msgstr "Samenvatting"
 
 msgid "Conditional Estimates"
-msgstr ""
+msgstr "Conditionele schattingen"
 
 msgid "Inclusion BF"
-msgstr ""
+msgstr "Inclusie-BF"
 
 msgid "Exclusion BF"
-msgstr ""
+msgstr "Exclusie-BF"
 
 msgid "log(Inclusion BF)"
-msgstr ""
+msgstr "log(Inclusie-BF)"
 
 msgid "P(M|data)"
-msgstr ""
+msgstr "P(M|gegevens)"
 
 msgid "Warning:"
-msgstr ""
+msgstr "Waarschuwing:"
 
 msgid "%1$i observations were removed due to missing values."
-msgstr ""
+msgstr "%1$i waarnemingen zijn verwijderd vanwege ontbrekende waarden."
 
 msgid "Model Averaged Estimates"
-msgstr ""
+msgstr "Modelgemiddelde schattingen"
 
 msgid "Models Overview"
-msgstr ""
+msgstr "Modeloverzicht"
 
 msgid "BF%s"
-msgstr ""
+msgstr "BF%s"
 
 msgid "log(BF%s)"
-msgstr ""
+msgstr "log(BF%s)"
 
 msgid "log(MargLik)"
-msgstr ""
+msgstr "log(MargLik)"
 
 msgid "Individual Models Summary"
-msgstr ""
+msgstr "Overzicht van individuele modellen"
 
 msgid "Model #"
-msgstr ""
+msgstr "Model #"
 
 msgid "Priors"
-msgstr ""
+msgstr "Priors"
 
 msgid "Information"
-msgstr ""
+msgstr "Informatie"
 
 msgid "Model Estimates"
-msgstr ""
+msgstr "Modelschattingen"
 
 msgid "Model %i"
-msgstr ""
+msgstr "Model %i"
 
 msgid "Model %1$i does not exist. Select one of the models between 1 and %2$i."
-msgstr ""
+msgstr "Model %1$i bestaat niet. Selecteer een van de modellen tussen 1 en %2$i."
 
 msgid "Posterior Distribution Plots"
-msgstr ""
+msgstr "Plots van posterior verdelingen"
 
 msgid "Conditional"
-msgstr ""
+msgstr "Conditioneel"
 
 msgid "Model Averaged"
-msgstr ""
+msgstr "Modelgemiddeld"
 
 msgid "Effect Size Estimate"
-msgstr ""
+msgstr "Effectgrootte-schatting"
 
 msgid "Heterogeneity Estimate (Precision Allocation)"
-msgstr ""
+msgstr "Heterogeniteit-schatting (precisietoewijzing)"
 
 msgid "Outliers Estimate (Degrees of Freedom)"
-msgstr ""
+msgstr "Uitschieters-schatting (vrijheidsgraden)"
 
 msgid "Diagnostics"
-msgstr ""
+msgstr "Diagnostiek"
 
 msgid "Models Diagnostics Overview"
-msgstr ""
+msgstr "Overzicht van modeldiagnostiek"
 
 msgid "min(ESS)"
-msgstr ""
+msgstr "min(ESS)"
 
 msgid "max(R-hat)"
-msgstr ""
+msgstr "max(R-hat)"
 
 msgid ""
 "MCMC Diagnostics plots are created once both the plotted parameter ('Plot') "
 "and the plot type ('Type') options are selected."
 msgstr ""
+"MCMC-diagnostiekplots worden gemaakt zodra zowel de geplotte parameter "
+"('Plot') als het plottype ('Type') is geselecteerd."
 
 msgid "Heterogeneity (Precision Allocation)"
-msgstr ""
+msgstr "Heterogeniteit (precisietoewijzing)"
 
 msgid "Outliers (Degrees of Freedom)"
-msgstr ""
+msgstr "Uitschieters (vrijheidsgraden)"
 
 msgid "Trace plots"
-msgstr ""
+msgstr "Trace-plots"
 
 msgid "Average autocorrelations"
-msgstr ""
+msgstr "Gemiddelde autocorrelaties"
 
 msgid "Posterior samples densities"
-msgstr ""
+msgstr "Dichtheden van posterior steekproeven"
 
 msgid "Model %i does not contain any of the selected parameters."
-msgstr ""
+msgstr "Model %i bevat geen van de geselecteerde parameters."
