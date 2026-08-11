@@ -133,7 +133,7 @@ msgstr "Prior-Namen kürzen"
 
 msgctxt "ModelAveragedTTestInference|"
 msgid "Precision allocation as standard deviation ratio"
-msgstr ""
+msgstr "Präzisionsaufteilung als Standardabweichungs-Verhältnis"
 
 msgctxt "ModelAveragedTTestInput|"
 msgid "Dependent Variable"
@@ -249,7 +249,7 @@ msgstr "Effekt"
 
 msgctxt "ModelAveragedTTestPlots|"
 msgid "Unequal variances (precision allocation)"
-msgstr ""
+msgstr "Ungleiche Varianzen (Präzisionsaufteilung)"
 
 msgctxt "ModelAveragedTTestPlots|"
 msgid "Outliers (degrees of freedom)"
@@ -281,7 +281,7 @@ msgstr "Effekt (Null)"
 
 msgctxt "ModelAveragedTTestPriors|"
 msgid "Unequal variances (precision allocation)"
-msgstr ""
+msgstr "Ungleiche Varianzen (Präzisionsaufteilung)"
 
 msgctxt "ModelAveragedTTestPriors|"
 msgid "Unequal variances (null)"
@@ -397,4 +397,4 @@ msgstr "Null-Prior setzen"
 
 msgctxt "TruncatedBayesianModelAveragedTTest|"
 msgid "Set common priors"
-msgstr ""
+msgstr "Gemeinsame Priors festlegen"
