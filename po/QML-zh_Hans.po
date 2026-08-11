@@ -9,7 +9,7 @@ msgstr ""
 
 msgctxt "Description|"
 msgid "Robust T-Tests"
-msgstr ""
+msgstr "稳健 t 检验"
 
 msgctxt "Description|"
 msgid "Robustly evaluate the difference between two means"
@@ -17,384 +17,384 @@ msgstr "稳健地评估两均值之差"
 
 msgctxt "Description|"
 msgid "Model-Averaged T-Test"
-msgstr ""
+msgstr "模型平均 t 检验"
 
 msgctxt "Description|"
 msgid "Bayesian Model-Averaged T-Test"
-msgstr ""
+msgstr "贝叶斯模型平均 t 检验"
 
 msgctxt "Description|"
 msgid "Robust Model-Averaged T-Test"
-msgstr ""
+msgstr "稳健模型平均 t 检验"
 
 msgctxt "Description|"
 msgid "Robust Bayesian Model-Averaged T-Test"
-msgstr ""
+msgstr "稳健贝叶斯模型平均 t 检验"
 
 msgctxt "Description|"
 msgid "Truncated Model-Averaged T-Test"
-msgstr ""
+msgstr "截断模型平均 t 检验"
 
 msgctxt "Description|"
 msgid "Truncated Bayesian Model-Averaged T-Test"
-msgstr ""
+msgstr "截断贝叶斯模型平均 t 检验"
 
 msgctxt "BayesianModelAveragedTTest|"
 msgid "Models"
-msgstr ""
+msgstr "模型"
 
 msgctxt "BayesianModelAveragedTTest|"
 msgid "Set null priors"
-msgstr ""
+msgstr "设置零假设先验"
 
 msgctxt "ModelAveragedTTestAdvanced|"
 msgid "Advanced"
-msgstr ""
+msgstr "高级"
 
 msgctxt "ModelAveragedTTestAdvanced|"
 msgid "MCMC"
-msgstr ""
+msgstr "MCMC"
 
 msgctxt "ModelAveragedTTestAdvanced|"
 msgid "Adaptation"
-msgstr ""
+msgstr "自适应"
 
 msgctxt "ModelAveragedTTestAdvanced|"
 msgid "Samples"
-msgstr ""
+msgstr "样本量"
 
 msgctxt "ModelAveragedTTestAdvanced|"
 msgid "Chains"
-msgstr ""
+msgstr "链数"
 
 msgctxt "ModelAveragedTTestAdvanced|"
 msgid "Thin"
-msgstr ""
+msgstr "稀疏"
 
 msgctxt "ModelAveragedTTestInference|"
 msgid "Inference"
-msgstr ""
+msgstr "推断"
 
 msgctxt "ModelAveragedTTestInference|"
 msgid "Conditional parameter estimates"
-msgstr ""
+msgstr "条件参数估计"
 
 msgctxt "ModelAveragedTTestInference|"
 msgid "Models overview"
-msgstr ""
+msgstr "模型概览"
 
 msgctxt "ModelAveragedTTestInference|"
 msgid "BF Comparison"
-msgstr ""
+msgstr "贝叶斯因子比较"
 
 msgctxt "ModelAveragedTTestInference|"
 msgid "Inclusion"
-msgstr ""
+msgstr "包含"
 
 msgctxt "ModelAveragedTTestInference|"
 msgid "vs. best"
-msgstr ""
+msgstr "对比最优"
 
 msgctxt "ModelAveragedTTestInference|"
 msgid "vs. previous"
-msgstr ""
+msgstr "对比前一个"
 
 msgctxt "ModelAveragedTTestInference|"
 msgid "Order"
-msgstr ""
+msgstr "顺序"
 
 msgctxt "ModelAveragedTTestInference|"
 msgid "Model number"
-msgstr ""
+msgstr "模型编号"
 
 msgctxt "ModelAveragedTTestInference|"
 msgid "Marginal likelihood"
-msgstr ""
+msgstr "边际似然"
 
 msgctxt "ModelAveragedTTestInference|"
 msgid "Posterior probability"
-msgstr ""
+msgstr "后验概率"
 
 msgctxt "ModelAveragedTTestInference|"
 msgid "Individual models"
-msgstr ""
+msgstr "各模型"
 
 msgctxt "ModelAveragedTTestInference|"
 msgid "Single model"
-msgstr ""
+msgstr "单一模型"
 
 msgctxt "ModelAveragedTTestInference|"
 msgid "CI width"
-msgstr ""
+msgstr "置信区间宽度"
 
 msgctxt "ModelAveragedTTestInference|"
 msgid "Shorten prior names"
-msgstr ""
+msgstr "缩短先验名称"
 
 msgctxt "ModelAveragedTTestInference|"
 msgid "Precision allocation as standard deviation ratio"
-msgstr ""
+msgstr "以标准差比率进行精度分配"
 
 msgctxt "ModelAveragedTTestInput|"
 msgid "Dependent Variable"
-msgstr ""
+msgstr "因变量"
 
 msgctxt "ModelAveragedTTestInput|"
 msgid "Grouping Variable"
-msgstr ""
+msgstr "分组变量"
 
 msgctxt "ModelAveragedTTestInput|"
 msgid "Prior distribution plots"
-msgstr ""
+msgstr "先验分布图"
 
 msgctxt "ModelAveragedTTestInput|"
 msgid "Truncation"
-msgstr ""
+msgstr "截断"
 
 msgctxt "ModelAveragedTTestInput|"
 msgid "Standard deviation (z-score)"
-msgstr ""
+msgstr "标准差（z 分数）"
 
 msgctxt "ModelAveragedTTestInput|"
 msgid "Per sample"
-msgstr ""
+msgstr "每个样本"
 
 msgctxt "ModelAveragedTTestInput|"
 msgid "Sample 1"
-msgstr ""
+msgstr "样本 1"
 
 msgctxt "ModelAveragedTTestInput|"
 msgid "Sample 2"
-msgstr ""
+msgstr "样本 2"
 
 msgctxt "ModelAveragedTTestInput|"
 msgid "Across samples"
-msgstr ""
+msgstr "跨样本"
 
 msgctxt "ModelAveragedTTestInput|"
 msgid "Both samples"
-msgstr ""
+msgstr "两个样本"
 
 msgctxt "ModelAveragedTTestInput|"
 msgid "Bounds"
-msgstr ""
+msgstr "界限"
 
 msgctxt "ModelAveragedTTestInput|"
 msgid "Lower"
-msgstr ""
+msgstr "下界"
 
 msgctxt "ModelAveragedTTestInput|"
 msgid "Upper"
-msgstr ""
+msgstr "上界"
 
 msgctxt "ModelAveragedTTestInput|"
 msgid "Both Samples"
-msgstr ""
+msgstr "两个样本"
 
 msgctxt "ModelAveragedTTestMcmcDiagnostics|"
 msgid "MCMC Diagnostics"
-msgstr ""
+msgstr "MCMC 诊断"
 
 msgctxt "ModelAveragedTTestMcmcDiagnostics|"
 msgid "Overview table"
-msgstr ""
+msgstr "概览表"
 
 msgctxt "ModelAveragedTTestMcmcDiagnostics|"
 msgid "Plot"
-msgstr ""
+msgstr "绘图"
 
 msgctxt "ModelAveragedTTestMcmcDiagnostics|"
 msgid "Effect"
-msgstr ""
+msgstr "效应量"
 
 msgctxt "ModelAveragedTTestMcmcDiagnostics|"
 msgid "Unequal variances"
-msgstr ""
+msgstr "不等方差"
 
 msgctxt "ModelAveragedTTestMcmcDiagnostics|"
 msgid "Degrees of freedom"
-msgstr ""
+msgstr "自由度"
 
 msgctxt "ModelAveragedTTestMcmcDiagnostics|"
 msgid "Type"
-msgstr ""
+msgstr "类型"
 
 msgctxt "ModelAveragedTTestMcmcDiagnostics|"
 msgid "Trace"
-msgstr ""
+msgstr "轨迹图"
 
 msgctxt "ModelAveragedTTestMcmcDiagnostics|"
 msgid "Autocorrelation"
-msgstr ""
+msgstr "自相关"
 
 msgctxt "ModelAveragedTTestMcmcDiagnostics|"
 msgid "Posterior samples density"
-msgstr ""
+msgstr "后验样本密度"
 
 msgctxt "ModelAveragedTTestMcmcDiagnostics|"
 msgid "Single model"
-msgstr ""
+msgstr "单一模型"
 
 msgctxt "ModelAveragedTTestPlots|"
 msgid "Plots"
-msgstr ""
+msgstr "绘图"
 
 msgctxt "ModelAveragedTTestPlots|"
 msgid "Pooled estimates"
-msgstr ""
+msgstr "合并估计"
 
 msgctxt "ModelAveragedTTestPlots|"
 msgid "Effect"
-msgstr ""
+msgstr "效应量"
 
 msgctxt "ModelAveragedTTestPlots|"
 msgid "Unequal variances (precision allocation)"
-msgstr ""
+msgstr "不等方差（精度分配）"
 
 msgctxt "ModelAveragedTTestPlots|"
 msgid "Outliers (degrees of freedom)"
-msgstr ""
+msgstr "离群值（自由度）"
 
 msgctxt "ModelAveragedTTestPlots|"
 msgid "Type"
-msgstr ""
+msgstr "类型"
 
 msgctxt "ModelAveragedTTestPlots|"
 msgid "Model averaged"
-msgstr ""
+msgstr "模型平均"
 
 msgctxt "ModelAveragedTTestPlots|"
 msgid "Conditional"
-msgstr ""
+msgstr "条件"
 
 msgctxt "ModelAveragedTTestPlots|"
 msgid "Prior distribution"
-msgstr ""
+msgstr "先验分布"
 
 msgctxt "ModelAveragedTTestPriors|"
 msgid "Effect"
-msgstr ""
+msgstr "效应量"
 
 msgctxt "ModelAveragedTTestPriors|"
 msgid "Effect (null)"
-msgstr ""
+msgstr "效应量（零假设）"
 
 msgctxt "ModelAveragedTTestPriors|"
 msgid "Unequal variances (precision allocation)"
-msgstr ""
+msgstr "不等方差（精度分配）"
 
 msgctxt "ModelAveragedTTestPriors|"
 msgid "Unequal variances (null)"
-msgstr ""
+msgstr "不等方差（零假设）"
 
 msgctxt "ModelAveragedTTestPriors|"
 msgid "Outliers (degrees of freedom + 2)"
-msgstr ""
+msgstr "离群值（自由度 + 2）"
 
 msgctxt "ModelAveragedTTestPriors|"
 msgid "Outliers (null)"
-msgstr ""
+msgstr "离群值（零假设）"
 
 msgctxt "ModelAveragedTTestPriors|"
 msgid "Common mean"
-msgstr ""
+msgstr "共同均值"
 
 msgctxt "ModelAveragedTTestPriors|"
 msgid "Common variance"
-msgstr ""
+msgstr "共同方差"
 
 msgctxt "ModelAveragedTTestPriors|"
 msgid "Distribution"
-msgstr ""
+msgstr "分布"
 
 msgctxt "ModelAveragedTTestPriors|"
 msgid "Parameters"
-msgstr ""
+msgstr "参数"
 
 msgctxt "ModelAveragedTTestPriors|"
 msgid "Truncation"
-msgstr ""
+msgstr "截断"
 
 msgctxt "ModelAveragedTTestPriors|"
 msgid "Prior weights"
-msgstr ""
+msgstr "先验权重"
 
 msgctxt "ModelAveragedTTestPriors|"
 msgid "Normal(μ,σ)"
-msgstr ""
+msgstr "正态(μ,σ)"
 
 msgctxt "ModelAveragedTTestPriors|"
 msgid "Student-t(μ,σ,v)"
-msgstr ""
+msgstr "学生 t(μ,σ,v)"
 
 msgctxt "ModelAveragedTTestPriors|"
 msgid "Cauchy(x₀,θ)"
-msgstr ""
+msgstr "柯西(x₀,θ)"
 
 msgctxt "ModelAveragedTTestPriors|"
 msgid "Gamma(α,β)"
-msgstr ""
+msgstr "伽马(α,β)"
 
 msgctxt "ModelAveragedTTestPriors|"
 msgid "Gamma(k,θ)"
-msgstr ""
+msgstr "伽马(k,θ)"
 
 msgctxt "ModelAveragedTTestPriors|"
 msgid "Inverse-Gamma(α,β)"
-msgstr ""
+msgstr "逆伽马(α,β)"
 
 msgctxt "ModelAveragedTTestPriors|"
 msgid "Log-Normal(μ,σ)"
-msgstr ""
+msgstr "对数正态(μ,σ)"
 
 msgctxt "ModelAveragedTTestPriors|"
 msgid "Beta(α,β)"
-msgstr ""
+msgstr "贝塔(α,β)"
 
 msgctxt "ModelAveragedTTestPriors|"
 msgid "Uniform(a,b)"
-msgstr ""
+msgstr "均匀(a,b)"
 
 msgctxt "ModelAveragedTTestPriors|"
 msgid "Exponential(λ)"
-msgstr ""
+msgstr "指数(λ)"
 
 msgctxt "ModelAveragedTTestPriors|"
 msgid "Spike(x₀)"
-msgstr ""
+msgstr "针峰(x₀)"
 
 msgctxt "ModelAveragedTTestPriors|"
 msgid "None"
-msgstr ""
+msgstr "无"
 
 msgctxt "ModelAveragedTTestPriors|"
 msgid "lower"
-msgstr ""
+msgstr "下界"
 
 msgctxt "ModelAveragedTTestPriors|"
 msgid "upper"
-msgstr ""
+msgstr "上界"
 
 msgctxt "ModelAveragedTTestPriors|"
 msgid "Weight"
-msgstr ""
+msgstr "权重"
 
 msgctxt "RobustBayesianModelAveragedTTest|"
 msgid "Models"
-msgstr ""
+msgstr "模型"
 
 msgctxt "RobustBayesianModelAveragedTTest|"
 msgid "Set null priors"
-msgstr ""
+msgstr "设置零假设先验"
 
 msgctxt "TruncatedBayesianModelAveragedTTest|"
 msgid "Models"
-msgstr ""
+msgstr "模型"
 
 msgctxt "TruncatedBayesianModelAveragedTTest|"
 msgid "Set null priors"
-msgstr ""
+msgstr "设置零假设先验"
 
 msgctxt "TruncatedBayesianModelAveragedTTest|"
 msgid "Set common priors"
-msgstr ""
+msgstr "设置共同先验"
