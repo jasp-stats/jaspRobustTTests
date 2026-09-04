@@ -2,209 +2,217 @@ msgid ""
 msgstr ""
 "Project-Id-Version: jaspRobustTTests 0.95.0\n"
 "POT-Creation-Date: 2025-06-21 04:00\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2026-09-04 13:43+0000\n"
+"Last-Translator: Koji Kosugi <kosugitti@gmail.com>\n"
+"Language-Team: Japanese <https://hosted.weblate.org/projects/jasp/"
+"jasprobustttests-r/ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 2026.9\n"
 
 msgid "%s%% CI"
-msgstr ""
+msgstr "%s%% 信頼区間"
 
 msgid "Mean"
-msgstr ""
+msgstr "平均値"
 
 msgid "Median"
-msgstr ""
+msgstr "中央値"
 
 msgid "Lower"
-msgstr ""
+msgstr "下限"
 
 msgid "Upper"
-msgstr ""
+msgstr "上限"
 
 msgid "ESS"
-msgstr ""
+msgstr "ESS"
 
 msgid "R-hat"
-msgstr ""
+msgstr "R-hat"
 
 msgid "The effect size corresponds to the standardized mean difference of group '%1$s' - '%2$s'."
-msgstr ""
+msgstr "効果量は、群 '%1$s' - '%2$s' の標準化平均差に対応します。"
 
 msgid "The standard deviation ratio corresponds to the ratio of standard deviations of group '%1$s' / '%2$s'."
-msgstr ""
+msgstr "標準偏差比は、群 '%1$s' / '%2$s' の標準偏差の比に対応します。"
 
 msgid "The precision allocation corresponds to the proportion of total precision allocated to group '%1$s'."
-msgstr ""
+msgstr "精度の配分は、全体の精度のうち群 '%1$s' に配分された割合に対応します。"
 
 msgid "Effect size (%s)"
-msgstr ""
+msgstr "効果量 (%s)"
 
 msgid "Precision allocation (%s)"
-msgstr ""
+msgstr "精度の配分 (%s)"
 
 msgid "Degrees of freedom (%s)"
-msgstr ""
+msgstr "自由度 (%s)"
 
 msgid "Prior Plots"
-msgstr ""
+msgstr "事前分布のプロット"
 
 msgid "Effect"
-msgstr ""
+msgstr "効果"
 
 msgid "Unequal variances"
-msgstr ""
+msgstr "分散が等しくない"
 
 msgid "Outliers"
-msgstr ""
+msgstr "外れ値"
 
 msgid "Null"
-msgstr ""
+msgstr "帰無"
 
 msgid "Alternative"
-msgstr ""
+msgstr "対立"
 
 msgid "Model Preview"
-msgstr ""
+msgstr "モデルのプレビュー"
 
 msgid "Please specify a prior distribution for each parameter in the Models specification section (either null or alternative)."
 msgstr ""
+"「モデルの指定」セクションで、各パラメータの事前分布(帰無・対立のいずれか)を"
+"指定してください。"
 
 msgid "Model Summary"
-msgstr ""
+msgstr "モデルの要約"
 
 msgid "Models"
-msgstr ""
+msgstr "モデル"
 
 msgid "P(M)"
-msgstr ""
+msgstr "P(M)"
 
 msgid "This analysis uses MCMC and might require a prolonged time to complete."
-msgstr ""
+msgstr "この分析はMCMCを使うため、完了までに長時間かかることがあります。"
 
 msgid "Model Specification Preview"
-msgstr ""
+msgstr "モデル指定のプレビュー"
 
 msgid "Prior Distribution"
-msgstr ""
+msgstr "事前分布"
 
 msgid "Distribution"
-msgstr ""
+msgstr "分布"
 
 msgid "The analysis will estimate multiple models using MCMC and might require a prolonged time to complete."
 msgstr ""
+"この分析はMCMCで複数のモデルを推定するため、完了までに長時間かかることがあり"
+"ます。"
 
 msgid "Summary"
-msgstr ""
+msgstr "要約"
 
 msgid "Conditional Estimates"
-msgstr ""
+msgstr "条件付き推定値"
 
 msgid "Inclusion BF"
-msgstr ""
+msgstr "包含BF"
 
 msgid "Exclusion BF"
-msgstr ""
+msgstr "除外BF"
 
 msgid "log(Inclusion BF)"
-msgstr ""
+msgstr "log(包含BF)"
 
 msgid "P(M|data)"
-msgstr ""
+msgstr "P(M|データ)"
 
 msgid "Warning:"
-msgstr ""
+msgstr "警告:"
 
 msgid "%1$i observations were removed due to missing values."
-msgstr ""
+msgstr "欠測値のため %1$i 件の観測値が除外されました。"
 
 msgid "Model Averaged Estimates"
-msgstr ""
+msgstr "モデル平均推定値"
 
 msgid "Models Overview"
-msgstr ""
+msgstr "モデルの一覧"
 
 msgid "BF%s"
-msgstr ""
+msgstr "BF%s"
 
 msgid "log(BF%s)"
-msgstr ""
+msgstr "log(BF%s)"
 
 msgid "log(MargLik)"
-msgstr ""
+msgstr "log(MargLik)"
 
 msgid "Individual Models Summary"
-msgstr ""
+msgstr "個別モデルの要約"
 
 msgid "Model #"
-msgstr ""
+msgstr "モデル #"
 
 msgid "Priors"
-msgstr ""
+msgstr "事前分布"
 
 msgid "Information"
-msgstr ""
+msgstr "情報"
 
 msgid "Model Estimates"
-msgstr ""
+msgstr "モデルの推定値"
 
 msgid "Model %i"
-msgstr ""
+msgstr "モデル %i"
 
 msgid "Model %1$i does not exist. Select one of the models between 1 and %2$i."
-msgstr ""
+msgstr "モデル %1$i は存在しません。1 から %2$i のいずれかを選んでください。"
 
 msgid "Posterior Distribution Plots"
-msgstr ""
+msgstr "事後分布のプロット"
 
 msgid "Conditional"
-msgstr ""
+msgstr "条件付き"
 
 msgid "Model Averaged"
-msgstr ""
+msgstr "モデル平均"
 
 msgid "Effect Size Estimate"
-msgstr ""
+msgstr "効果量の推定値"
 
 msgid "Heterogeneity Estimate (Precision Allocation)"
-msgstr ""
+msgstr "異質性の推定値 (精度の配分)"
 
 msgid "Outliers Estimate (Degrees of Freedom)"
-msgstr ""
+msgstr "外れ値の推定値 (自由度)"
 
 msgid "Diagnostics"
-msgstr ""
+msgstr "診断"
 
 msgid "Models Diagnostics Overview"
-msgstr ""
+msgstr "モデルの診断一覧"
 
 msgid "min(ESS)"
-msgstr ""
+msgstr "min(ESS)"
 
 msgid "max(R-hat)"
-msgstr ""
+msgstr "max(R-hat)"
 
 msgid "MCMC Diagnostics plots are created once both the plotted parameter ('Plot') and the plot type ('Type') options are selected."
 msgstr ""
+"MCMC診断プロットは、プロットするパラメータ(「プロット」)とプロットの種類(「"
+"タイプ」)の両方を選ぶと作成されます。"
 
 msgid "Heterogeneity (Precision Allocation)"
-msgstr ""
+msgstr "異質性 (精度の配分)"
 
 msgid "Outliers (Degrees of Freedom)"
-msgstr ""
+msgstr "外れ値 (自由度)"
 
 msgid "Trace plots"
-msgstr ""
+msgstr "トレースプロット"
 
 msgid "Average autocorrelations"
-msgstr ""
+msgstr "平均自己相関"
 
 msgid "Posterior samples densities"
-msgstr ""
+msgstr "事後サンプルの密度"
 
 msgid "Model %i does not contain any of the selected parameters."
-msgstr ""
+msgstr "モデル %i には、選択されたパラメータが含まれていません。"
