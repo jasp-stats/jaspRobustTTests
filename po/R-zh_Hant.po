@@ -4,7 +4,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: github.com/jasp-stats/jasp-issues/issues\n"
 "POT-Creation-Date: 2026-01-01 00:00+0000\n"
 "PO-Revision-Date: 2026-09-04 13:43+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Last-Translator: 陳正昌 <chencc99@gmail.com>\n"
 "Language-Team: Chinese (Traditional Han script) <https://hosted.weblate.org/"
 "projects/jasp/jasprobustttests-r/zh_Hant/>\n"
 "Language: zh_Hant\n"
@@ -15,10 +15,10 @@ msgstr ""
 "X-Generator: Weblate 2026.9\n"
 
 msgid "%s%% CI"
-msgstr "%s%% 置信區間"
+msgstr "%s%% 可信區間（CI）"
 
 msgid "Mean"
-msgstr "平均值"
+msgstr "平均數"
 
 msgid "Median"
 msgstr "中位數"
@@ -36,37 +36,37 @@ msgid "R-hat"
 msgstr ""
 
 msgid "The effect size corresponds to the standardized mean difference of group '%1$s' - '%2$s'."
-msgstr "效應量對應於組「%1$s」－「%2$s」的標準化均值差。"
+msgstr "此效果量對應於組別「%1$s」減去「%2$s」的標準化平均數差異。"
 
 msgid "The standard deviation ratio corresponds to the ratio of standard deviations of group '%1$s' / '%2$s'."
-msgstr "標準差比率對應於組「%1$s」 / 「%2$s」的標準差之比。"
+msgstr "此標準差比對應於組別「%1$s」除以「%2$s」的標準差比值。"
 
 msgid "The precision allocation corresponds to the proportion of total precision allocated to group '%1$s'."
-msgstr "精度分配對應於分配給組「%1$s」的總精度比例。"
+msgstr "此精確度配置對應於分配給組別「%1$s」的總精確度比例。"
 
 msgid "Effect size (%s)"
-msgstr "效應量 (%s)"
+msgstr "效果量（%s）"
 
 msgid "Precision allocation (%s)"
-msgstr "精度分配 (%s)"
+msgstr "精確度配置（%s）"
 
 msgid "Degrees of freedom (%s)"
-msgstr "自由度 (%s)"
+msgstr "自由度（%s）"
 
 msgid "Prior Plots"
-msgstr "先驗圖"
+msgstr "先驗分配圖"
 
 msgid "Effect"
-msgstr "效應量"
+msgstr "效果"
 
 msgid "Unequal variances"
-msgstr "不相等方差"
+msgstr "變異數不相等"
 
 msgid "Outliers"
 msgstr "離群值"
 
 msgid "Null"
-msgstr "零假設"
+msgstr "虛無假設"
 
 msgid "Alternative"
 msgstr "對立假設"
@@ -75,7 +75,7 @@ msgid "Model Preview"
 msgstr "模型預覽"
 
 msgid "Please specify a prior distribution for each parameter in the Models specification section (either null or alternative)."
-msgstr "請在「模型設定」部分為每個參數指定先驗分布（零假設或對立假設）。"
+msgstr "請在「模型設定」區塊中為每個參數指定先驗分配（無論是虛無或對立模型）。"
 
 msgid "Model Summary"
 msgstr "模型摘要"
@@ -87,34 +87,34 @@ msgid "P(M)"
 msgstr ""
 
 msgid "This analysis uses MCMC and might require a prolonged time to complete."
-msgstr "此分析使用 MCMC，可能需要較長時間才能完成。"
+msgstr "此分析使用馬可夫鏈蒙地卡羅法，可能需要較長時間才能完成。"
 
 msgid "Model Specification Preview"
 msgstr "模型設定預覽"
 
 msgid "Prior Distribution"
-msgstr "先驗分布"
+msgstr "先驗分配"
 
 msgid "Distribution"
-msgstr "分布"
+msgstr "分配"
 
 msgid "The analysis will estimate multiple models using MCMC and might require a prolonged time to complete."
-msgstr "此分析將使用 MCMC 估計多個模型，可能需要較長時間才能完成。"
+msgstr "此分析將使用馬可夫鏈蒙地卡羅法估計多個模型，可能需要較長時間才能完成。"
 
 msgid "Summary"
 msgstr "摘要"
 
 msgid "Conditional Estimates"
-msgstr "條件估計"
+msgstr "條件估計值"
 
 msgid "Inclusion BF"
-msgstr "包含貝氏因子"
+msgstr "納入貝氏因子"
 
 msgid "Exclusion BF"
 msgstr "排除貝氏因子"
 
 msgid "log(Inclusion BF)"
-msgstr "log(包含貝氏因子)"
+msgstr "對數納入貝氏因子"
 
 msgid "P(M|data)"
 msgstr ""
@@ -123,10 +123,10 @@ msgid "Warning:"
 msgstr "警告："
 
 msgid "%1$i observations were removed due to missing values."
-msgstr "因缺失值移除了 %1$i 個觀測。"
+msgstr "因遺漏值而刪除 %1$i 筆觀察值。"
 
 msgid "Model Averaged Estimates"
-msgstr "模型平均估計"
+msgstr "模型平均估計值"
 
 msgid "Models Overview"
 msgstr "模型概覽"
@@ -141,7 +141,7 @@ msgid "log(MargLik)"
 msgstr ""
 
 msgid "Individual Models Summary"
-msgstr "各模型摘要"
+msgstr "個別模型摘要"
 
 msgid "Model #"
 msgstr "模型 #"
@@ -153,16 +153,16 @@ msgid "Information"
 msgstr "資訊"
 
 msgid "Model Estimates"
-msgstr "模型估計"
+msgstr "模型估計值"
 
 msgid "Model %i"
 msgstr "模型 %i"
 
 msgid "Model %1$i does not exist. Select one of the models between 1 and %2$i."
-msgstr "模型 %1$i 不存在。請在 1 到 %2$i 之間選擇一個模型。"
+msgstr "模型 %1$i 不存在。請選擇介於 1 到 %2$i 之間的模型。"
 
 msgid "Posterior Distribution Plots"
-msgstr "後驗分布圖"
+msgstr "後驗分配圖"
 
 msgid "Conditional"
 msgstr "條件"
@@ -171,13 +171,13 @@ msgid "Model Averaged"
 msgstr "模型平均"
 
 msgid "Effect Size Estimate"
-msgstr "效應量估計"
+msgstr "效果量估計值"
 
 msgid "Heterogeneity Estimate (Precision Allocation)"
-msgstr "異質性估計（精度分配）"
+msgstr "異質性估計值（精確度配置）"
 
 msgid "Outliers Estimate (Degrees of Freedom)"
-msgstr "離群值估計（自由度）"
+msgstr "離群值估計值（自由度）"
 
 msgid "Diagnostics"
 msgstr "診斷"
@@ -186,16 +186,18 @@ msgid "Models Diagnostics Overview"
 msgstr "模型診斷概覽"
 
 msgid "min(ESS)"
-msgstr "min(ESS)"
+msgstr "最小(ESS)"
 
 msgid "max(R-hat)"
-msgstr "max(R-hat)"
+msgstr "最大(R-hat)"
 
 msgid "MCMC Diagnostics plots are created once both the plotted parameter ('Plot') and the plot type ('Type') options are selected."
-msgstr "只有在同時選擇了要繪製的參數（「繪圖」）和繪圖類型（「類型」）選項後，才會產生 MCMC 診斷圖。"
+msgstr ""
+"一旦選取了要繪圖的參數（「繪圖」）與繪圖類型（「類型」）選項，即會產生馬可夫"
+"鏈蒙地卡羅診斷圖。"
 
 msgid "Heterogeneity (Precision Allocation)"
-msgstr "異質性（精度分配）"
+msgstr "異質性（精確度配置）"
 
 msgid "Outliers (Degrees of Freedom)"
 msgstr "離群值（自由度）"
@@ -204,10 +206,10 @@ msgid "Trace plots"
 msgstr "軌跡圖"
 
 msgid "Average autocorrelations"
-msgstr "平均自相關"
+msgstr "平均自我相關"
 
 msgid "Posterior samples densities"
 msgstr "後驗樣本密度"
 
 msgid "Model %i does not contain any of the selected parameters."
-msgstr "模型 %i 不包含所選參數中的任何一個。"
+msgstr "模型 %i 未包含任何選定的參數。"
