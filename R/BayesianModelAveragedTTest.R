@@ -15,7 +15,7 @@
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 #
 
-BayesianModelAveragedTTest <- function(jaspResults, dataset, options) {
+BayesianModelAveragedTTestInternal <- function(jaspResults, dataset, options) {
 
   .robttCommon(jaspResults, dataset, options, "averaged")
 
