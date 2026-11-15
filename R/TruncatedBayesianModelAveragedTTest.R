@@ -15,7 +15,7 @@
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 #
 
-TruncatedBayesianModelAveragedTTest <- function(jaspResults, dataset, options) {
+TruncatedBayesianModelAveragedTTestInternal <- function(jaspResults, dataset, options) {
 
   .robttCommon(jaspResults, dataset, options, "truncated")
 
